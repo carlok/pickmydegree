@@ -1,0 +1,135 @@
+{
+    "common": {
+        "loading": "Loading...",
+        "next": "Next",
+        "back": "Back",
+        "close": "Close",
+        "sound_on": "Sound on",
+        "sound_off": "Sound off",
+        "buy_me_a_coffee": "Buy me a coffee"
+    },
+    "menu": {
+        "aria_label": "Menu",
+        "title": "Menu",
+        "about": "About the author",
+        "info_contact": "Info / Contact",
+        "donate": "Donate"
+    },
+    "footer": {
+        "copyright_prefix": "© 2026 Pick My Degree · ",
+        "author": "Carlo Perassi"
+    },
+    "progress": {
+        "categories": "Categories",
+        "phase1": "Filter: {count} of {total}",
+        "phase2_pairs": "Pair {current} of {total}",
+        "phase3_bracket": "Bracket",
+        "bracket_level_2": "Final",
+        "bracket_level_4": "Quarter",
+        "bracket_level_8": "Octave",
+        "bracket_level_16": "16-level",
+        "bracket_level_32": "32-level",
+        "bracket_level_64": "64-level",
+        "bracket_level_128": "128-level",
+        "results": "Results"
+    },
+    "welcome": {
+        "title": "Pick My Degree",
+        "subtitle": "Discover your ideal university degree through a tournament of choices.",
+        "data_source": "The list includes all first-cycle and single-cycle (direct full) degree programmes from {politoLink} and {unitoLink}. Second-cycle degrees (Master’s / Lauree magistrali) are not included, as the app is designed for final-year high school students.",
+        "data_academic_year": "The list is updated to the academic year 2025–26.",
+        "start": "Start Journey",
+        "resume": "Resume Game"
+    },
+    "rules": {
+        "title": "How to Play",
+        "subtitle": "Four steps. One winner. Your ideal degree.",
+        "your_quest": "Your quest",
+        "step1_title": "Filter",
+        "step1_desc": "Tap to remove degrees you don’t want. Keep as many favourites as you like.",
+        "step2_title": "Face-off",
+        "step2_desc": "Two degrees, one choice: pick which to drop. We trim down to a tournament bracket.",
+        "step3_title": "Bracket",
+        "step3_desc": "Choose the winner of each match. 16 → 8 → 4 → 2 until one champion remains.",
+        "step4_title": "Results",
+        "step4_desc": "Meet your top pick, add your name, and download a shareable result card.",
+        "lets_go": "Let's go!"
+    },
+    "categories": {
+        "title": "By category",
+        "instruction": "Tap a category to remove it and all its degrees. You can remove whole blocks at once.",
+        "remaining": "{count} of {total} degrees remaining",
+        "continue": "Continue with {count} degrees",
+        "keep_at_least": "Keep at least one category (2+ degrees) to continue.",
+        "undo": "Undo last category",
+        "removed_tap_to_restore": "Removed (tap to restore)",
+        "degrees_in_category": "Degree programmes in this category:"
+    },
+    "category": {
+        "business_law": "Business & Law",
+        "arts_design": "Arts & Design",
+        "humanities": "Humanities",
+        "stem": "STEM",
+        "social_sciences": "Social Sciences",
+        "health_medicine": "Health & Medicine",
+        "education": "Education"
+    },
+    "phase1": {
+        "title": "Phase 1: Filter",
+        "instruction": "Tap the cards to remove degrees you are definitely NOT interested in.",
+        "remaining": "{count} remaining",
+        "remaining_of": "{count} of {total} selected",
+        "continue": "Continue with {count} degrees",
+        "undo": "Undo"
+    },
+    "phase2": {
+        "title": "Phase 2: Choose",
+        "instruction": "Tap the degree you want to keep. The other is eliminated.",
+        "minimal_note": "Only the minimum number of choices to reach the tournament size (power of 2), then direct-elimination bracket.",
+        "keep": "Keep",
+        "vs": "VS",
+        "timer": "Time left: {seconds}s",
+        "timeout_explanation": "If you don't choose in time, one candidate is picked at random (we'll show you which one was kept).",
+        "discard": "Discard",
+        "random_toast": "Time's up! A random choice was made.",
+        "timeout_kept": "Time's up! Kept: {name}"
+    },
+    "bracket": {
+        "title": "Tournament",
+        "instruction": "Select the winner to advance.",
+        "round": "Round {n}",
+        "round_of_16": "Round of 16",
+        "round_of_32": "Round of 32",
+        "round_of_64": "Round of 64",
+        "round_of_128": "Round of 128",
+        "quarter_final": "Quarter-final",
+        "semi_final": "Semi-final",
+        "final": "Final",
+        "continue": "Continue",
+        "match_progress": "Match {current} of {totalInRound} this round · {toGo} to go · {level}",
+        "round_countdown": "Round {current} of {total}",
+        "matches_left": "{n} match left this round",
+        "matches_left_plural": "{n} matches left this round",
+        "remaining_of": "Remaining {remaining} of {total}"
+    },
+    "card": {
+        "info": "More info"
+    },
+    "results": {
+        "title": "Your Results",
+        "winner_label": "Your Top Choice",
+        "your_name": "Your name",
+        "date": "Date",
+        "ranking_label": "Top Contenders",
+        "download": "Download Results",
+        "share": "Share your result",
+        "share_app": "Share the app",
+        "restart": "Start Over",
+        "share_success": "Image saved!",
+        "share_success_native": "Shared!",
+        "share_error": "Could not save image."
+    },
+    "dev": {
+        "reset_saved": "Reset saved progress"
+    }
+}

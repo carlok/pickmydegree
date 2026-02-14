@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Pick My Degree</title>
+    <style>
+      body { margin: 0; min-height: 100vh; background: #0B1830; color: #DEEFFF; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; justify-content: center; }
+      #app-loading { padding: 1.5rem; text-align: center; }
+      #app-loading a { color: #6AAEF5; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="app-loading">Loading Pick My Degree…</div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      setTimeout(function() {
+        var loading = document.getElementById('app-loading');
+        if (loading) {
+          loading.innerHTML = 'If the app didn’t load, <a href="">refresh the page</a> or restart with <code>docker compose down && docker compose up dev</code>.';
+        }
+      }, 5000);
+    </script>
+  </body>
+</html>

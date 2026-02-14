@@ -1,0 +1,104 @@
+// @use must come before any other rules
+@use "sass:color";
+// Palette: Sky Blue #6AAEF5, Navy Blue #425EC9, Green #58DDBA, Purple #6B5DEA, Dark #0B1830, Light #DEEFFF
+@use "bootstrap/scss/bootstrap" as * with (
+  $font-family-base: ('Montserrat', sans-serif),
+  $primary: #6B5DEA,
+  $secondary: #6AAEF5,
+  $success: #58DDBA,
+  $info: #425EC9,
+  $dark: #0B1830,
+  $body-bg: #0B1830,
+  $body-color: #DEEFFF,
+  $enable-rounded: true,
+  $enable-shadows: true,
+  $enable-gradients: true
+);
+
+// Fonts (CSS import)
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+// Theme variables for use below
+$primary: #6B5DEA;
+$light: #DEEFFF;
+$dark-bg: #0B1830;
+
+// Custom styles – light text on dark background (Light #DEEFFF on Dark #0B1830)
+body {
+  background: radial-gradient(circle at top right, #1a2d4a, #0B1830);
+  min-height: 100vh;
+  color: #DEEFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+// Muted text: slightly softer than body (Light with reduced opacity)
+.text-secondary,
+.text-secondary-emphasis,
+.text-muted,
+.text-body-secondary {
+  color: rgba(222, 239, 255, 0.85) !important;
+}
+.lead.text-secondary-emphasis {
+  color: rgba(222, 239, 255, 0.95) !important;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn-primary {
+  @include button-variant($primary, $primary);
+  background-image: linear-gradient(45deg, #6B5DEA, #425EC9);
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+
+  &:hover {
+    background-image: linear-gradient(45deg, #7d6eec, #5260d4);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-outline-danger {
+  border-width: 2px;
+  font-weight: 600;
+}
+
+// Ensure app fits viewport and main content can scroll internally (Phase 1 list)
+// Use 100dvh on supported browsers so mobile address bar doesn't clip content
+#app {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+// Utility for transitions
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

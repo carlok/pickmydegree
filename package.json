@@ -1,0 +1,38 @@
+{
+  "name": "app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run\"",
+    "test:coverage": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run --coverage\"",
+    "test:local": "vitest run",
+    "test:coverage:local": "vitest run --coverage",
+    "test:watch": "vitest",
+    "double-descriptions": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npm run double-descriptions:local\"",
+    "double-descriptions:local": "node scripts/double-descriptions.cjs"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8",
+    "canvas-confetti": "^1.9.3",
+    "html2canvas": "^1.4.1",
+    "sass": "^1.97.3",
+    "vue": "^3.5.25",
+    "vue-i18n": "^11.2.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^15.11.7",
+    "vite": "^7.3.1",
+    "vitest": "^2.1.8"
+  },
+  "overrides": {
+    "glob": "^11.0.0"
+  }
+}

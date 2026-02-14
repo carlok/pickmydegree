@@ -1,0 +1,135 @@
+{
+    "common": {
+        "loading": "Caricamento...",
+        "next": "Avanti",
+        "back": "Indietro",
+        "close": "Chiudi",
+        "sound_on": "Suono attivo",
+        "sound_off": "Suono disattivo",
+        "buy_me_a_coffee": "Offrimi un caffè"
+    },
+    "menu": {
+        "aria_label": "Menu",
+        "title": "Menu",
+        "about": "Autore",
+        "info_contact": "Info / Contatti",
+        "donate": "Offri un caffè"
+    },
+    "footer": {
+        "copyright_prefix": "© 2026 Pick My Degree · ",
+        "author": "Carlo Perassi"
+    },
+    "progress": {
+        "categories": "Categorie",
+        "phase1": "Filtro: {count} di {total}",
+        "phase2_pairs": "Coppia {current} di {total}",
+        "phase3_bracket": "Torneo",
+        "bracket_level_2": "Finale",
+        "bracket_level_4": "Quarti",
+        "bracket_level_8": "Ottavi",
+        "bracket_level_16": "Ottavi",
+        "bracket_level_32": "Sedicesimi",
+        "bracket_level_64": "Trentaduesimi",
+        "bracket_level_128": "Sessantaquattresimi",
+        "results": "Risultati"
+    },
+    "welcome": {
+        "title": "Pick My Degree",
+        "subtitle": "Scopri il tuo corso di laurea ideale attraverso un torneo di scelte.",
+        "data_source": "La lista include tutti i corsi di laurea di primo ciclo e a ciclo unico del {politoLink} e dell’{unitoLink}. Le lauree magistrali non sono incluse, perché l’app è pensata per gli studenti dell’ultimo anno delle superiori.",
+        "data_academic_year": "La lista è aggiornata all'anno accademico 2025-26.",
+        "start": "Inizia il Viaggio",
+        "resume": "Riprendi Gioco"
+    },
+    "rules": {
+        "title": "Come si Gioca",
+        "subtitle": "Quattro step. Un vincitore. Il corso che fa per te.",
+        "your_quest": "La tua missione",
+        "step1_title": "Filtra",
+        "step1_desc": "Tocca per togliere i corsi che non ti interessano. Tieni tutti i preferiti che vuoi.",
+        "step2_title": "Sfida a due",
+        "step2_desc": "Due corsi, una scelta: indica quale scartare. Arriviamo al tabellone del torneo.",
+        "step3_title": "Torneo",
+        "step3_desc": "Scegli il vincitore di ogni match. 16 → 8 → 4 → 2 fino al campione finale.",
+        "step4_title": "Risultati",
+        "step4_desc": "Scopri il tuo primo in classifica, aggiungi il nome e scarica la card da condividere.",
+        "lets_go": "Andiamo!"
+    },
+    "categories": {
+        "title": "Per categoria",
+        "instruction": "Tocca una categoria per escluderla con tutti i suoi corsi. Puoi togliere interi blocchi in un colpo.",
+        "remaining": "{count} di {total} corsi rimasti",
+        "continue": "Continua con {count} corsi",
+        "keep_at_least": "Tieni almeno una categoria (2+ corsi) per continuare.",
+        "undo": "Annulla ultima categoria",
+        "removed_tap_to_restore": "Rimossi (tocca per ripristinare)",
+        "degrees_in_category": "Corsi di laurea in questa categoria:"
+    },
+    "category": {
+        "business_law": "Economia e diritto",
+        "arts_design": "Arti e design",
+        "humanities": "Umanistiche",
+        "stem": "STEM",
+        "social_sciences": "Scienze sociali",
+        "health_medicine": "Salute e medicina",
+        "education": "Formazione"
+    },
+    "phase1": {
+        "title": "Fase 1: Filtro",
+        "instruction": "Tocca le carte per rimuovere i corsi che sicuramente NON ti interessano.",
+        "remaining": "{count} rimanenti",
+        "remaining_of": "{count} di {total} selezionati",
+        "continue": "Continua con {count} corsi",
+        "undo": "Annulla"
+    },
+    "phase2": {
+        "title": "Fase 2: Scegli",
+        "instruction": "Tocca il corso che vuoi tenere. L'altro viene eliminato.",
+        "minimal_note": "Solo il numero minimo di scelte per arrivare al torneo (potenza di 2), poi torneo a eliminazione diretta.",
+        "keep": "Tieni",
+        "vs": "VS",
+        "timer": "Tempo rimasto: {seconds}s",
+        "timeout_explanation": "Se non scegli in tempo, un candidato viene scelto a caso (ti mostriamo quale è stato tenuto).",
+        "discard": "Scarta",
+        "random_toast": "Tempo scaduto! È stata fatta una scelta casuale.",
+        "timeout_kept": "Tempo scaduto! Tenuto: {name}"
+    },
+    "bracket": {
+        "title": "Torneo Finale",
+        "instruction": "Scegli il vincitore per avanzare.",
+        "round": "Round {n}",
+        "round_of_16": "Ottavi",
+        "round_of_32": "Sedicesimi",
+        "round_of_64": "Trentaduesimi",
+        "round_of_128": "Sessantaquattresimi",
+        "quarter_final": "Quarti di finale",
+        "semi_final": "Semifinale",
+        "final": "Finale",
+        "continue": "Continua",
+        "match_progress": "Match {current} di {totalInRound} in questo turno · {toGo} da fare · {level}",
+        "round_countdown": "Turno {current} di {total}",
+        "matches_left": "1 match rimasto in questo turno",
+        "matches_left_plural": "{n} match rimasti in questo turno",
+        "remaining_of": "Rimanenti {remaining} di {total}"
+    },
+    "card": {
+        "info": "Altre info"
+    },
+    "results": {
+        "title": "I Tuoi Risultati",
+        "winner_label": "La Tua Scelta Migliore",
+        "your_name": "Il tuo nome",
+        "date": "Data",
+        "ranking_label": "Migliori Alternative",
+        "download": "Scarica Risultati",
+        "share": "Condividi il tuo risultato",
+        "share_app": "Condividi l'app",
+        "restart": "Ricomincia",
+        "share_success": "Immagine salvata!",
+        "share_success_native": "Condiviso!",
+        "share_error": "Impossibile salvare l'immagine."
+    },
+    "dev": {
+        "reset_saved": "Azzera progressi salvati"
+    }
+}

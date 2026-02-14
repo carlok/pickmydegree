@@ -1,0 +1,2552 @@
+[
+  {
+    "id": "deg-001",
+    "icon": "🏢",
+    "category": "Business & Law",
+    "name": {
+      "en": "Business Administration",
+      "it": "Amministrazione Aziendale"
+    },
+    "description": {
+      "en": "Manage organizations, resources, and business processes. This programme prepares you for a wide range of professional paths.",
+      "it": "Gestisci organizzazioni, risorse e processi aziendali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Management",
+        "Business",
+        "Organization"
+      ],
+      "it": [
+        "Gestione",
+        "Business",
+        "Organizzazione"
+      ]
+    }
+  },
+  {
+    "id": "deg-002",
+    "icon": "🏛️",
+    "category": "Arts & Design",
+    "name": {
+      "en": "Architecture",
+      "it": "Architettura"
+    },
+    "description": {
+      "en": "Design buildings and spaces combining art and engineering. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta edifici e spazi unendo arte e ingegneria. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Design",
+        "Build",
+        "Creative"
+      ],
+      "it": [
+        "Design",
+        "Progettazione",
+        "Creatività"
+      ]
+    }
+  },
+  {
+    "id": "deg-003",
+    "icon": "🏺",
+    "category": "Humanities",
+    "name": {
+      "en": "Cultural Heritage",
+      "it": "Beni Culturali"
+    },
+    "description": {
+      "en": "Study, preserve, and promote cultural and artistic heritage. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia, preserva e valorizza il patrimonio culturale e artistico. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Culture",
+        "History",
+        "Art"
+      ],
+      "it": [
+        "Cultura",
+        "Storia",
+        "Arte"
+      ]
+    }
+  },
+  {
+    "id": "deg-004",
+    "icon": "🧬",
+    "category": "STEM",
+    "name": {
+      "en": "Biotechnology",
+      "it": "Biotecnologie"
+    },
+    "description": {
+      "en": "Apply biology and technology to health, agriculture, and industry. This programme prepares you for a wide range of professional paths.",
+      "it": "Applica biologia e tecnologia a salute, agricoltura e industria. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Science",
+        "Lab",
+        "Research"
+      ],
+      "it": [
+        "Scienza",
+        "Laboratorio",
+        "Ricerca"
+      ]
+    }
+  },
+  {
+    "id": "deg-005",
+    "icon": "💼",
+    "category": "Business & Law",
+    "name": {
+      "en": "Business & Management",
+      "it": "Business & Management"
+    },
+    "description": {
+      "en": "Lead organizations, strategy, and people. This programme prepares you for a wide range of professional paths.",
+      "it": "Guida organizzazioni, strategia e persone. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Leadership",
+        "Strategy",
+        "Team"
+      ],
+      "it": [
+        "Leadership",
+        "Strategia",
+        "Team"
+      ]
+    }
+  },
+  {
+    "id": "deg-006",
+    "icon": "💊",
+    "category": "STEM",
+    "name": {
+      "en": "Pharmaceutical Chemistry and Technology",
+      "it": "Chimica E Tecnologia Farmaceutiche"
+    },
+    "description": {
+      "en": "Develop drugs and pharmaceutical products. This programme prepares you for a wide range of professional paths.",
+      "it": "Sviluppa farmaci e prodotti farmaceutici. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Chemistry",
+        "Health",
+        "Lab"
+      ],
+      "it": [
+        "Chimica",
+        "Salute",
+        "Laboratorio"
+      ]
+    }
+  },
+  {
+    "id": "deg-007",
+    "icon": "⚗️",
+    "category": "STEM",
+    "name": {
+      "en": "Chemistry and Chemical Technologies",
+      "it": "Chimica E Tecnologie Chimiche"
+    },
+    "description": {
+      "en": "Study matter, reactions, and industrial processes. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia la materia, le reazioni e i processi industriali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Chemistry",
+        "Science",
+        "Industry"
+      ],
+      "it": [
+        "Chimica",
+        "Scienza",
+        "Industria"
+      ]
+    }
+  },
+  {
+    "id": "deg-008",
+    "icon": "🌍",
+    "category": "Social Sciences",
+    "name": {
+      "en": "Intercultural Communication",
+      "it": "Comunicazione Interculturale"
+    },
+    "description": {
+      "en": "Bridge cultures through language and communication. This programme prepares you for a wide range of professional paths.",
+      "it": "Colma le culture attraverso lingua e comunicazione. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Languages",
+        "Culture",
+        "Communication"
+      ],
+      "it": [
+        "Lingue",
+        "Cultura",
+        "Comunicazione"
+      ]
+    }
+  },
+  {
+    "id": "deg-009",
+    "icon": "🖼️",
+    "category": "Humanities",
+    "name": {
+      "en": "Conservation and Restoration of Cultural Heritage",
+      "it": "Conservazione E Restauro Dei Beni Culturali"
+    },
+    "description": {
+      "en": "Restore and preserve artworks and monuments. This programme prepares you for a wide range of professional paths.",
+      "it": "Restaura e conserva opere d'arte e monumenti. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Art",
+        "Restoration",
+        "Heritage"
+      ],
+      "it": [
+        "Arte",
+        "Restauro",
+        "Patrimonio"
+      ]
+    }
+  },
+  {
+    "id": "deg-010",
+    "icon": "👥",
+    "category": "Business & Law",
+    "name": {
+      "en": "Labour Consulting and Human Resource Management",
+      "it": "Consulenza Del Lavoro E Gestione Delle Risorse Umane"
+    },
+    "description": {
+      "en": "Advise on labour law and manage people in organizations. This programme prepares you for a wide range of professional paths.",
+      "it": "Consulenza sul diritto del lavoro e gestione del personale. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "HR",
+        "Law",
+        "People"
+      ],
+      "it": [
+        "Risorse umane",
+        "Diritto",
+        "Persone"
+      ]
+    }
+  },
+  {
+    "id": "deg-011",
+    "icon": "📚",
+    "category": "Humanities",
+    "name": {
+      "en": "Cultures and Literatures of the Modern World",
+      "it": "Culture E Letterature Del Mondo Moderno"
+    },
+    "description": {
+      "en": "Study modern literatures and cultures across the globe. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia letterature e culture del mondo moderno. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Literature",
+        "Culture",
+        "Reading"
+      ],
+      "it": [
+        "Letteratura",
+        "Cultura",
+        "Lettura"
+      ]
+    }
+  },
+  {
+    "id": "deg-012",
+    "icon": "🏗️",
+    "category": "STEM",
+    "name": {
+      "en": "Civil And Environmental Engineering",
+      "it": "Ingegneria Civile E Ambientale"
+    },
+    "description": {
+      "en": "Design infrastructure and protect the environment. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta infrastrutture e tutela l'ambiente. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Build",
+        "Environment",
+        "Design"
+      ],
+      "it": [
+        "Progettazione",
+        "Ambiente",
+        "Design"
+      ]
+    }
+  },
+  {
+    "id": "deg-013",
+    "icon": "🥗",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Dietetics",
+      "it": "Dietistica"
+    },
+    "description": {
+      "en": "Apply nutrition science to health and disease. This programme prepares you for a wide range of professional paths.",
+      "it": "Applica la scienza della nutrizione a salute e malattia. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Nutrition",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Nutrizione",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-014",
+    "icon": "🌾",
+    "category": "Business & Law",
+    "name": {
+      "en": "Agri-Food Law",
+      "it": "Diritto Agroalimentare"
+    },
+    "description": {
+      "en": "Legal framework for food and agriculture. This programme prepares you for a wide range of professional paths.",
+      "it": "Quadro normativo per alimenti e agricoltura. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Law",
+        "Food",
+        "Agriculture"
+      ],
+      "it": [
+        "Diritto",
+        "Alimentazione",
+        "Agricoltura"
+      ]
+    }
+  },
+  {
+    "id": "deg-015",
+    "icon": "⚖️",
+    "category": "Business & Law",
+    "name": {
+      "en": "Law for Business and Institutions",
+      "it": "Diritto Per Le Imprese E Le Istituzioni"
+    },
+    "description": {
+      "en": "Legal expertise for companies and public bodies. This programme prepares you for a wide range of professional paths.",
+      "it": "Competenza giuridica per imprese e istituzioni. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Law",
+        "Business",
+        "Institutions"
+      ],
+      "it": [
+        "Diritto",
+        "Imprese",
+        "Istituzioni"
+      ]
+    }
+  },
+  {
+    "id": "deg-016",
+    "icon": "🎭",
+    "category": "Arts & Design",
+    "name": {
+      "en": "Arts, Music, Performance and Digital Media",
+      "it": "Discipline Delle Arti, Della Musica, Dello Spettacolo E Dei Media Digitali"
+    },
+    "description": {
+      "en": "Create and analyse art, music, theatre, and digital media. This programme prepares you for a wide range of professional paths.",
+      "it": "Crea e analizza arte, musica, teatro e media digitali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Creative",
+        "Music",
+        "Media"
+      ],
+      "it": [
+        "Creatività",
+        "Musica",
+        "Media"
+      ]
+    }
+  },
+  {
+    "id": "deg-017",
+    "icon": "🌱",
+    "category": "Arts & Design",
+    "name": {
+      "en": "Sustainable Design for the Food System",
+      "it": "Design Sostenibile Per Il Sistema Alimentare"
+    },
+    "description": {
+      "en": "Design sustainable food products and processes. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta prodotti e processi alimentari sostenibili. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Design",
+        "Sustainability",
+        "Food"
+      ],
+      "it": [
+        "Design",
+        "Sostenibilità",
+        "Alimentare"
+      ]
+    }
+  },
+  {
+    "id": "deg-018",
+    "icon": "✏️",
+    "category": "Arts & Design",
+    "name": {
+      "en": "Design and Communication",
+      "it": "Design E Comunicazione"
+    },
+    "description": {
+      "en": "Visual design and strategic communication. This programme prepares you for a wide range of professional paths.",
+      "it": "Design visivo e comunicazione strategica. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Design",
+        "Visual",
+        "Communication"
+      ],
+      "it": [
+        "Design",
+        "Visuale",
+        "Comunicazione"
+      ]
+    }
+  },
+  {
+    "id": "deg-019",
+    "icon": "📈",
+    "category": "Business & Law",
+    "name": {
+      "en": "Economics",
+      "it": "Economia"
+    },
+    "description": {
+      "en": "Analyse markets, policy, and economic systems. This programme prepares you for a wide range of professional paths.",
+      "it": "Analizza mercati, politiche e sistemi economici. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Economy",
+        "Data",
+        "Policy"
+      ],
+      "it": [
+        "Economia",
+        "Dati",
+        "Politica"
+      ]
+    }
+  },
+  {
+    "id": "deg-020",
+    "icon": "📊",
+    "category": "Business & Law",
+    "name": {
+      "en": "Business Economics",
+      "it": "Economia Aziendale"
+    },
+    "description": {
+      "en": "Manage firms' finance, accounting, and strategy. This programme prepares you for a wide range of professional paths.",
+      "it": "Gestisci finanza, contabilità e strategia d'impresa. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Finance",
+        "Accounting",
+        "Business"
+      ],
+      "it": [
+        "Finanza",
+        "Contabilità",
+        "Business"
+      ]
+    }
+  },
+  {
+    "id": "deg-021",
+    "icon": "📉",
+    "category": "Business & Law",
+    "name": {
+      "en": "Economics and Statistics for Organizations",
+      "it": "Economia E Statistica Per Le Organizzazioni"
+    },
+    "description": {
+      "en": "Data and statistics for business decisions. This programme prepares you for a wide range of professional paths.",
+      "it": "Dati e statistica per le decisioni aziendali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Statistics",
+        "Data",
+        "Business"
+      ],
+      "it": [
+        "Statistica",
+        "Dati",
+        "Business"
+      ]
+    }
+  },
+  {
+    "id": "deg-022",
+    "icon": "🍎",
+    "category": "Education",
+    "name": {
+      "en": "Professional Education",
+      "it": "Educazione Professionale"
+    },
+    "description": {
+      "en": "Train and educate for professional practice. This programme prepares you for a wide range of professional paths.",
+      "it": "Forma ed educa alla pratica professionale. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Teaching",
+        "Training",
+        "People"
+      ],
+      "it": [
+        "Insegnamento",
+        "Formazione",
+        "Persone"
+      ]
+    }
+  },
+  {
+    "id": "deg-023",
+    "icon": "📡",
+    "category": "STEM",
+    "name": {
+      "en": "Electronic And Communications Engineering",
+      "it": "Ingegneria Elettronica E Delle Comunicazioni"
+    },
+    "description": {
+      "en": "Design electronic systems and telecommunications. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta sistemi elettronici e telecomunicazioni. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Tech",
+        "Electronics",
+        "Signals"
+      ],
+      "it": [
+        "Tecnologia",
+        "Elettronica",
+        "Segnali"
+      ]
+    }
+  },
+  {
+    "id": "deg-024",
+    "icon": "💊",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Pharmacy",
+      "it": "Farmacia"
+    },
+    "description": {
+      "en": "Dispense medicines and advise on drug use. This programme prepares you for a wide range of professional paths.",
+      "it": "Dispensa farmaci e consiglia sull'uso dei medicinali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Chemistry",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Chimica",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-025",
+    "icon": "🤔",
+    "category": "Humanities",
+    "name": {
+      "en": "Philosophy",
+      "it": "Filosofia"
+    },
+    "description": {
+      "en": "Explore reason, ethics, and the nature of knowledge. This programme prepares you for a wide range of professional paths.",
+      "it": "Esplora ragione, etica e natura della conoscenza. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Logic",
+        "Ethics",
+        "Reading"
+      ],
+      "it": [
+        "Logica",
+        "Etica",
+        "Lettura"
+      ]
+    }
+  },
+  {
+    "id": "deg-026",
+    "icon": "⚛️",
+    "category": "STEM",
+    "name": {
+      "en": "Physics",
+      "it": "Fisica"
+    },
+    "description": {
+      "en": "Study the laws of nature and the universe. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia le leggi della natura e dell'universo. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Science",
+        "Math",
+        "Theory"
+      ],
+      "it": [
+        "Scienza",
+        "Matematica",
+        "Teoria"
+      ]
+    }
+  },
+  {
+    "id": "deg-027",
+    "icon": "🦾",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Physiotherapy",
+      "it": "Fisioterapia"
+    },
+    "description": {
+      "en": "Rehabilitate movement and function. This programme prepares you for a wide range of professional paths.",
+      "it": "Riabilita movimento e funzionalità. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Movement",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Movimento",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-028",
+    "icon": "🌿",
+    "category": "STEM",
+    "name": {
+      "en": "Food Tech For Ecological Transition",
+      "it": "Food Tech For Ecological Transition"
+    },
+    "description": {
+      "en": "Technology for sustainable food systems. This programme prepares you for a wide range of professional paths.",
+      "it": "Tecnologia per sistemi alimentari sostenibili. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Food",
+        "Sustainability",
+        "Tech"
+      ],
+      "it": [
+        "Alimentare",
+        "Sostenibilità",
+        "Tecnologia"
+      ]
+    }
+  },
+  {
+    "id": "deg-029",
+    "icon": "⚖️",
+    "category": "Business & Law",
+    "name": {
+      "en": "Law",
+      "it": "Giurisprudenza"
+    },
+    "description": {
+      "en": "Study legal systems and practise law. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia i sistemi giuridici e pratica la legge. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Law",
+        "Justice",
+        "Debate"
+      ],
+      "it": [
+        "Diritto",
+        "Giustizia",
+        "Dibattito"
+      ]
+    }
+  },
+  {
+    "id": "deg-030",
+    "icon": "🌐",
+    "category": "Business & Law",
+    "name": {
+      "en": "Global Law And Transnational Legal Studies",
+      "it": "Global Law And Transnational Legal Studies"
+    },
+    "description": {
+      "en": "Law across borders and global institutions. This programme prepares you for a wide range of professional paths.",
+      "it": "Diritto oltre i confini e istituzioni globali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Law",
+        "International",
+        "Policy"
+      ],
+      "it": [
+        "Diritto",
+        "Internazionale",
+        "Politica"
+      ]
+    }
+  },
+  {
+    "id": "deg-031",
+    "icon": "🦷",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Dental Hygiene",
+      "it": "Igiene Dentale"
+    },
+    "description": {
+      "en": "Prevent and treat oral health conditions. This programme prepares you for a wide range of professional paths.",
+      "it": "Previeni e cura le condizioni della salute orale. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Dental",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Dentale",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-032",
+    "icon": "🏥",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Nursing",
+      "it": "Infermieristica"
+    },
+    "description": {
+      "en": "Care for patients in healthcare settings. This programme prepares you for a wide range of professional paths.",
+      "it": "Assistenza ai pazienti in ambito sanitario. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Care",
+        "People"
+      ],
+      "it": [
+        "Salute",
+        "Cura",
+        "Persone"
+      ]
+    }
+  },
+  {
+    "id": "deg-033",
+    "icon": "👶",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Paediatric Nursing",
+      "it": "Infermieristica Pediatrica"
+    },
+    "description": {
+      "en": "Nursing care for children and families. This programme prepares you for a wide range of professional paths.",
+      "it": "Assistenza infermieristica a bambini e famiglie. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Children",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Bambini",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-034",
+    "icon": "💻",
+    "category": "STEM",
+    "name": {
+      "en": "Computer Science",
+      "it": "Informatica"
+    },
+    "description": {
+      "en": "Software, algorithms, and digital systems. This programme prepares you for a wide range of professional paths.",
+      "it": "Software, algoritmi e sistemi digitali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Tech",
+        "Coding",
+        "Logic"
+      ],
+      "it": [
+        "Tecnologia",
+        "Programmazione",
+        "Logica"
+      ]
+    }
+  },
+  {
+    "id": "deg-035",
+    "icon": "💡",
+    "category": "Social Sciences",
+    "name": {
+      "en": "Social Innovation, Communication, New Technologies",
+      "it": "Innovazione Sociale, Comunicazione, Nuove Tecnologie"
+    },
+    "description": {
+      "en": "Use tech and communication for social impact. This programme prepares you for a wide range of professional paths.",
+      "it": "Usa tecnologia e comunicazione per impatto sociale. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Innovation",
+        "Communication",
+        "Tech"
+      ],
+      "it": [
+        "Innovazione",
+        "Comunicazione",
+        "Tecnologia"
+      ]
+    }
+  },
+  {
+    "id": "deg-036",
+    "icon": "🚀",
+    "category": "STEM",
+    "name": {
+      "en": "Aerospace Engineering",
+      "it": "Ingegneria Aerospaziale"
+    },
+    "description": {
+      "en": "Design aircraft and spacecraft. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta velivoli e veicoli spaziali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Engineering",
+        "Aerospace",
+        "Physics"
+      ],
+      "it": [
+        "Ingegneria",
+        "Aerospaziale",
+        "Fisica"
+      ]
+    }
+  },
+  {
+    "id": "deg-037",
+    "icon": "🫀",
+    "category": "STEM",
+    "name": {
+      "en": "Biomedical Engineering",
+      "it": "Ingegneria Biomedica"
+    },
+    "description": {
+      "en": "Design devices and systems for healthcare. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta dispositivi e sistemi per la salute. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Engineering",
+        "Health",
+        "Tech"
+      ],
+      "it": [
+        "Ingegneria",
+        "Salute",
+        "Tecnologia"
+      ]
+    }
+  },
+  {
+    "id": "deg-038",
+    "icon": "🍳",
+    "category": "STEM",
+    "name": {
+      "en": "Chemical and Food Engineering",
+      "it": "Ingegneria Chimica E Alimentare"
+    },
+    "description": {
+      "en": "Process engineering for chemicals and food. This programme prepares you for a wide range of professional paths.",
+      "it": "Ingegneria di processo per chimica e alimentare. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Chemistry",
+        "Food",
+        "Process"
+      ],
+      "it": [
+        "Chimica",
+        "Alimentare",
+        "Processo"
+      ]
+    }
+  },
+  {
+    "id": "deg-039",
+    "icon": "🏗️",
+    "category": "STEM",
+    "name": {
+      "en": "Civil Engineering",
+      "it": "Ingegneria Civile"
+    },
+    "description": {
+      "en": "Design infrastructure and buildings. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta infrastrutture e edifici. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Build",
+        "Infrastructure",
+        "Design"
+      ],
+      "it": [
+        "Progettazione",
+        "Infrastrutture",
+        "Design"
+      ]
+    }
+  },
+  {
+    "id": "deg-040",
+    "icon": "🏢",
+    "category": "STEM",
+    "name": {
+      "en": "Building Engineering",
+      "it": "Ingegneria Edile"
+    },
+    "description": {
+      "en": "Design and manage construction projects. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta e gestisce progetti di costruzione. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Build",
+        "Construction",
+        "Design"
+      ],
+      "it": [
+        "Costruzioni",
+        "Edilizia",
+        "Design"
+      ]
+    }
+  },
+  {
+    "id": "deg-041",
+    "icon": "⚡",
+    "category": "STEM",
+    "name": {
+      "en": "Electrical Engineering",
+      "it": "Ingegneria Elettrica"
+    },
+    "description": {
+      "en": "Power systems and electrical machines. This programme prepares you for a wide range of professional paths.",
+      "it": "Sistemi di potenza e macchine elettriche. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Engineering",
+        "Energy",
+        "Tech"
+      ],
+      "it": [
+        "Ingegneria",
+        "Energia",
+        "Tecnologia"
+      ]
+    }
+  },
+  {
+    "id": "deg-042",
+    "icon": "🔌",
+    "category": "STEM",
+    "name": {
+      "en": "Electronic Engineering",
+      "it": "Ingegneria Elettronica"
+    },
+    "description": {
+      "en": "Design electronic circuits and systems. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta circuiti e sistemi elettronici. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Electronics",
+        "Tech",
+        "Design"
+      ],
+      "it": [
+        "Elettronica",
+        "Tecnologia",
+        "Design"
+      ]
+    }
+  },
+  {
+    "id": "deg-043",
+    "icon": "🔋",
+    "category": "STEM",
+    "name": {
+      "en": "Energy Engineering",
+      "it": "Ingegneria Energetica"
+    },
+    "description": {
+      "en": "Efficient use and conversion of energy. This programme prepares you for a wide range of professional paths.",
+      "it": "Uso e conversione efficiente dell'energia. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Energy",
+        "Sustainability",
+        "Tech"
+      ],
+      "it": [
+        "Energia",
+        "Sostenibilità",
+        "Tecnologia"
+      ]
+    }
+  },
+  {
+    "id": "deg-044",
+    "icon": "⚛️",
+    "category": "STEM",
+    "name": {
+      "en": "Engineering Physics",
+      "it": "Ingegneria Fisica"
+    },
+    "description": {
+      "en": "Apply physics to engineering applications. This programme prepares you for a wide range of professional paths.",
+      "it": "Applica la fisica alle applicazioni ingegneristiche. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Physics",
+        "Engineering",
+        "Science"
+      ],
+      "it": [
+        "Fisica",
+        "Ingegneria",
+        "Scienza"
+      ]
+    }
+  },
+  {
+    "id": "deg-045",
+    "icon": "📋",
+    "category": "STEM",
+    "name": {
+      "en": "Management Engineering",
+      "it": "Ingegneria Gestionale"
+    },
+    "description": {
+      "en": "Optimize processes and operations. This programme prepares you for a wide range of professional paths.",
+      "it": "Ottimizza processi e operazioni. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Management",
+        "Process",
+        "Business"
+      ],
+      "it": [
+        "Gestione",
+        "Processo",
+        "Business"
+      ]
+    }
+  },
+  {
+    "id": "deg-046",
+    "icon": "💻",
+    "category": "STEM",
+    "name": {
+      "en": "Computer Engineering",
+      "it": "Ingegneria Informatica"
+    },
+    "description": {
+      "en": "Hardware and software systems design. This programme prepares you for a wide range of professional paths.",
+      "it": "Progettazione di sistemi hardware e software. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Tech",
+        "Coding",
+        "Systems"
+      ],
+      "it": [
+        "Tecnologia",
+        "Programmazione",
+        "Sistemi"
+      ]
+    }
+  },
+  {
+    "id": "deg-047",
+    "icon": "⚙️",
+    "category": "STEM",
+    "name": {
+      "en": "Mechanical Engineering",
+      "it": "Ingegneria Meccanica"
+    },
+    "description": {
+      "en": "Design machines and mechanical systems. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta macchine e sistemi meccanici. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Engineering",
+        "Mechanics",
+        "Design"
+      ],
+      "it": [
+        "Ingegneria",
+        "Meccanica",
+        "Design"
+      ]
+    }
+  },
+  {
+    "id": "deg-048",
+    "icon": "🔬",
+    "category": "STEM",
+    "name": {
+      "en": "Materials Engineering",
+      "it": "Ingegneria Dei Materiali"
+    },
+    "description": {
+      "en": "Develop and characterise materials. This programme prepares you for a wide range of professional paths.",
+      "it": "Sviluppa e caratterizza i materiali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Materials",
+        "Science",
+        "Lab"
+      ],
+      "it": [
+        "Materiali",
+        "Scienza",
+        "Laboratorio"
+      ]
+    }
+  },
+  {
+    "id": "deg-049",
+    "icon": "🎬",
+    "category": "STEM",
+    "name": {
+      "en": "Film and Digital Media Engineering",
+      "it": "Ingegneria Del Cinema E Dei Media Digitali"
+    },
+    "description": {
+      "en": "Technology for film and digital media. This programme prepares you for a wide range of professional paths.",
+      "it": "Tecnologia per cinema e media digitali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Media",
+        "Tech",
+        "Creative"
+      ],
+      "it": [
+        "Media",
+        "Tecnologia",
+        "Creatività"
+      ]
+    }
+  },
+  {
+    "id": "deg-050",
+    "icon": "🚗",
+    "category": "STEM",
+    "name": {
+      "en": "Automotive Engineering",
+      "it": "Ingegneria Dell'autoveicolo"
+    },
+    "description": {
+      "en": "Design and develop vehicles. This programme prepares you for a wide range of professional paths.",
+      "it": "Progetta e sviluppa veicoli. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Automotive",
+        "Engineering",
+        "Design"
+      ],
+      "it": [
+        "Auto",
+        "Ingegneria",
+        "Design"
+      ]
+    }
+  },
+  {
+    "id": "deg-051",
+    "icon": "🏭",
+    "category": "STEM",
+    "name": {
+      "en": "Industrial Production Engineering",
+      "it": "Ingegneria Della Produzione Industriale"
+    },
+    "description": {
+      "en": "Manufacturing and production systems. This programme prepares you for a wide range of professional paths.",
+      "it": "Sistemi di produzione e manifatturiera. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Industry",
+        "Production",
+        "Process"
+      ],
+      "it": [
+        "Industria",
+        "Produzione",
+        "Processo"
+      ]
+    }
+  },
+  {
+    "id": "deg-052",
+    "icon": "🌍",
+    "category": "STEM",
+    "name": {
+      "en": "Environmental and Land Engineering",
+      "it": "Ingegneria Per L'ambiente E Il Territorio"
+    },
+    "description": {
+      "en": "Protect environment and plan territory. This programme prepares you for a wide range of professional paths.",
+      "it": "Tutela l'ambiente e pianifica il territorio. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Environment",
+        "Territory",
+        "Sustainability"
+      ],
+      "it": [
+        "Ambiente",
+        "Territorio",
+        "Sostenibilità"
+      ]
+    }
+  },
+  {
+    "id": "deg-053",
+    "icon": "📖",
+    "category": "Humanities",
+    "name": {
+      "en": "Literature",
+      "it": "Lettere"
+    },
+    "description": {
+      "en": "Study literature, language, and culture. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia letteratura, lingua e cultura. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Literature",
+        "Reading",
+        "Culture"
+      ],
+      "it": [
+        "Letteratura",
+        "Lettura",
+        "Cultura"
+      ]
+    }
+  },
+  {
+    "id": "deg-054",
+    "icon": "🌏",
+    "category": "Humanities",
+    "name": {
+      "en": "Languages and Cultures of Asia and Africa",
+      "it": "Lingue E Culture Dell'asia E Dell'africa"
+    },
+    "description": {
+      "en": "Languages and cultures of Asia and Africa. This programme prepares you for a wide range of professional paths.",
+      "it": "Lingue e culture di Asia e Africa. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Languages",
+        "Culture",
+        "World"
+      ],
+      "it": [
+        "Lingue",
+        "Cultura",
+        "Mondo"
+      ]
+    }
+  },
+  {
+    "id": "deg-055",
+    "icon": "✈️",
+    "category": "Humanities",
+    "name": {
+      "en": "Languages and Cultures for Tourism",
+      "it": "Lingue E Culture Per Il Turismo"
+    },
+    "description": {
+      "en": "Languages and culture for the tourism sector. This programme prepares you for a wide range of professional paths.",
+      "it": "Lingue e cultura per il settore turistico. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Languages",
+        "Tourism",
+        "Culture"
+      ],
+      "it": [
+        "Lingue",
+        "Turismo",
+        "Cultura"
+      ]
+    }
+  },
+  {
+    "id": "deg-056",
+    "icon": "📚",
+    "category": "Humanities",
+    "name": {
+      "en": "Modern Languages and Literatures",
+      "it": "Lingue E Letterature Moderne"
+    },
+    "description": {
+      "en": "Modern languages, literatures, and cultures. This programme prepares you for a wide range of professional paths.",
+      "it": "Lingue, letterature e culture moderne. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Languages",
+        "Literature",
+        "Culture"
+      ],
+      "it": [
+        "Lingue",
+        "Letteratura",
+        "Cultura"
+      ]
+    }
+  },
+  {
+    "id": "deg-057",
+    "icon": "🗣️",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Speech and Language Therapy",
+      "it": "Logopedia"
+    },
+    "description": {
+      "en": "Assess and treat speech and language disorders. This programme prepares you for a wide range of professional paths.",
+      "it": "Valuta e tratta disturbi del linguaggio. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Communication",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Comunicazione",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-058",
+    "icon": "📊",
+    "category": "Business & Law",
+    "name": {
+      "en": "Information and Communication Management",
+      "it": "Management Dell'informazione E Della Comunicazione Aziendale"
+    },
+    "description": {
+      "en": "Manage information and communication in firms. This programme prepares you for a wide range of professional paths.",
+      "it": "Gestisci informazione e comunicazione in azienda. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Management",
+        "Information",
+        "Communication"
+      ],
+      "it": [
+        "Gestione",
+        "Informazione",
+        "Comunicazione"
+      ]
+    }
+  },
+  {
+    "id": "deg-059",
+    "icon": "🔢",
+    "category": "STEM",
+    "name": {
+      "en": "Mathematics",
+      "it": "Matematica"
+    },
+    "description": {
+      "en": "Study structures, patterns, and proofs. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia strutture, modelli e dimostrazioni. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Math",
+        "Logic",
+        "Theory"
+      ],
+      "it": [
+        "Matematica",
+        "Logica",
+        "Teoria"
+      ]
+    }
+  },
+  {
+    "id": "deg-060",
+    "icon": "📐",
+    "category": "STEM",
+    "name": {
+      "en": "Mathematics for Economics, Finance and Insurance",
+      "it": "Matematica Per L'economia, La Finanza E L'assicurazione"
+    },
+    "description": {
+      "en": "Mathematical tools for finance and insurance. This programme prepares you for a wide range of professional paths.",
+      "it": "Strumenti matematici per finanza e assicurazioni. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Math",
+        "Finance",
+        "Data"
+      ],
+      "it": [
+        "Matematica",
+        "Finanza",
+        "Dati"
+      ]
+    }
+  },
+  {
+    "id": "deg-061",
+    "icon": "🩺",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Medicine and Surgery",
+      "it": "Medicina E Chirurgia"
+    },
+    "description": {
+      "en": "Diagnose and treat disease; perform surgery. This programme prepares you for a wide range of professional paths.",
+      "it": "Diagnostica e cura le malattie; pratica chirurgia. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Medicine",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Medicina",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-062",
+    "icon": "🐾",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Veterinary Medicine",
+      "it": "Medicina Veterinaria"
+    },
+    "description": {
+      "en": "Care for animal health and welfare. This programme prepares you for a wide range of professional paths.",
+      "it": "Cura della salute e del benessere animale. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Animals",
+        "Health",
+        "Care"
+      ],
+      "it": [
+        "Animali",
+        "Salute",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-063",
+    "icon": "👗",
+    "category": "Arts & Design",
+    "name": {
+      "en": "Fashion and Business Culture",
+      "it": "Moda E Cultura D'impresa"
+    },
+    "description": {
+      "en": "Fashion design and business. This programme prepares you for a wide range of professional paths.",
+      "it": "Design della moda e cultura d'impresa. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Fashion",
+        "Design",
+        "Business"
+      ],
+      "it": [
+        "Moda",
+        "Design",
+        "Business"
+      ]
+    }
+  },
+  {
+    "id": "deg-064",
+    "icon": "📐",
+    "category": "STEM",
+    "name": {
+      "en": "Mathematics for Engineering",
+      "it": "Matematica Per L'ingegneria"
+    },
+    "description": {
+      "en": "Mathematical methods for engineering. This programme prepares you for a wide range of professional paths.",
+      "it": "Metodi matematici per l'ingegneria. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Math",
+        "Engineering",
+        "Theory"
+      ],
+      "it": [
+        "Matematica",
+        "Ingegneria",
+        "Teoria"
+      ]
+    }
+  },
+  {
+    "id": "deg-065",
+    "icon": "🦷",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Dentistry and Dental Prosthetics",
+      "it": "Odontoiatria E Protesi Dentaria"
+    },
+    "description": {
+      "en": "Dental care and prosthetics. This programme prepares you for a wide range of professional paths.",
+      "it": "Cura dentale e protesi. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Dental",
+        "Health",
+        "Care"
+      ],
+      "it": [
+        "Dentale",
+        "Salute",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-066",
+    "icon": "👁️",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Orthoptics and Ophthalmological Assistance",
+      "it": "Ortottica Ed Assistenza Oftalmologica"
+    },
+    "description": {
+      "en": "Vision assessment and eye care support. This programme prepares you for a wide range of professional paths.",
+      "it": "Valutazione della vista e assistenza oftalmologica. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Vision",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Vista",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-067",
+    "icon": "👶",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Midwifery",
+      "it": "Ostetricia"
+    },
+    "description": {
+      "en": "Care during pregnancy, birth, and postpartum. This programme prepares you for a wide range of professional paths.",
+      "it": "Assistenza in gravidanza, parto e postpartum. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Birth",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Nascita",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-068",
+    "icon": "👓",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Optics and Optometry",
+      "it": "Ottica E Optometria"
+    },
+    "description": {
+      "en": "Vision care and optical instruments. This programme prepares you for a wide range of professional paths.",
+      "it": "Cura della vista e strumenti ottici. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Vision",
+        "Health",
+        "Science"
+      ],
+      "it": [
+        "Vista",
+        "Salute",
+        "Scienza"
+      ]
+    }
+  },
+  {
+    "id": "deg-069",
+    "icon": "🗺️",
+    "category": "STEM",
+    "name": {
+      "en": "Spatial Planning, Urban and Landscape Planning",
+      "it": "Pianificazione Territoriale, Urbanistica E Paesaggistico-ambientale"
+    },
+    "description": {
+      "en": "Plan cities, territory, and landscape. This programme prepares you for a wide range of professional paths.",
+      "it": "Pianifica città, territorio e paesaggio. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Planning",
+        "Territory",
+        "Environment"
+      ],
+      "it": [
+        "Pianificazione",
+        "Territorio",
+        "Ambiente"
+      ]
+    }
+  },
+  {
+    "id": "deg-070",
+    "icon": "🔬",
+    "category": "STEM",
+    "name": {
+      "en": "Materials Science",
+      "it": "Scienza Dei Materiali"
+    },
+    "description": {
+      "en": "Study and develop new materials. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia e sviluppa nuovi materiali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Materials",
+        "Science",
+        "Lab"
+      ],
+      "it": [
+        "Materiali",
+        "Scienza",
+        "Laboratorio"
+      ]
+    }
+  },
+  {
+    "id": "deg-071",
+    "icon": "🧬",
+    "category": "STEM",
+    "name": {
+      "en": "Biological Sciences",
+      "it": "Scienze Biologiche"
+    },
+    "description": {
+      "en": "Study living organisms and ecosystems. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia organismi viventi ed ecosistemi. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Biology",
+        "Science",
+        "Nature"
+      ],
+      "it": [
+        "Biologia",
+        "Scienza",
+        "Natura"
+      ]
+    }
+  },
+  {
+    "id": "deg-072",
+    "icon": "💻",
+    "category": "Social Sciences",
+    "name": {
+      "en": "Digital Administration Sciences",
+      "it": "Scienze Dell'amministrazione Digitale"
+    },
+    "description": {
+      "en": "Digital government and public administration. This programme prepares you for a wide range of professional paths.",
+      "it": "Governo digitale e amministrazione pubblica. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Digital",
+        "Administration",
+        "Tech"
+      ],
+      "it": [
+        "Digitale",
+        "Amministrazione",
+        "Tecnologia"
+      ]
+    }
+  },
+  {
+    "id": "deg-073",
+    "icon": "📚",
+    "category": "Education",
+    "name": {
+      "en": "Education Sciences",
+      "it": "Scienze Dell'educazione"
+    },
+    "description": {
+      "en": "Study learning and educational processes. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia apprendimento e processi educativi. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Education",
+        "Teaching",
+        "Learning"
+      ],
+      "it": [
+        "Educazione",
+        "Insegnamento",
+        "Apprendimento"
+      ]
+    }
+  },
+  {
+    "id": "deg-074",
+    "icon": "📢",
+    "category": "Social Sciences",
+    "name": {
+      "en": "Communication Sciences",
+      "it": "Scienze Della Comunicazione"
+    },
+    "description": {
+      "en": "Study media and communication. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia media e comunicazione. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Communication",
+        "Media",
+        "Society"
+      ],
+      "it": [
+        "Comunicazione",
+        "Media",
+        "Società"
+      ]
+    }
+  },
+  {
+    "id": "deg-075",
+    "icon": "🍎",
+    "category": "Education",
+    "name": {
+      "en": "Primary Education Sciences",
+      "it": "Scienze Della Formazione Primaria"
+    },
+    "description": {
+      "en": "Train primary school teachers. This programme prepares you for a wide range of professional paths.",
+      "it": "Forma i docenti della scuola primaria. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Teaching",
+        "Primary",
+        "Education"
+      ],
+      "it": [
+        "Insegnamento",
+        "Primaria",
+        "Educazione"
+      ]
+    }
+  },
+  {
+    "id": "deg-076",
+    "icon": "🌐",
+    "category": "Humanities",
+    "name": {
+      "en": "Linguistic Mediation Sciences",
+      "it": "Scienze Della Mediazione Linguistica"
+    },
+    "description": {
+      "en": "Translation and intercultural mediation. This programme prepares you for a wide range of professional paths.",
+      "it": "Traduzione e mediazione interculturale. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Languages",
+        "Translation",
+        "Culture"
+      ],
+      "it": [
+        "Lingue",
+        "Traduzione",
+        "Cultura"
+      ]
+    }
+  },
+  {
+    "id": "deg-077",
+    "icon": "⚽",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Motor and Sports Sciences",
+      "it": "Scienze E Tecniche Delle Attività Motorie E Sportive"
+    },
+    "description": {
+      "en": "Movement, sport, and physical activity. This programme prepares you for a wide range of professional paths.",
+      "it": "Movimento, sport e attività fisica. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Sport",
+        "Movement",
+        "Health"
+      ],
+      "it": [
+        "Sport",
+        "Movimento",
+        "Salute"
+      ]
+    }
+  },
+  {
+    "id": "deg-078",
+    "icon": "🧠",
+    "category": "Social Sciences",
+    "name": {
+      "en": "Psychological Sciences and Techniques",
+      "it": "Scienze E Tecniche Psicologiche"
+    },
+    "description": {
+      "en": "Psychology theory and practice. This programme prepares you for a wide range of professional paths.",
+      "it": "Teoria e pratica della psicologia. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Psychology",
+        "Mind",
+        "People"
+      ],
+      "it": [
+        "Psicologia",
+        "Mente",
+        "Persone"
+      ]
+    }
+  },
+  {
+    "id": "deg-079",
+    "icon": "🌾",
+    "category": "STEM",
+    "name": {
+      "en": "Agricultural Sciences and Technologies",
+      "it": "Scienze E Tecnologie Agrarie"
+    },
+    "description": {
+      "en": "Agriculture and food production. This programme prepares you for a wide range of professional paths.",
+      "it": "Agricoltura e produzione alimentare. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Agriculture",
+        "Environment",
+        "Science"
+      ],
+      "it": [
+        "Agricoltura",
+        "Ambiente",
+        "Scienza"
+      ]
+    }
+  },
+  {
+    "id": "deg-080",
+    "icon": "⛰️",
+    "category": "STEM",
+    "name": {
+      "en": "Mountain Sciences and Technologies",
+      "it": "Scienze E Tecnologie Per La Montagna"
+    },
+    "description": {
+      "en": "Sustainable mountain development. This programme prepares you for a wide range of professional paths.",
+      "it": "Sviluppo sostenibile della montagna. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Environment",
+        "Sustainability",
+        "Territory"
+      ],
+      "it": [
+        "Ambiente",
+        "Sostenibilità",
+        "Territorio"
+      ]
+    }
+  },
+  {
+    "id": "deg-081",
+    "icon": "🌲",
+    "category": "STEM",
+    "name": {
+      "en": "Forest and Environmental Sciences",
+      "it": "Scienze Forestali E Ambientali"
+    },
+    "description": {
+      "en": "Forest management and environment. This programme prepares you for a wide range of professional paths.",
+      "it": "Gestione forestale e ambiente. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Forest",
+        "Environment",
+        "Sustainability"
+      ],
+      "it": [
+        "Foresta",
+        "Ambiente",
+        "Sostenibilità"
+      ]
+    }
+  },
+  {
+    "id": "deg-082",
+    "icon": "🪨",
+    "category": "STEM",
+    "name": {
+      "en": "Geological Sciences",
+      "it": "Scienze Geologiche"
+    },
+    "description": {
+      "en": "Study the Earth and its resources. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia la Terra e le sue risorse. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Earth",
+        "Science",
+        "Environment"
+      ],
+      "it": [
+        "Terra",
+        "Scienza",
+        "Ambiente"
+      ]
+    }
+  },
+  {
+    "id": "deg-083",
+    "icon": "🤝",
+    "category": "Social Sciences",
+    "name": {
+      "en": "International, Development and Cooperation Sciences",
+      "it": "Scienze Internazionali, Dello Sviluppo E Della Cooperazione"
+    },
+    "description": {
+      "en": "International development and cooperation. This programme prepares you for a wide range of professional paths.",
+      "it": "Sviluppo internazionale e cooperazione. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "International",
+        "Development",
+        "Policy"
+      ],
+      "it": [
+        "Internazionale",
+        "Sviluppo",
+        "Politica"
+      ]
+    }
+  },
+  {
+    "id": "deg-084",
+    "icon": "🌿",
+    "category": "STEM",
+    "name": {
+      "en": "Natural Sciences",
+      "it": "Scienze Naturali"
+    },
+    "description": {
+      "en": "Study nature and the environment. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia la natura e l'ambiente. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Nature",
+        "Science",
+        "Environment"
+      ],
+      "it": [
+        "Natura",
+        "Scienza",
+        "Ambiente"
+      ]
+    }
+  },
+  {
+    "id": "deg-085",
+    "icon": "🗳️",
+    "category": "Social Sciences",
+    "name": {
+      "en": "Political and Social Sciences",
+      "it": "Scienze Politiche E Sociali"
+    },
+    "description": {
+      "en": "Study politics and society. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia politica e società. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Politics",
+        "Society",
+        "Policy"
+      ],
+      "it": [
+        "Politica",
+        "Società",
+        "Policy"
+      ]
+    }
+  },
+  {
+    "id": "deg-086",
+    "icon": "🛡️",
+    "category": "Social Sciences",
+    "name": {
+      "en": "Strategic and Security Sciences",
+      "it": "Scienze Strategiche E Della Sicurezza"
+    },
+    "description": {
+      "en": "Strategy, security, and risk. This programme prepares you for a wide range of professional paths.",
+      "it": "Strategia, sicurezza e rischio. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Strategy",
+        "Security",
+        "Policy"
+      ],
+      "it": [
+        "Strategia",
+        "Sicurezza",
+        "Politica"
+      ]
+    }
+  },
+  {
+    "id": "deg-087",
+    "icon": "🤲",
+    "category": "Social Sciences",
+    "name": {
+      "en": "Social Work",
+      "it": "Servizio Sociale"
+    },
+    "description": {
+      "en": "Support people and communities in need. This programme prepares you for a wide range of professional paths.",
+      "it": "Sostiene persone e comunità in difficoltà. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "People",
+        "Community",
+        "Care"
+      ],
+      "it": [
+        "Persone",
+        "Comunità",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-088",
+    "icon": "🐄",
+    "category": "STEM",
+    "name": {
+      "en": "Sustainable Livestock Systems",
+      "it": "Sistemi Zootecnici Sostenibili"
+    },
+    "description": {
+      "en": "Sustainable animal production systems. This programme prepares you for a wide range of professional paths.",
+      "it": "Sistemi di produzione animale sostenibili. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Agriculture",
+        "Sustainability",
+        "Animals"
+      ],
+      "it": [
+        "Agricoltura",
+        "Sostenibilità",
+        "Animali"
+      ]
+    }
+  },
+  {
+    "id": "deg-089",
+    "icon": "📜",
+    "category": "Humanities",
+    "name": {
+      "en": "History",
+      "it": "Storia"
+    },
+    "description": {
+      "en": "Study the past to understand the present. This programme prepares you for a wide range of professional paths.",
+      "it": "Studia il passato per capire il presente. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "History",
+        "Research",
+        "Culture"
+      ],
+      "it": [
+        "Storia",
+        "Ricerca",
+        "Cultura"
+      ]
+    }
+  },
+  {
+    "id": "deg-090",
+    "icon": "🧠",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Psychiatric Rehabilitation Technique",
+      "it": "Tecnica Della Riabilitazione Psichiatrica"
+    },
+    "description": {
+      "en": "Rehabilitation in mental health settings. This programme prepares you for a wide range of professional paths.",
+      "it": "Riabilitazione in ambito salute mentale. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Mental",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Mentale",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-091",
+    "icon": "👂",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Audiometric Techniques",
+      "it": "Tecniche Audiometriche"
+    },
+    "description": {
+      "en": "Hearing assessment and diagnostics. This programme prepares you for a wide range of professional paths.",
+      "it": "Valutazione e diagnostica dell'udito. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Hearing",
+        "Care"
+      ],
+      "it": [
+        "Salute",
+        "Udito",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-092",
+    "icon": "🔊",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Hearing Aid Techniques",
+      "it": "Tecniche Audioprotesiche"
+    },
+    "description": {
+      "en": "Hearing aids and auditory prosthetics. This programme prepares you for a wide range of professional paths.",
+      "it": "Protesi acustiche e dispositivi uditivi. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Hearing",
+        "Tech"
+      ],
+      "it": [
+        "Salute",
+        "Udito",
+        "Tecnologia"
+      ]
+    }
+  },
+  {
+    "id": "deg-093",
+    "icon": "🦺",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Prevention Techniques in Environment and Workplace",
+      "it": "Tecniche Della Prevenzione Nell'ambiente E Nei Luoghi Di Lavoro"
+    },
+    "description": {
+      "en": "Occupational and environmental prevention. This programme prepares you for a wide range of professional paths.",
+      "it": "Prevenzione ambientale e nei luoghi di lavoro. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Prevention",
+        "Health",
+        "Environment"
+      ],
+      "it": [
+        "Prevenzione",
+        "Salute",
+        "Ambiente"
+      ]
+    }
+  },
+  {
+    "id": "deg-094",
+    "icon": "🐕",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Veterinary Assistance Techniques",
+      "it": "Tecniche Di Assistenza Veterinaria"
+    },
+    "description": {
+      "en": "Support veterinary care and practice. This programme prepares you for a wide range of professional paths.",
+      "it": "Supporta la pratica e la cura veterinaria. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Animals",
+        "Health",
+        "Care"
+      ],
+      "it": [
+        "Animali",
+        "Salute",
+        "Cura"
+      ]
+    }
+  },
+  {
+    "id": "deg-095",
+    "icon": "🔬",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Biomedical Laboratory Techniques",
+      "it": "Tecniche Di Laboratorio Biomedico"
+    },
+    "description": {
+      "en": "Lab analyses for clinical diagnostics. This programme prepares you for a wide range of professional paths.",
+      "it": "Analisi di laboratorio per diagnostica clinica. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Lab",
+        "Health",
+        "Science"
+      ],
+      "it": [
+        "Laboratorio",
+        "Salute",
+        "Scienza"
+      ]
+    }
+  },
+  {
+    "id": "deg-096",
+    "icon": "🧠",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Neurophysiopathology Techniques",
+      "it": "Tecniche Di Neurofisiopatologia"
+    },
+    "description": {
+      "en": "Neurophysiological diagnostics. This programme prepares you for a wide range of professional paths.",
+      "it": "Diagnostica neurofisiologica. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Neurology",
+        "Lab"
+      ],
+      "it": [
+        "Salute",
+        "Neurologia",
+        "Laboratorio"
+      ]
+    }
+  },
+  {
+    "id": "deg-097",
+    "icon": "🩻",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Medical Radiology, Imaging and Radiotherapy Techniques",
+      "it": "Tecniche Di Radiologia Medica, Per Immagini E Radioterapia"
+    },
+    "description": {
+      "en": "Medical imaging and radiotherapy. This programme prepares you for a wide range of professional paths.",
+      "it": "Imaging medico e radioterapia. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Imaging",
+        "Tech"
+      ],
+      "it": [
+        "Salute",
+        "Imaging",
+        "Tecnologia"
+      ]
+    }
+  },
+  {
+    "id": "deg-098",
+    "icon": "🌿",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Herbal Techniques",
+      "it": "Tecniche Erboristiche"
+    },
+    "description": {
+      "en": "Herbal products and plant-based remedies. This programme prepares you for a wide range of professional paths.",
+      "it": "Prodotti erboristici e rimedi vegetali. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Herbs",
+        "Health",
+        "Nature"
+      ],
+      "it": [
+        "Erbe",
+        "Salute",
+        "Natura"
+      ]
+    }
+  },
+  {
+    "id": "deg-099",
+    "icon": "🍞",
+    "category": "STEM",
+    "name": {
+      "en": "Food Technologies",
+      "it": "Tecnologie Alimentari"
+    },
+    "description": {
+      "en": "Food processing and technology. This programme prepares you for a wide range of professional paths.",
+      "it": "Trasformazione e tecnologia alimentare. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Food",
+        "Tech",
+        "Industry"
+      ],
+      "it": [
+        "Alimentare",
+        "Tecnologia",
+        "Industria"
+      ]
+    }
+  },
+  {
+    "id": "deg-100",
+    "icon": "🧒",
+    "category": "Health & Medicine",
+    "name": {
+      "en": "Child Neuro- and Psychomotor Therapy",
+      "it": "Terapia Della Neuro E Psicomotricità Dell'Età Evolutiva"
+    },
+    "description": {
+      "en": "Neuropsychomotor therapy for children. This programme prepares you for a wide range of professional paths.",
+      "it": "Terapia neuropsicomotoria per l'età evolutiva. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Health",
+        "Children",
+        "Therapy"
+      ],
+      "it": [
+        "Salute",
+        "Bambini",
+        "Terapia"
+      ]
+    }
+  },
+  {
+    "id": "deg-101",
+    "icon": "🏭",
+    "category": "STEM",
+    "name": {
+      "en": "Manufacturing Technologies",
+      "it": "Tecnologie Per L'industria Manifatturiera"
+    },
+    "description": {
+      "en": "Technologies for manufacturing industry. This programme prepares you for a wide range of professional paths.",
+      "it": "Tecnologie per l'industria manifatturiera. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Industry",
+        "Tech",
+        "Production"
+      ],
+      "it": [
+        "Industria",
+        "Tecnologia",
+        "Produzione"
+      ]
+    }
+  },
+  {
+    "id": "deg-102",
+    "icon": "🍷",
+    "category": "STEM",
+    "name": {
+      "en": "Viticulture and Oenology",
+      "it": "Viticoltura Ed Enologia"
+    },
+    "description": {
+      "en": "Grape growing and winemaking. This programme prepares you for a wide range of professional paths.",
+      "it": "Coltivazione della vite e produzione del vino. Questo corso ti prepara per una varietà di percorsi professionali."
+    },
+    "tags": {
+      "en": [
+        "Wine",
+        "Agriculture",
+        "Science"
+      ],
+      "it": [
+        "Vino",
+        "Agricoltura",
+        "Scienza"
+      ]
+    }
+  }
+]
