@@ -67,7 +67,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="h-100 d-flex flex-column justify-content-center align-items-center text-center">
+  <div class="phase2-root h-100 d-flex flex-column justify-content-center align-items-center text-center">
     <div class="mb-3 w-100 px-2">
       <div class="d-flex align-items-start justify-content-between mb-2">
         <button
@@ -122,6 +122,11 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+/* Allow scroll on small viewports so footer does not block second degree card */
+.phase2-root {
+  padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px) + 4rem);
+  min-height: min-content;
+}
 /* Vertical stack: one option per line (like tournament bracket) */
 .phase2-options {
   max-width: 360px;

@@ -182,7 +182,7 @@ const modalDegreeTags = computed(() => {
     <main class="app-main flex-grow-1 d-flex flex-column position-relative min-h-0">
       <div
         class="app-main-content flex-grow-1 min-h-0 d-flex flex-column"
-        :class="{ 'phase-scrollable': state.phase === 'welcome' || state.phase === 'rules' || state.phase === 'donate' }"
+        :class="{ 'phase-scrollable': state.phase === 'welcome' || state.phase === 'rules' || state.phase === 'donate' || state.phase === 'phase2' }"
       >
         <Transition name="fade" mode="out-in">
           <KeepAlive>

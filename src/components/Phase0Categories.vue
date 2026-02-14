@@ -142,8 +142,8 @@ const degreesInCategory = computed(() => {
       <h2 class="fw-bold h3 mb-2">{{ t('categories.title') }}</h2>
       <p class="text-secondary small mb-3">{{ t('categories.instruction') }}</p>
 
-      <!-- Tap to exclude (kept categories) – emphasis background -->
-      <div class="categories-section categories-section-exclude rounded-3 p-3 mb-2" style="max-width: 360px;">
+      <!-- Tap to exclude (kept categories) -->
+      <div class="categories-section categories-section-exclude rounded-3 p-3 mb-3" style="max-width: 360px;">
         <p class="small text-center mb-2 text-danger fw-bold categories-section-label">{{ t('categories.tap_to_exclude') }}</p>
         <div class="d-flex flex-wrap justify-content-center gap-2">
           <div
@@ -172,7 +172,20 @@ const degreesInCategory = computed(() => {
         </div>
       </div>
 
-      <!-- Tap to restore (removed categories) – emphasis background -->
+      <p class="small text-secondary mb-2">
+        {{ t('categories.remaining', { count: survivingCount, total: survivingCount + (state.eliminatedDegrees?.length ?? 0) }) }}
+      </p>
+      <p class="small text-secondary mb-3">{{ t('categories.keep_at_least') }}</p>
+      <button
+        type="button"
+        class="btn btn-primary rounded-pill px-4 py-3 fw-bold mb-3"
+        :disabled="!canContinue"
+        @click="handleContinue"
+      >
+        {{ t('categories.continue', { count: survivingCount }) }}
+      </button>
+
+      <!-- Excluded categories (tap to restore) – after Continue -->
       <div v-if="removedCategories.length > 0" class="categories-section categories-section-restore rounded-3 p-3 mb-3" style="max-width: 360px;">
         <p class="small text-center mb-2 text-secondary fw-bold categories-section-label">{{ t('categories.tap_to_restore') }}</p>
         <div class="d-flex flex-wrap justify-content-center gap-2">
@@ -201,18 +214,6 @@ const degreesInCategory = computed(() => {
           </div>
         </div>
       </div>
-      <p class="small text-secondary mb-2">
-        {{ t('categories.remaining', { count: survivingCount, total: survivingCount + (state.eliminatedDegrees?.length ?? 0) }) }}
-      </p>
-      <p class="small text-secondary mb-3">{{ t('categories.keep_at_least') }}</p>
-      <button
-        type="button"
-        class="btn btn-primary rounded-pill px-4 py-3 fw-bold"
-        :disabled="!canContinue"
-        @click="handleContinue"
-      >
-        {{ t('categories.continue', { count: survivingCount }) }}
-      </button>
     </div>
 
     <!-- Category info modal (list of degrees in category) -->

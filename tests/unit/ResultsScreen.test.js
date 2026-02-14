@@ -104,4 +104,21 @@ describe('ResultsScreen', () => {
     await backBtn.trigger('click');
     expect(engine.state.value.phase).toBe('welcome');
   });
+
+  it('shows Share the app as button when Web Share is supported', () => {
+    const shareFn = vi.fn().mockResolvedValue(undefined);
+    vi.stubGlobal('navigator', { ...navigator, share: shareFn });
+    const wrapper = mountResultsScreen();
+    const shareAppButton = wrapper.findAll('button').find(b => b.text().match(/Share the app|Condividi l'app/i));
+    expect(shareAppButton).toBeDefined();
+    expect(wrapper.find('a[href*="pick-my-degree"]').exists()).toBe(false);
+  });
+
+  it('shows Share the app as link when Web Share is not supported', () => {
+    vi.stubGlobal('navigator', { ...navigator, share: undefined });
+    const wrapper = mountResultsScreen();
+    const shareAppLink = wrapper.find('a[href*="pick-my-degree.surge.sh"]');
+    expect(shareAppLink.exists()).toBe(true);
+    expect(shareAppLink.text()).toMatch(/Share the app|Condividi l'app/i);
+  });
 });

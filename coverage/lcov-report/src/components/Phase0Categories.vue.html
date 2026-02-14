@@ -351,7 +351,8 @@
 <a name='L286'></a><a href='#L286'>286</a>
 <a name='L287'></a><a href='#L287'>287</a>
 <a name='L288'></a><a href='#L288'>288</a>
-<a name='L289'></a><a href='#L289'>289</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L289'></a><a href='#L289'>289</a>
+<a name='L290'></a><a href='#L290'>290</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -401,15 +402,15 @@
 <span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">85x</span>
-<span class="cline-any cline-yes">6128x</span>
-<span class="cline-any cline-yes">6128x</span>
-<span class="cline-any cline-yes">6128x</span>
+<span class="cline-any cline-yes">6010x</span>
+<span class="cline-any cline-yes">6010x</span>
+<span class="cline-any cline-yes">6010x</span>
 <span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">85x</span>
-<span class="cline-any cline-yes">2338x</span>
-<span class="cline-any cline-yes">2338x</span>
-<span class="cline-any cline-yes">2338x</span>
-<span class="cline-any cline-yes">2338x</span>
+<span class="cline-any cline-yes">2456x</span>
+<span class="cline-any cline-yes">2456x</span>
+<span class="cline-any cline-yes">2456x</span>
+<span class="cline-any cline-yes">2456x</span>
 <span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">85x</span>
@@ -534,19 +535,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -564,6 +553,19 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -783,8 +785,8 @@ const degreesInCategory = computed(() =&gt; {
       &lt;h2 class="fw-bold h3 mb-2"&gt;{{ t('categories.title') }}&lt;/h2&gt;
       &lt;p class="text-secondary small mb-3"&gt;{{ t('categories.instruction') }}&lt;/p&gt;
 &nbsp;
-      &lt;!-- Tap to exclude (kept categories) – emphasis background --&gt;
-      &lt;div class="categories-section categories-section-exclude rounded-3 p-3 mb-2" style="max-width: 360px;"&gt;
+      &lt;!-- Tap to exclude (kept categories) --&gt;
+      &lt;div class="categories-section categories-section-exclude rounded-3 p-3 mb-3" style="max-width: 360px;"&gt;
         &lt;p class="small text-center mb-2 text-danger fw-bold categories-section-label"&gt;{{ t('categories.tap_to_exclude') }}&lt;/p&gt;
         &lt;div class="d-flex flex-wrap justify-content-center gap-2"&gt;
           &lt;div
@@ -813,7 +815,20 @@ const degreesInCategory = computed(() =&gt; {
         &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;!-- Tap to restore (removed categories) – emphasis background --&gt;
+      &lt;p class="small text-secondary mb-2"&gt;
+        {{ t('categories.remaining', { count: survivingCount, total: survivingCount + (state.eliminatedDegrees?.length<span class="branch-0 cbranch-no" title="branch not covered" > ?? 0) }) }}</span>
+      &lt;/p&gt;
+      &lt;p class="small text-secondary mb-3"&gt;{{ t('categories.keep_at_least') }}&lt;/p&gt;
+      &lt;button
+        type="button"
+        class="btn btn-primary rounded-pill px-4 py-3 fw-bold mb-3"
+        :disabled="!canContinue"
+        @click="handleContinue"
+      &gt;
+        {{ t('categories.continue', { count: survivingCount }) }}
+      &lt;/button&gt;
+&nbsp;
+      &lt;!-- Excluded categories (tap to restore) – after Continue --&gt;
       &lt;div v-if="removedCategories.length &gt; 0" class="categories-section categories-section-restore rounded-3 p-3 mb-3" style="max-width: 360px;"&gt;
         &lt;p class="small text-center mb-2 text-secondary fw-bold categories-section-label"&gt;{{ t('categories.tap_to_restore') }}&lt;/p&gt;
         &lt;div class="d-flex flex-wrap justify-content-center gap-2"&gt;
@@ -842,18 +857,6 @@ const degreesInCategory = computed(() =&gt; {
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;p class="small text-secondary mb-2"&gt;
-        {{ t('categories.remaining', { count: survivingCount, total: survivingCount + (state.eliminatedDegrees?.length<span class="branch-0 cbranch-no" title="branch not covered" > ?? 0) }) }}</span>
-      &lt;/p&gt;
-      &lt;p class="small text-secondary mb-3"&gt;{{ t('categories.keep_at_least') }}&lt;/p&gt;
-      &lt;button
-        type="button"
-        class="btn btn-primary rounded-pill px-4 py-3 fw-bold"
-        :disabled="!canContinue"
-        @click="handleContinue"
-      &gt;
-        {{ t('categories.continue', { count: survivingCount }) }}
-      &lt;/button&gt;
     &lt;/div&gt;
 &nbsp;
     &lt;!-- Category info modal (list of degrees in category) --&gt;
@@ -934,7 +937,7 @@ const degreesInCategory = computed(() =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-14T17:12:42.292Z
+                at 2026-02-14T17:37:11.964Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
