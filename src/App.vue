@@ -182,7 +182,10 @@ const modalDegreeTags = computed(() => {
     <main class="app-main flex-grow-1 d-flex flex-column position-relative min-h-0">
       <div
         class="app-main-content flex-grow-1 min-h-0 d-flex flex-column"
-        :class="{ 'phase-scrollable': state.phase === 'welcome' || state.phase === 'rules' || state.phase === 'donate' || state.phase === 'phase2' }"
+        :class="{
+          'phase-scrollable': state.phase === 'welcome' || state.phase === 'rules' || state.phase === 'donate' || state.phase === 'phase2',
+          'phase2-footer-gap': state.phase === 'phase2'
+        }"
       >
         <Transition name="fade" mode="out-in">
           <KeepAlive>
@@ -269,6 +272,12 @@ const modalDegreeTags = computed(() => {
 /* Safe area so footer and bottom buttons aren't under home indicator (iPhone) */
 .app-footer {
   padding-bottom: env(safe-area-inset-bottom, 0);
+  flex-shrink: 0;
+}
+
+/* Phase 2: extra bottom gap so footer never overlays the second degree card when scrolling */
+.app-main-content.phase2-footer-gap > * {
+  padding-bottom: 6rem;
 }
 
 /* Thanks clip-card in menu: subtle card with highlighted names */

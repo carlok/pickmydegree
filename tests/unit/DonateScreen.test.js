@@ -58,4 +58,28 @@ describe('DonateScreen', () => {
     const links = wrapper.findAll('a[target="_blank"]');
     expect(links).toHaveLength(2);
   });
+
+  it('Satispay link uses Android intent URL when userAgent is Android', async () => {
+    const originalUserAgent = navigator.userAgent;
+    Object.defineProperty(navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36',
+      configurable: true,
+    });
+    try {
+      const wrapper = mountDonateScreen();
+      await wrapper.vm.$nextTick();
+      const satispayLink = wrapper.find('a[href*="intent://"]');
+      expect(satispayLink.exists()).toBe(true);
+      const href = satispayLink.attributes('href');
+      expect(href).toMatch(/^intent:\/\//);
+      expect(href).toContain('package=com.satispay.customer');
+      expect(href).toContain('S.browser_fallback_url=');
+      expect(href).toContain('web.satispay.com');
+    } finally {
+      Object.defineProperty(navigator, 'userAgent', {
+        value: originalUserAgent,
+        configurable: true,
+      });
+    }
+  });
 });

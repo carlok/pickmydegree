@@ -124,8 +124,9 @@ onUnmounted(() => {
 <style scoped>
 /* Allow scroll on small viewports so footer does not block second degree card */
 .phase2-root {
-  padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px) + 4rem);
+  padding-bottom: max(5rem, 80px + env(safe-area-inset-bottom, 0px));
   min-height: min-content;
+  box-sizing: border-box;
 }
 /* Vertical stack: one option per line (like tournament bracket) */
 .phase2-options {

@@ -175,7 +175,7 @@ const degreesInCategory = computed(() => {
       <p class="small text-secondary mb-2">
         {{ t('categories.remaining', { count: survivingCount, total: survivingCount + (state.eliminatedDegrees?.length ?? 0) }) }}
       </p>
-      <p class="small text-secondary mb-3">{{ t('categories.keep_at_least') }}</p>
+      <p class="small text-secondary mb-2">{{ t('categories.keep_at_least') }}</p>
       <button
         type="button"
         class="btn btn-primary rounded-pill px-4 py-3 fw-bold mb-3"
@@ -185,7 +185,7 @@ const degreesInCategory = computed(() => {
         {{ t('categories.continue', { count: survivingCount }) }}
       </button>
 
-      <!-- Excluded categories (tap to restore) – after Continue -->
+      <!-- Excluded categories below Continue (Continue is before this block) -->
       <div v-if="removedCategories.length > 0" class="categories-section categories-section-restore rounded-3 p-3 mb-3" style="max-width: 360px;">
         <p class="small text-center mb-2 text-secondary fw-bold categories-section-label">{{ t('categories.tap_to_restore') }}</p>
         <div class="d-flex flex-wrap justify-content-center gap-2">

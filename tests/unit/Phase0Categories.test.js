@@ -93,4 +93,19 @@ describe('Phase0Categories', () => {
     expect(wrapper.find('.categories-section-restore').exists()).toBe(true);
     expect(wrapper.text()).toMatch(/Tap to restore|Tocca per ripristinare/i);
   });
+
+  it('Continue button appears before the excluded (restore) block in the DOM', async () => {
+    const wrapper = mountPhase0Categories();
+    const firstChip = wrapper.find('.categories-section-exclude .category-chip');
+    await firstChip.trigger('click');
+    await wrapper.vm.$nextTick();
+    const restoreSection = wrapper.find('.categories-section-restore');
+    expect(restoreSection.exists()).toBe(true);
+    const primaryButtons = wrapper.findAll('button.btn-primary');
+    const continueButton = primaryButtons[0];
+    expect(continueButton.exists()).toBe(true);
+    const docPos = restoreSection.element.compareDocumentPosition(continueButton.element);
+    const DOCUMENT_POSITION_PRECEDING = 2;
+    expect(docPos & DOCUMENT_POSITION_PRECEDING).toBe(DOCUMENT_POSITION_PRECEDING);
+  });
 });
