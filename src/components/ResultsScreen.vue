@@ -7,8 +7,8 @@ import { useI18n } from 'vue-i18n';
 import html2canvas from 'html2canvas';
 import confetti from 'canvas-confetti';
 
-const { state, resetGame } = useGameEngine();
-const { playFanfare, playSuccess } = useSound();
+const { state, resetGame, goToDonate } = useGameEngine();
+const { playFanfare, playSuccess, playTap } = useSound();
 const { t, locale } = useI18n();
 
 const captureRef = ref(null);
@@ -195,7 +195,7 @@ const handleRestart = () => {
           <button
             type="button"
             class="btn btn-link link-secondary small text-decoration-none p-0"
-            @click="resetGame"
+            @click="playTap(); resetGame()"
           >
             ← {{ t('common.back') }}
           </button>
@@ -244,7 +244,7 @@ const handleRestart = () => {
           <p v-if="downloadMessage === 'error' || shareMessage === 'error'" class="small text-danger mb-0">
             {{ t('results.share_error') }}
           </p>
-          <button @click="handleRestart" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
+          <button @click="playTap(); handleRestart()" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
             {{ t('results.restart') }}
           </button>
           <a
@@ -252,20 +252,19 @@ const handleRestart = () => {
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-outline-primary rounded-pill px-4 py-3 fw-bold d-flex align-items-center justify-content-center gap-2 text-decoration-none"
-            @click="shareSupported && $event.preventDefault() && handleShareApp()"
+            @click="playTap(); shareSupported && $event.preventDefault() && handleShareApp()"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
             {{ t('results.share_app') }}
           </a>
-          <a
-            href="https://buymeacoffee.com/carlok"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
             class="btn btn-primary rounded-pill px-4 py-3 fw-bold d-inline-flex align-items-center justify-content-center gap-2"
+            @click="playTap(); goToDonate()"
           >
-            <span aria-hidden="true">☕</span>
-            {{ t('common.buy_me_a_coffee') }}
-          </a>
+            <span aria-hidden="true">🙏</span>
+            {{ t('donate.title') }}
+          </button>
         </div>
       </div>
     </div>

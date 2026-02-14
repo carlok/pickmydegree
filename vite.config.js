@@ -3,8 +3,9 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { execSync } from 'node:child_process'
 
-/** Version from git: 0.1.<commit-count> or 0.0.0-dev if not in a git repo. */
+/** Version: use APP_VERSION env (set by Docker/build) or git 0.1.<count>, else 0.0.0-dev. */
 function getAppVersion() {
+  if (process.env.APP_VERSION) return process.env.APP_VERSION
   try {
     const count = execSync('git rev-list --count HEAD', { encoding: 'utf-8' }).trim()
     return `0.1.${count}`

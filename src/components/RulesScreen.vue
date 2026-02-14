@@ -3,7 +3,7 @@ import { useGameEngine } from '../composables/useGameEngine';
 import { useSound } from '../composables/useSound';
 
 const { startNewGame, goToWelcome } = useGameEngine();
-const { playSuccess } = useSound();
+const { playSuccess, playTap } = useSound();
 
 const steps = [
   { icon: '🔍', badge: '1', keyTitle: 'step1_title', keyDesc: 'step1_desc' },
@@ -59,7 +59,7 @@ const steps = [
       </button>
 
       <p class="mt-4 mb-0 rules-screen-bottom">
-        <button type="button" class="btn btn-link link-secondary small text-decoration-none p-0" @click="goToWelcome">
+        <button type="button" class="btn btn-link link-secondary small text-decoration-none p-0" @click="playTap(); goToWelcome()">
           ← {{ $t('common.back') }}
         </button>
       </p>

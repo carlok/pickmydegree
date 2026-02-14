@@ -16,12 +16,22 @@
         "about": "About the author",
         "info_contact": "Info / Contact",
         "donate": "Donate",
-        "thanks": "Thanks to Rossella 👩 and Vittorio 👨"
+        "thanks": "Thanks to Rossella 👩 and Vittorio 👨",
+        "thanks_to": "Thanks to",
+        "thanks_rossella": "Rossella",
+        "thanks_vittorio": "Vittorio",
+        "thanks_and": "and"
     },
     "footer": {
         "copyright_prefix": "© 2026 Pick My Degree · ",
         "author": "Carlo Perassi",
         "version": "v{version}"
+    },
+    "donate": {
+        "title": "Donate",
+        "subtitle": "Choose how you want to support the app.",
+        "coffee": "Buy me a coffee",
+        "satispay": "Satispay"
     },
     "progress": {
         "categories": "Categories",

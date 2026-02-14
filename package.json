@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "surge": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:22-alpine sh -c \"npm ci --no-audit --prefer-offline && npm run build\" && surge dist pick-my-degree.surge.sh",
+    "surge": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -e APP_VERSION=\"0.1.$(git rev-list --count HEAD 2>/dev/null || echo 0)\" -v \"$(pwd):/app\" -w /app node:22-alpine sh -c \"npm ci --no-audit --prefer-offline && npm run build\" && surge dist pick-my-degree.surge.sh",
     "test": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run\"",
     "test:coverage": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run --coverage\"",
     "test:local": "vitest run",

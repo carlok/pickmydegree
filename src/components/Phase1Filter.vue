@@ -44,7 +44,7 @@ const handleUndo = () => {
       <button
         type="button"
         class="btn btn-link link-secondary small text-decoration-none p-0 position-absolute start-0 top-0"
-        @click="resetGame"
+        @click="playTap(); resetGame()"
       >
         ← {{ t('common.back') }}
       </button>

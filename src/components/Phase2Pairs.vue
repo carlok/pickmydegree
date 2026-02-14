@@ -7,6 +7,11 @@ import { useI18n } from 'vue-i18n';
 
 const { state, resolvePhase2Match, resolvePhase2MatchRandomly, resetGame } = useGameEngine();
 const { playTap } = useSound();
+
+function handleBack() {
+  playTap();
+  resetGame();
+}
 const { t, locale } = useI18n();
 
 const timeLeft = ref(10);
@@ -68,7 +73,7 @@ onUnmounted(() => {
         <button
           type="button"
           class="btn btn-link link-secondary small text-decoration-none p-0"
-          @click="resetGame"
+          @click="handleBack"
         >
           ← {{ t('common.back') }}
         </button>

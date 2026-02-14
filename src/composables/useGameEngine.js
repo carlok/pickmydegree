@@ -3,7 +3,7 @@ import { useDataStore } from './useDataStore';
 import allDegrees from '../data/degrees.json';
 
 // Valid phases so we can detect corrupted/old saved state
-const VALID_PHASES = ['welcome', 'rules', 'categories', 'phase1', 'phase2', 'phase3-bracket', 'results'];
+const VALID_PHASES = ['welcome', 'rules', 'donate', 'categories', 'phase1', 'phase2', 'phase3-bracket', 'results'];
 
 const defaultState = () => ({
     phase: 'welcome',
@@ -114,6 +114,10 @@ export function useGameEngine() {
 
     const goToWelcome = () => {
         state.value.phase = 'welcome';
+    };
+
+    const goToDonate = () => {
+        state.value.phase = 'donate';
     };
 
     const startNewGame = () => {
@@ -357,6 +361,7 @@ export function useGameEngine() {
         resetGame,
         goToRules,
         goToWelcome,
+        goToDonate,
         startNewGame,
         removeCategory,
         completeCategories,

@@ -135,7 +135,7 @@ const handlePickWinner = (winnerId) => {
         <button
           type="button"
           class="btn btn-link link-secondary small text-decoration-none p-0"
-          @click="resetGame"
+          @click="playTap(); resetGame()"
         >
           ← {{ t('common.back') }}
         </button>

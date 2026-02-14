@@ -6,7 +6,7 @@ import { useSound } from '../composables/useSound';
 import { useI18n } from 'vue-i18n';
 
 const { state, removeCategory, completeCategories, restoreCategory, resetGame } = useGameEngine();
-const { playTap } = useSound();
+const { playTap, playSuccess } = useSound();
 const { t, locale } = useI18n();
 
 /** Stable display order of category names (shuffled once on mount). */
@@ -82,6 +82,7 @@ function handleRemove(categoryName) {
 function handleContinue() {
   const result = completeCategories();
   if (result?.success !== true) return;
+  playSuccess();
 }
 
 const canContinue = computed(() => survivingCount.value >= 2);
@@ -133,7 +134,7 @@ const degreesInCategory = computed(() => {
         <button
           type="button"
           class="btn btn-link link-secondary small text-decoration-none p-0"
-          @click="resetGame"
+          @click="playTap(); resetGame()"
         >
           ← {{ t('common.back') }}
         </button>
