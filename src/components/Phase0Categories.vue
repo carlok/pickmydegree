@@ -2,9 +2,11 @@
 import { computed, ref, onMounted } from 'vue';
 import { Modal } from 'bootstrap';
 import { useGameEngine } from '../composables/useGameEngine';
+import { useSound } from '../composables/useSound';
 import { useI18n } from 'vue-i18n';
 
 const { state, removeCategory, completeCategories, restoreCategory, resetGame } = useGameEngine();
+const { playTap } = useSound();
 const { t, locale } = useI18n();
 
 /** Stable display order of category names (shuffled once on mount). */
@@ -68,6 +70,7 @@ const allCategories = computed(() => {
 const survivingCount = computed(() => state.value.survivingDegrees?.length ?? 0);
 
 function handleRemove(categoryName) {
+  playTap();
   removeCategory(categoryName);
 }
 
@@ -79,6 +82,7 @@ function handleContinue() {
 const canContinue = computed(() => survivingCount.value >= 2);
 
 function handleRestore(categoryName) {
+  playTap();
   restoreCategory(categoryName);
 }
 

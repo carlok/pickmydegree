@@ -30,6 +30,14 @@ function openMenu() {
   });
 }
 
+function goHomeAndCloseMenu() {
+  goToWelcome();
+  if (menuOffcanvasRef.value) {
+    const instance = Offcanvas.getInstance(menuOffcanvasRef.value);
+    if (instance) instance.hide();
+  }
+}
+
 // Degree info modal (reliable on Chrome/PC instead of Bootstrap Popover)
 const degreeForModal = ref(null);
 const degreeModalRef = ref(null);
@@ -130,6 +138,9 @@ const modalDegreeTags = computed(() => {
         <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="offcanvas" data-bs-target="#menuOffcanvas" />
       </div>
       <div class="offcanvas-body">
+        <button type="button" class="btn btn-outline-light rounded-pill w-100 mb-3" @click="goHomeAndCloseMenu">
+          {{ t('menu.home') }}
+        </button>
         <p class="small text-secondary mb-2">{{ t('menu.about') }}</p>
         <a href="https://carlo.perassi.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary rounded-pill w-100 mb-2">
           {{ t('menu.info_contact') }}
@@ -143,7 +154,10 @@ const modalDegreeTags = computed(() => {
     <ProgressBar v-if="state.phase !== 'welcome' && state.phase !== 'rules'" />
     
     <main class="app-main flex-grow-1 d-flex flex-column position-relative min-h-0">
-      <div class="app-main-content flex-grow-1 min-h-0 d-flex flex-column">
+      <div
+        class="app-main-content flex-grow-1 min-h-0 d-flex flex-column"
+        :class="{ 'phase-scrollable': state.phase === 'welcome' || state.phase === 'rules' }"
+      >
         <Transition name="fade" mode="out-in">
           <KeepAlive>
              <component 
@@ -217,6 +231,11 @@ const modalDegreeTags = computed(() => {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+/* Welcome and Rules: allow vertical scroll so "Azzera progressi" / bottom content is reachable on mobile */
+.app-main-content.phase-scrollable > * {
+  overflow: auto;
 }
 
 /* Safe area so footer and bottom buttons aren't under home indicator (iPhone) */

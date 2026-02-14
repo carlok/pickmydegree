@@ -2,7 +2,7 @@
 
 A mobile-first web application that helps undecided high school students choose their university degree through structured tournament-style comparisons.
 
-![Screenshot](screenshot.png) (Place a screenshot here after running)
+<!--![Screenshot](screenshot.png) (Place a screenshot here after running)-->
 
 ## Quick Start — All commands run in Docker
 

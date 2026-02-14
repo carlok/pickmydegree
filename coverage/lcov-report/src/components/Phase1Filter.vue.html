@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/95</span>
+                <span class='fraction'>0/101</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/95</span>
+                <span class='fraction'>0/101</span>
             </div>
         
             
@@ -213,7 +213,14 @@
 <a name='L148'></a><a href='#L148'>148</a>
 <a name='L149'></a><a href='#L149'>149</a>
 <a name='L150'></a><a href='#L150'>150</a>
-<a name='L151'></a><a href='#L151'>151</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -224,6 +231,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -372,12 +386,19 @@
 &nbsp;
 <span class="cstat-no" title="statement not covered" >const { state, togglePhase1Selection, undoPhase1, completePhase1, resetGame } = useGameEngine();</span>
 <span class="cstat-no" title="statement not covered" >const { playTap, playSuccess } = useSound();</span>
-<span class="cstat-no" title="statement not covered" >const { t } = useI18n();</span>
+<span class="cstat-no" title="statement not covered" >const { t, locale } = useI18n();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >const count = computed(() =&gt; state.value.survivingDegrees.length);</span>
 <span class="cstat-no" title="statement not covered" >const total = computed(() =&gt; state.value.survivingDegrees.length + state.value.eliminatedDegrees.length);</span>
 <span class="cstat-no" title="statement not covered" >const canContinue = computed(() =&gt; count.value &gt;= 2);</span>
 <span class="cstat-no" title="statement not covered" >const canUndo = computed(() =&gt; state.value.eliminatedDegrees.length &gt; 0);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >/** Eliminated (skipped) degrees sorted alphabetically by name, stable order. */</span>
+<span class="cstat-no" title="statement not covered" >const sortedEliminatedDegrees = computed(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const list = state.value.eliminatedDegrees || [];</span>
+<span class="cstat-no" title="statement not covered" >  const loc = locale.value || 'en';</span>
+<span class="cstat-no" title="statement not covered" >  return [...list].sort((a, b) =&gt; (a.name?.[loc] ?? a.name?.en ?? '').localeCompare(b.name?.[loc] ?? b.name?.en ?? '', loc));</span>
+<span class="cstat-no" title="statement not covered" >});</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >const handleContinue = () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const result = completePhase1();</span>
@@ -452,7 +473,7 @@
 <span class="cstat-no" title="statement not covered" >        &lt;/TransitionGroup&gt;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        &lt;!-- Eliminated Divider --&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div v-if="state.eliminatedDegrees.length &gt; 0" class="mt-4"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;div v-if="sortedEliminatedDegrees.length &gt; 0" class="mt-4"&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;hr class="border-secondary opacity-25"&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;h6 class="text-muted text-center small text-uppercase letter-spacing-2 mb-3"&gt;Eliminated (Tap to Restore)&lt;/h6&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
@@ -460,7 +481,7 @@
 <span class="cstat-no" title="statement not covered" >        &lt;!-- Eliminated --&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;TransitionGroup name="list"&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;div</span>
-<span class="cstat-no" title="statement not covered" >            v-for="degree in state.eliminatedDegrees"</span>
+<span class="cstat-no" title="statement not covered" >            v-for="degree in sortedEliminatedDegrees"</span>
 <span class="cstat-no" title="statement not covered" >            :key="degree.id"</span>
 <span class="cstat-no" title="statement not covered" >            class="phase1-item opacity-50 filter-grayscale"</span>
           &gt;
@@ -520,7 +541,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-14T15:00:55.373Z
+                at 2026-02-14T15:39:19.443Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

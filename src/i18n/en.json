@@ -11,6 +11,7 @@
     "menu": {
         "aria_label": "Menu",
         "title": "Menu",
+        "home": "Home",
         "about": "About the author",
         "info_contact": "Info / Contact",
         "donate": "Donate"
