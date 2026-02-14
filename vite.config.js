@@ -22,6 +22,21 @@ export default defineConfig({
   define: {
     __APP_VERSION__: JSON.stringify(APP_VERSION),
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('vue') || id.includes('vue-i18n')) return 'vue-vendor'
+            if (id.includes('bootstrap') || id.includes('@popperjs')) return 'bootstrap'
+            if (id.includes('sass')) return 'sass'
+            return 'vendor'
+          }
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+  },
   test: {
     environment: 'happy-dom',
     globals: true,
