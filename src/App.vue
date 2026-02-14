@@ -17,6 +17,9 @@ const { state, init, goToWelcome } = useGameEngine();
 const { isMuted, toggleMute } = useSound();
 const { locale, t } = useI18n();
 
+/** Injected at build time from git (e.g. 0.1.42). */
+const appVersion = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '0.0.0-dev';
+
 init(); // Load from localStorage
 
 const switchLocale = () => {
@@ -183,6 +186,7 @@ const modalDegreeTags = computed(() => {
     <footer class="app-footer mt-4 text-center text-secondary small py-3 user-select-none opacity-50">
       {{ t('footer.copyright_prefix') }}
       <a href="https://carlo.perassi.com" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">{{ t('footer.author') }}</a>
+      <span class="ms-1">· {{ t('footer.version', { version: appVersion }) }}</span>
     </footer>
 
     <!-- Degree info modal (for "?" on cards; works on Chrome/PC) -->

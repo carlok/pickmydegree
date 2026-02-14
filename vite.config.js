@@ -1,10 +1,26 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { execSync } from 'node:child_process'
+
+/** Version from git: 0.1.<commit-count> or 0.0.0-dev if not in a git repo. */
+function getAppVersion() {
+  try {
+    const count = execSync('git rev-list --count HEAD', { encoding: 'utf-8' }).trim()
+    return `0.1.${count}`
+  } catch {
+    return '0.0.0-dev'
+  }
+}
+
+const APP_VERSION = getAppVersion()
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  define: {
+    __APP_VERSION__: JSON.stringify(APP_VERSION),
+  },
   test: {
     environment: 'happy-dom',
     globals: true,

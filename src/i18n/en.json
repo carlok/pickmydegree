@@ -16,11 +16,12 @@
         "about": "About the author",
         "info_contact": "Info / Contact",
         "donate": "Donate",
-        "thanks": "Thanks to: Rossella 👩 and Vittorio 👨"
+        "thanks": "Thanks to Rossella 👩 and Vittorio 👨"
     },
     "footer": {
         "copyright_prefix": "© 2026 Pick My Degree · ",
-        "author": "Carlo Perassi"
+        "author": "Carlo Perassi",
+        "version": "v{version}"
     },
     "progress": {
         "categories": "Categories",
@@ -61,6 +62,8 @@
     "categories": {
         "title": "By category",
         "instruction": "Tap a category to remove it and all its degrees. You can remove whole blocks at once.",
+        "tap_to_exclude": "Tap to exclude",
+        "tap_to_restore": "Tap to restore",
         "remaining": "{count} of {total} degrees remaining",
         "continue": "Continue with {count} degrees",
         "keep_at_least": "Keep at least one category (2+ degrees) to continue.",

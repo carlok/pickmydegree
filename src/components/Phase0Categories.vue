@@ -67,6 +67,11 @@ const allCategories = computed(() => {
   return list;
 });
 
+/** Kept categories (tap to exclude). */
+const keptCategories = computed(() => allCategories.value.filter((c) => !c.removed));
+/** Removed categories (tap to restore). */
+const removedCategories = computed(() => allCategories.value.filter((c) => c.removed));
+
 const survivingCount = computed(() => state.value.survivingDegrees?.length ?? 0);
 
 function handleRemove(categoryName) {
@@ -135,35 +140,64 @@ const degreesInCategory = computed(() => {
       </div>
       <h2 class="fw-bold h3 mb-2">{{ t('categories.title') }}</h2>
       <p class="text-secondary small mb-3">{{ t('categories.instruction') }}</p>
-      <div class="d-flex flex-wrap justify-content-center gap-2 mb-3" style="max-width: 360px;">
-        <div
-          v-for="cat in allCategories"
-          :key="cat.name"
-          role="button"
-          tabindex="0"
-          :class="[
-            'btn rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2',
-            cat.removed ? 'btn-outline-secondary category-removed' : 'btn-outline-light'
-          ]"
-          @click="cat.removed ? handleRestore(cat.name) : handleRemove(cat.name)"
-          @keydown.enter.prevent="cat.removed ? handleRestore(cat.name) : handleRemove(cat.name)"
-          @keydown.space.prevent="cat.removed ? handleRestore(cat.name) : handleRemove(cat.name)"
-        >
-          <span :class="{ 'category-name-removed': cat.removed }">{{ getCategoryLabel(cat.name) }}</span>
-          <span class="badge bg-secondary rounded-pill">{{ cat.count }}</span>
-          <button
-            type="button"
-            :class="[
-              'btn btn-sm rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0 category-info-btn',
-              cat.removed ? 'btn-secondary text-white border-0' : 'btn-outline-light'
-            ]"
-            style="width: 1.4rem; height: 1.4rem;"
-            :title="t('card.info')"
-            :aria-label="t('card.info')"
-            @click.stop="openCategoryInfo(cat.name, $event)"
+
+      <!-- Tap to exclude (kept categories) – emphasis background -->
+      <div class="categories-section categories-section-exclude rounded-3 p-3 mb-2" style="max-width: 360px;">
+        <p class="small text-center mb-2 text-danger fw-bold categories-section-label">{{ t('categories.tap_to_exclude') }}</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <div
+            v-for="cat in keptCategories"
+            :key="cat.name"
+            role="button"
+            tabindex="0"
+            class="btn rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 btn-outline-light category-chip"
+            @click="handleRemove(cat.name)"
+            @keydown.enter.prevent="handleRemove(cat.name)"
+            @keydown.space.prevent="handleRemove(cat.name)"
           >
-            ?
-          </button>
+            <span>{{ getCategoryLabel(cat.name) }}</span>
+            <span class="badge bg-secondary rounded-pill">{{ cat.count }}</span>
+            <button
+              type="button"
+              class="btn btn-sm rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0 category-info-btn btn-outline-light"
+              style="width: 1.4rem; height: 1.4rem;"
+              :title="t('card.info')"
+              :aria-label="t('card.info')"
+              @click.stop="openCategoryInfo(cat.name, $event)"
+            >
+              ?
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tap to restore (removed categories) – emphasis background -->
+      <div v-if="removedCategories.length > 0" class="categories-section categories-section-restore rounded-3 p-3 mb-3" style="max-width: 360px;">
+        <p class="small text-center mb-2 text-secondary fw-bold categories-section-label">{{ t('categories.tap_to_restore') }}</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <div
+            v-for="cat in removedCategories"
+            :key="cat.name"
+            role="button"
+            tabindex="0"
+            class="btn rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 btn-outline-secondary category-removed category-chip"
+            @click="handleRestore(cat.name)"
+            @keydown.enter.prevent="handleRestore(cat.name)"
+            @keydown.space.prevent="handleRestore(cat.name)"
+          >
+            <span class="category-name-removed">{{ getCategoryLabel(cat.name) }}</span>
+            <span class="badge bg-secondary rounded-pill">{{ cat.count }}</span>
+            <button
+              type="button"
+              class="btn btn-sm rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0 category-info-btn btn-secondary text-white border-0"
+              style="width: 1.4rem; height: 1.4rem;"
+              :title="t('card.info')"
+              :aria-label="t('card.info')"
+              @click.stop="openCategoryInfo(cat.name, $event)"
+            >
+              ?
+            </button>
+          </div>
         </div>
       </div>
       <p class="small text-secondary mb-2">
@@ -217,6 +251,19 @@ const degreesInCategory = computed(() => {
 </template>
 
 <style scoped>
+/* Emphasize: tap to EXCLUDE (red tint, like Phase 1 remove) */
+.categories-section-exclude {
+  background: rgba(var(--bs-danger-rgb), 0.12);
+  border: 1px solid rgba(var(--bs-danger-rgb), 0.3);
+}
+/* Emphasize: tap to RESTORE (neutral tint) */
+.categories-section-restore {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.categories-section-label {
+  letter-spacing: 0.05em;
+}
 .category-info-btn {
   opacity: 0.85;
 }

@@ -16,11 +16,12 @@
         "about": "Autore",
         "info_contact": "Info / Contatti",
         "donate": "Offri un caffè",
-        "thanks": "Grazie a: Rossella 👩 e Vittorio 👨"
+        "thanks": "Grazie a Rossella 👩 e Vittorio 👨"
     },
     "footer": {
         "copyright_prefix": "© 2026 Pick My Degree · ",
-        "author": "Carlo Perassi"
+        "author": "Carlo Perassi",
+        "version": "v{version}"
     },
     "progress": {
         "categories": "Categorie",
@@ -61,6 +62,8 @@
     "categories": {
         "title": "Per categoria",
         "instruction": "Tocca una categoria per escluderla con tutti i suoi corsi. Puoi togliere interi blocchi in un colpo.",
+        "tap_to_exclude": "Tocca per escludere",
+        "tap_to_restore": "Tocca per ripristinare",
         "remaining": "{count} di {total} corsi rimasti",
         "continue": "Continua con {count} corsi",
         "keep_at_least": "Tieni almeno una categoria (2+ corsi) per continuare.",

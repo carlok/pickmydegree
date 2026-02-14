@@ -65,4 +65,43 @@ describe('ProgressBar', () => {
     expect(engine.state.value.phase).toBe('results');
     expect(wrapper.text()).toMatch(/Results/i);
   });
+
+  it('shows no phase label when phase1 has zero total (surviving + eliminated)', () => {
+    engine.startNewGame();
+    engine.completeCategories();
+    engine.state.value.phase = 'phase1';
+    engine.state.value.survivingDegrees = [];
+    engine.state.value.eliminatedDegrees = [];
+    const wrapper = mountProgressBar();
+    expect(engine.state.value.phase).toBe('phase1');
+    expect(wrapper.find('.small.text-secondary').exists()).toBe(false);
+  });
+
+  it('shows bracket-level label when phase2 has no pairs (phase2TotalPairs 0)', () => {
+    engine.startNewGame();
+    engine.completeCategories();
+    const surv = engine.state.value.survivingDegrees;
+    while (surv.length > 4) engine.togglePhase1Selection(surv[surv.length - 1].id);
+    engine.completePhase1();
+    engine.state.value.phase = 'phase2';
+    engine.state.value.phase2TotalPairs = 0;
+    engine.state.value.phase2Queue = [];
+    const wrapper = mountProgressBar();
+    expect(engine.state.value.phase).toBe('phase2');
+    expect(wrapper.text()).toBeTruthy();
+  });
+
+  it('phaseProgress is 0 when phase2 has phase2TotalPairs 0', () => {
+    engine.startNewGame();
+    engine.completeCategories();
+    const surv = engine.state.value.survivingDegrees;
+    while (surv.length > 4) engine.togglePhase1Selection(surv[surv.length - 1].id);
+    engine.completePhase1();
+    engine.state.value.phase = 'phase2';
+    engine.state.value.phase2TotalPairs = 0;
+    engine.state.value.phase2Queue = [];
+    const wrapper = mountProgressBar();
+    const innerBars = wrapper.findAll('.progress-bar');
+    expect(innerBars.length).toBeGreaterThanOrEqual(1);
+  });
 });
