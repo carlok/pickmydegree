@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "surge": "vite build && surge dist pick-my-degree.surge.sh",
+    "surge": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:22-alpine sh -c \"npm ci --no-audit --prefer-offline && npm run build\" && surge dist pick-my-degree.surge.sh",
     "test": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run\"",
     "test:coverage": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run --coverage\"",
     "test:local": "vitest run",
@@ -34,6 +34,6 @@
     "vitest": "^2.1.8"
   },
   "overrides": {
-    "glob": "^11.0.0"
+    "glob": "^13.0.0"
   }
 }

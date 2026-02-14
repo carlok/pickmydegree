@@ -12,9 +12,11 @@
         "aria_label": "Menu",
         "title": "Menu",
         "home": "Home",
+        "github": "GitHub repo",
         "about": "About the author",
         "info_contact": "Info / Contact",
-        "donate": "Donate"
+        "donate": "Donate",
+        "thanks": "Thanks to: Rossella 👩 and Vittorio 👨"
     },
     "footer": {
         "copyright_prefix": "© 2026 Pick My Degree · ",
@@ -78,6 +80,8 @@
     "phase1": {
         "title": "Phase 1: Filter",
         "instruction": "Tap the cards to remove degrees you are definitely NOT interested in.",
+        "tap_to_remove": "Tap to remove",
+        "tap_to_restore": "Tap to restore",
         "remaining": "{count} remaining",
         "remaining_of": "{count} of {total} selected",
         "continue": "Continue with {count} degrees",
@@ -86,6 +90,7 @@
     "phase2": {
         "title": "Phase 2: Choose",
         "instruction": "Tap the degree you want to keep. The other is eliminated.",
+        "tap_to_keep": "Tap to keep",
         "minimal_note": "Only the minimum number of choices to reach the tournament size (power of 2), then direct-elimination bracket.",
         "keep": "Keep",
         "vs": "VS",

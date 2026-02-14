@@ -6,6 +6,8 @@ A mobile-first web application that helps undecided high school students choose 
 
 ## Quick Start — All commands run in Docker
 
+If you run npm locally (e.g. `npm run build`, `npm run surge`), use **Node 22** first: `nvm use 22` or `nvm use` (this repo has an `.nvmrc`).
+
 Run the development server (hot reload):
 
 ```bash

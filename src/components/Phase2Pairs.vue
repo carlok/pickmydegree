@@ -94,21 +94,22 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- Always 2 columns: Option A | VS | Option B, at any mobile width -->
-    <div v-if="state.currentMatch" class="phase2-options d-flex flex-row align-items-stretch justify-content-center w-100 px-1 gap-1">
-      <!-- Option A: tap the card (degree name) to choose it -->
-      <div class="phase2-col phase2-col-left flex-grow-1 min-w-0">
-        <div @click="handleKeep(state.currentMatch.a.id)" class="card-hover-effect cursor-pointer h-100 d-flex flex-column">
-          <MatchCard :degree="state.currentMatch.a" class="phase2-card" compact />
+    <!-- Vertical stack: Option A, VS, Option B (one per line, like tournament) -->
+    <div v-if="state.currentMatch" class="phase2-options d-flex flex-column align-items-center w-100 px-2 gap-2">
+      <p class="small text-success fw-bold mb-1 phase2-tap-label">{{ t('phase2.tap_to_keep') }}</p>
+      <!-- Option A: tap to keep -->
+      <div class="phase2-option w-100 position-relative">
+        <div @click="handleKeep(state.currentMatch.a.id)" class="card-hover-effect cursor-pointer phase2-pick-keep">
+          <MatchCard :degree="state.currentMatch.a" compact />
         </div>
       </div>
 
-      <div class="phase2-vs d-flex align-items-center justify-content-center flex-shrink-0 user-select-none font-monospace">VS</div>
+      <div class="phase2-vs fw-bold text-muted opacity-50 user-select-none font-monospace py-1">VS</div>
 
-      <!-- Option B: tap the card to choose it -->
-      <div class="phase2-col phase2-col-right flex-grow-1 min-w-0">
-        <div @click="handleKeep(state.currentMatch.b.id)" class="card-hover-effect cursor-pointer h-100 d-flex flex-column">
-          <MatchCard :degree="state.currentMatch.b" class="phase2-card" compact />
+      <!-- Option B: tap to keep -->
+      <div class="phase2-option w-100 position-relative">
+        <div @click="handleKeep(state.currentMatch.b.id)" class="card-hover-effect cursor-pointer phase2-pick-keep">
+          <MatchCard :degree="state.currentMatch.b" compact />
         </div>
       </div>
     </div>
@@ -116,85 +117,21 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* Always 2 columns: Option A | VS | Option B at any width */
+/* Vertical stack: one option per line (like tournament bracket) */
 .phase2-options {
-  max-width: 100%;
+  max-width: 360px;
+}
+.phase2-tap-label {
+  letter-spacing: 0.05em;
+}
+/* Emphasize: tap to KEEP (green tint) */
+.phase2-pick-keep {
+  background: rgba(var(--bs-success-rgb), 0.12);
+  border-radius: 1rem;
+  border: 1px solid rgba(var(--bs-success-rgb), 0.35);
 }
 .phase2-vs {
-  width: 28px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--bs-secondary);
-  opacity: 0.8;
-}
-.phase2-col :deep(.card-body) {
-  padding: 0.4rem 0.35rem;
-}
-.phase2-col :deep(.display-3) {
-  font-size: 1.75rem;
-}
-.phase2-col :deep(.card-title) {
-  font-size: 0.7rem;
-  margin-bottom: 0.2rem;
-}
-.phase2-col :deep(.card-text) {
-  font-size: 0.6rem;
-  margin-bottom: 0.2rem;
-  line-height: 1.2;
-}
-.phase2-col :deep(.badge) {
-  font-size: 0.5rem;
-  padding: 0.15rem 0.35rem;
-}
-@media (min-width: 576px) {
-  .phase2-vs {
-    width: 36px;
-    font-size: 0.85rem;
-  }
-  .phase2-col :deep(.card-body) {
-    padding: 0.5rem 0.5rem;
-  }
-  .phase2-col :deep(.display-3) {
-    font-size: 2rem;
-  }
-  .phase2-col :deep(.card-title) {
-    font-size: 0.8rem;
-  }
-  .phase2-col :deep(.card-text) {
-    font-size: 0.65rem;
-  }
-  .phase2-col :deep(.badge) {
-    font-size: 0.55rem;
-  }
-}
-@media (min-width: 768px) {
-  .phase2-options {
-    gap: 1rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  .phase2-vs {
-    width: 48px;
-    font-size: 1.25rem;
-  }
-  .phase2-col {
-    max-width: 220px;
-  }
-  .phase2-col :deep(.card-body) {
-    padding: 0.75rem 1rem;
-  }
-  .phase2-col :deep(.display-3) {
-    font-size: 2.5rem;
-  }
-  .phase2-col :deep(.card-title) {
-    font-size: 1rem;
-  }
-  .phase2-col :deep(.card-text) {
-    font-size: 0.8rem;
-  }
-  .phase2-col :deep(.badge) {
-    font-size: 0.7rem;
-  }
+  font-size: 0.9rem;
 }
 
 .card-hover-effect { transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }

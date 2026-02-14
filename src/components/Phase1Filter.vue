@@ -80,37 +80,37 @@ const handleUndo = () => {
     <!-- Single-column list: one item per line, scrollable -->
     <div class="phase1-list flex-grow-1 min-h-0 overflow-auto">
       <div class="d-flex flex-column gap-2 pb-5">
-        <!-- Surviving -->
-        <TransitionGroup name="list">
-          <div
-            v-for="degree in state.survivingDegrees"
-            :key="degree.id"
-            class="phase1-item"
-          >
-            <div @click="togglePhase1Selection(degree.id); playTap()" class="cursor-pointer card-hover-effect phase1-line">
-              <MatchCard :degree="degree" compact />
+        <!-- Surviving: tap to REMOVE (emphasized background) -->
+        <div class="phase1-section phase1-section-remove rounded-3 p-2 pb-3">
+          <p class="small text-center mb-2 text-danger fw-bold phase1-section-label">{{ t('phase1.tap_to_remove') }}</p>
+          <TransitionGroup name="list" class="d-flex flex-column gap-2">
+            <div
+              v-for="degree in state.survivingDegrees"
+              :key="degree.id"
+              class="phase1-item"
+            >
+              <div @click="togglePhase1Selection(degree.id); playTap()" class="cursor-pointer card-hover-effect phase1-line">
+                <MatchCard :degree="degree" compact />
+              </div>
             </div>
-          </div>
-        </TransitionGroup>
-
-        <!-- Eliminated Divider -->
-        <div v-if="sortedEliminatedDegrees.length > 0" class="mt-4">
-          <hr class="border-secondary opacity-25">
-          <h6 class="text-muted text-center small text-uppercase letter-spacing-2 mb-3">Eliminated (Tap to Restore)</h6>
+          </TransitionGroup>
         </div>
 
-        <!-- Eliminated -->
-        <TransitionGroup name="list">
-          <div
-            v-for="degree in sortedEliminatedDegrees"
-            :key="degree.id"
-            class="phase1-item opacity-50 filter-grayscale"
-          >
-            <div @click="togglePhase1Selection(degree.id); playTap()" class="cursor-pointer phase1-line">
-              <MatchCard :degree="degree" eliminated compact />
+        <!-- Eliminated: tap to RESTORE (emphasized background) -->
+        <div v-if="sortedEliminatedDegrees.length > 0" class="phase1-section phase1-section-restore rounded-3 p-2 pb-3 mt-3">
+          <p class="small text-center mb-2 text-secondary fw-bold phase1-section-label">{{ t('phase1.tap_to_restore') }}</p>
+          <TransitionGroup name="list" class="d-flex flex-column gap-2">
+            <div
+              v-for="degree in sortedEliminatedDegrees"
+              :key="degree.id"
+              class="phase1-item opacity-75"
+            >
+              <div @click="togglePhase1Selection(degree.id); playTap()" class="cursor-pointer phase1-line">
+                <MatchCard :degree="degree" eliminated compact />
+              </div>
             </div>
-          </div>
-        </TransitionGroup>
+          </TransitionGroup>
+        </div>
       </div>
     </div>
   </div>
@@ -136,6 +136,19 @@ const handleUndo = () => {
 .phase1-line :deep(.card-compact) {
   min-width: 0;
   max-width: 100%;
+}
+/* Emphasize: tap to REMOVE (red tint) */
+.phase1-section-remove {
+  background: rgba(var(--bs-danger-rgb), 0.12);
+  border: 1px solid rgba(var(--bs-danger-rgb), 0.3);
+}
+/* Emphasize: tap to RESTORE (neutral/secondary tint) */
+.phase1-section-restore {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.phase1-section-label {
+  letter-spacing: 0.05em;
 }
 .cursor-pointer { cursor: pointer; }
 .filter-grayscale { filter: grayscale(1); transition: filter 0.3s; }

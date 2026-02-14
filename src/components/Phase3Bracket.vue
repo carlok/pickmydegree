@@ -203,21 +203,9 @@ const handlePickWinner = (winnerId) => {
       <div class="phase3-option w-100 position-relative">
         <div
           @click="handlePickWinner(state.currentMatch.a.id)"
-          class="card-hover-effect cursor-pointer position-relative group bracket-pick"
+          class="card-hover-effect cursor-pointer position-relative bracket-pick bracket-pick-keep"
         >
           <MatchCard :degree="state.currentMatch.a" compact />
-          <div
-            class="mt-2 btn btn-success w-100 rounded-pill fw-bold d-md-none"
-            role="button"
-            tabindex="0"
-            @click.stop="handlePickWinner(state.currentMatch.a.id)"
-            @keydown.enter.prevent="handlePickWinner(state.currentMatch.a.id)"
-          >
-            {{ t('common.next') }} →
-          </div>
-          <div class="overlay overlay-pick d-none d-md-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100 rounded-4">
-            <span class="btn btn-success rounded-circle p-4 shadow-lg fs-2">✓</span>
-          </div>
         </div>
       </div>
 
@@ -226,21 +214,9 @@ const handlePickWinner = (winnerId) => {
       <div class="phase3-option w-100 position-relative">
         <div
           @click="handlePickWinner(state.currentMatch.b.id)"
-          class="card-hover-effect cursor-pointer position-relative group bracket-pick"
+          class="card-hover-effect cursor-pointer position-relative bracket-pick bracket-pick-keep"
         >
           <MatchCard :degree="state.currentMatch.b" compact />
-          <div
-            class="mt-2 btn btn-success w-100 rounded-pill fw-bold d-md-none"
-            role="button"
-            tabindex="0"
-            @click.stop="handlePickWinner(state.currentMatch.b.id)"
-            @keydown.enter.prevent="handlePickWinner(state.currentMatch.b.id)"
-          >
-            {{ t('common.next') }} →
-          </div>
-          <div class="overlay overlay-pick d-none d-md-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100 rounded-4">
-            <span class="btn btn-success rounded-circle p-4 shadow-lg fs-2">✓</span>
-          </div>
         </div>
       </div>
     </div>
@@ -254,26 +230,15 @@ const handlePickWinner = (winnerId) => {
 .phase3-options {
   max-width: 360px;
 }
+/* Emphasize: tap to KEEP (choose winner) */
+.bracket-pick-keep {
+  background: rgba(var(--bs-success-rgb), 0.12);
+  border-radius: 1rem;
+  border: 1px solid rgba(var(--bs-success-rgb), 0.35);
+}
 .card-hover-effect { transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .card-hover-effect:active { transform: scale(0.95); }
 .cursor-pointer { cursor: pointer; }
-.bracket-pick .btn.d-md-none {
-  position: relative;
-  z-index: 2;
-}
-.overlay-pick {
-  background: rgba(34, 197, 94, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
-}
-@media (min-width: 768px) {
-  .group:hover .overlay-pick {
-    opacity: 1;
-  }
-}
 .bracket-tree {
   display: flex;
   flex-direction: column;

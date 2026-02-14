@@ -12,9 +12,11 @@
         "aria_label": "Menu",
         "title": "Menu",
         "home": "Home",
+        "github": "Repo GitHub",
         "about": "Autore",
         "info_contact": "Info / Contatti",
-        "donate": "Offri un caffè"
+        "donate": "Offri un caffè",
+        "thanks": "Grazie a: Rossella 👩 e Vittorio 👨"
     },
     "footer": {
         "copyright_prefix": "© 2026 Pick My Degree · ",
@@ -78,6 +80,8 @@
     "phase1": {
         "title": "Fase 1: Filtro",
         "instruction": "Tocca le carte per rimuovere i corsi che sicuramente NON ti interessano.",
+        "tap_to_remove": "Tocca per rimuovere",
+        "tap_to_restore": "Tocca per ripristinare",
         "remaining": "{count} rimanenti",
         "remaining_of": "{count} di {total} selezionati",
         "continue": "Continua con {count} corsi",
@@ -86,6 +90,7 @@
     "phase2": {
         "title": "Fase 2: Scegli",
         "instruction": "Tocca il corso che vuoi tenere. L'altro viene eliminato.",
+        "tap_to_keep": "Tocca per tenere",
         "minimal_note": "Solo il numero minimo di scelte per arrivare al torneo (potenza di 2), poi torneo a eliminazione diretta.",
         "keep": "Tieni",
         "vs": "VS",
