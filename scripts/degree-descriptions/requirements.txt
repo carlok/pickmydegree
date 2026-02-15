@@ -1,0 +1,5 @@
+# Degree descriptions pipeline: search + LLM
+httpx>=0.27.0
+python-dotenv>=1.0.0
+openai>=1.0.0
+google-genai>=1.0.0
