@@ -54,7 +54,10 @@ const totalInRound = computed(() => {
   return state.value.currentMatch ? base + 1 : base;
 });
 const currentMatchInRound = computed(() => nextQueue.value.length + 1);
-const toGoInRound = computed(() => Math.max(0, bracketQueue.value.length));
+const toGoInRound = computed(() => {
+  const queue = bracketQueue.value.length;
+  return state.value.currentMatch ? queue + 1 : queue;
+});
 
 /** Total number of bracket rounds (e.g. 16 teams → 4 rounds: 8→4→2→1). */
 const totalRounds = computed(() => {
@@ -89,8 +92,7 @@ const matchesLeftLabel = computed(() => {
 const remainingInRound = computed(() => {
   const total = totalInRound.value;
   const toGo = toGoInRound.value;
-  const remaining = toGo + 1;
-  return { remaining: Math.min(remaining, total), total };
+  return { remaining: Math.min(toGo, total), total };
 });
 
 /** Binary tree rows for progress: each row = round, dots = matches; filled = done, white = to do. */
