@@ -12,11 +12,11 @@ app:
 
 # Install dependencies (in container; writes to mounted volume)
 install:
-	docker compose run --rm dev sh -c "npm install"
+	docker compose run --rm dev sh -c "npm ci"
 
 # Build for production (in container)
 build:
-	docker compose run --rm dev sh -c "npm install && npm run build"
+	docker compose run --rm dev sh -c "npm ci && npm run build"
 
 # Preview production build locally (serves on :4173)
 preview: build
