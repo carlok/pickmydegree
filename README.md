@@ -30,9 +30,9 @@ Use the `dev` service so every command runs in the same Node environment:
 
 | What | Command |
 |------|---------|
-| Install dependencies | `docker compose run --rm dev sh -c "npm install"` |
-| Build for production | `docker compose run --rm dev sh -c "npm install && npm run build"` |
-| Preview production build (after building) | `docker compose run --rm -p 4173:4173 dev sh -c "npm install && npm run build && npm run preview -- --host"` |
+| Install dependencies | `docker compose run --rm dev sh -c "npm ci"` |
+| Build for production | `docker compose run --rm dev sh -c "npm ci && npm run build"` |
+| Preview production build (after building) | `docker compose run --rm -p 4173:4173 dev sh -c "npm ci && npm run build && npm run preview -- --host"` |
 
 Production build and serve is still best done with `docker compose up --build app`, which uses the Dockerfile (multi-stage build + Nginx).
 
