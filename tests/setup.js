@@ -27,7 +27,8 @@ const mockLocalStorage = {
 
 vi.stubGlobal('localStorage', mockLocalStorage);
 
-const mockAudioContext = vi.fn().mockImplementation(() => ({
+// A `function` (not an arrow) so the mock can be called with `new`, as Vitest 4 requires.
+const mockAudioContext = vi.fn().mockImplementation(function () { return {
   state: 'running',
   currentTime: 0,
   createOscillator: () => ({
@@ -43,7 +44,7 @@ const mockAudioContext = vi.fn().mockImplementation(() => ({
   }),
   destination: {},
   resume: vi.fn().mockResolvedValue(undefined),
-}));
+}; });
 
 vi.stubGlobal('AudioContext', mockAudioContext);
 vi.stubGlobal('webkitAudioContext', mockAudioContext);
