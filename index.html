@@ -23,7 +23,12 @@
       setTimeout(function() {
         var loading = document.getElementById('app-loading');
         if (loading) {
-          loading.innerHTML = 'If the app didn’t load, <a href="">refresh the page</a> or restart with <code>docker compose down && docker compose up dev</code>.';
+          var isLocalDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+          var msg = 'If the app didn’t load, please <a href="">reload the page</a>.';
+          if (isLocalDev) {
+            msg += ' For local dev, try <code>docker compose down && docker compose up dev</code>.';
+          }
+          loading.innerHTML = msg;
         }
       }, 5000);
     </script>

@@ -24,6 +24,12 @@ docker compose up --build app
 
 App: [http://localhost:8080](http://localhost:8080).
 
+## Deploy
+
+Pushes to `main` automatically build, test, and deploy to [https://pick-my-degree.surge.sh](https://pick-my-degree.surge.sh) via GitHub Actions (`.github/workflows/deploy.yml`). The workflow needs a repository secret **`SURGE_TOKEN`** — create a token with `npx surge token` and add it under **Settings → Secrets and variables → Actions**.
+
+You can still deploy manually after a local build: `npm run surge` (Docker build + Surge) or `npm run build` then `npm run deploy`.
+
 ## Running other commands inside Docker
 
 Use the `dev` service so every command runs in the same Node environment:
