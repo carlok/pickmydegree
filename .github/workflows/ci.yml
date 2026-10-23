@@ -1,8 +1,9 @@
 name: CI
 
+# Pushes to main are tested, built and deployed by deploy.yml; this covers pull requests and other branches.
 on:
   push:
-    branches: [main]
+    branches-ignore: [main]
   pull_request:
 
 jobs:
