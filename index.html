@@ -28,9 +28,16 @@
         var loading = document.getElementById('app-loading');
         if (loading) {
           var it = (navigator.language || '').indexOf('it') === 0;
-          loading.innerHTML = it
+          var isLocalDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+          var msg = it
             ? 'Se l’app non si è caricata, <a href="">ricarica la pagina</a>.'
-            : 'If the app didn’t load, <a href="">refresh the page</a>.';
+            : 'If the app didn’t load, please <a href="">reload the page</a>.';
+          if (isLocalDev) {
+            msg += it
+              ? ' Sviluppo locale: prova <code>docker compose down && docker compose up dev</code>.'
+              : ' For local dev, try <code>docker compose down && docker compose up dev</code>.';
+          }
+          loading.innerHTML = msg;
         }
       }, 5000);
     </script>
