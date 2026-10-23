@@ -1,16 +1,19 @@
 services:
   app:
     # Production service: builds and runs production container
-    build: .
+    build:
+      context: .
+      args:
+        APP_VERSION: ${APP_VERSION:-0.0.0-dev}
     ports:
       - "8080:80"
 
   dev:
-    # Development service: mounts source code for hot reload (localhost:80)
-    image: node:20-alpine
+    # Development service: mounts source code for hot reload (http://localhost:5173)
+    image: node:22-alpine
     working_dir: /app
     volumes:
       - .:/app
     ports:
-      - "80:5173"
+      - "5173:5173"
     command: sh -c "npm ci && npm run dev -- --host"

@@ -25,3 +25,9 @@ dist-ssr
 
 # Test coverage (generated)
 coverage
+
+# Generated data / caches
+*.updated.json
+__pycache__/
+*.pyc
+catalog/.cache/

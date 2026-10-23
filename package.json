@@ -9,20 +9,21 @@
     "preview": "vite preview",
     "surge": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -e APP_VERSION=\"0.1.$(git rev-list --count HEAD 2>/dev/null || echo 0)\" -v \"$(pwd):/app\" -w /app node:22-alpine sh -c \"npm ci --no-audit --prefer-offline && npm run build\" && npx surge dist pick-my-degree.surge.sh",
     "deploy": "npx surge dist pick-my-degree.surge.sh",
-    "test": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run\"",
-    "test:coverage": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run --coverage\"",
+    "test": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:22-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run\"",
+    "test:coverage": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:22-alpine sh -c \"npm ci --no-audit --prefer-offline && npx vitest run --coverage\"",
     "test:local": "vitest run",
     "test:coverage:local": "vitest run --coverage",
-    "test:watch": "vitest",
-    "double-descriptions": "docker run --rm -e NPM_CONFIG_LOGLEVEL=warn -v \"$(pwd):/app\" -w /app node:20-alpine sh -c \"npm ci --no-audit --prefer-offline && npm run double-descriptions:local\"",
-    "double-descriptions:local": "node scripts/double-descriptions.cjs"
+    "test:watch": "vitest"
+  },
+  "engines": {
+    "node": ">=22"
   },
   "dependencies": {
+    "@fontsource-variable/montserrat": "^5.2.8",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
     "canvas-confetti": "^1.9.3",
     "html2canvas": "^1.4.1",
-    "sass": "^1.97.3",
     "vue": "^3.5.44",
     "vue-i18n": "^11.2.8"
   },
@@ -31,6 +32,7 @@
     "@vitest/coverage-v8": "^4.1.12",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.14.5",
+    "sass": "^1.97.3",
     "surge": "^0.44.3",
     "vite": "^7.3.7",
     "vitest": "^4.1.12"
