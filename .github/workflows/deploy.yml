@@ -1,0 +1,52 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npx vitest run
+
+      - name: Set APP_VERSION
+        run: echo "APP_VERSION=0.1.$(git rev-list --count HEAD)" >> "$GITHUB_ENV"
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Surge
+        if: env.SURGE_TOKEN != ''
+        run: npx surge dist pick-my-degree.surge.sh
+
+      - name: Skip deploy (no SURGE_TOKEN)
+        if: env.SURGE_TOKEN == ''
+        run: |
+          echo "Skipping Surge deploy: SURGE_TOKEN secret is not set (expected on forks or before the secret is configured)."
