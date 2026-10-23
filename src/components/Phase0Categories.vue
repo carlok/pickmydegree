@@ -1,12 +1,14 @@
 <script setup>
-import { computed, ref, onMounted } from 'vue';
-import { Modal } from 'bootstrap';
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
+import { Modal } from '../bootstrap-js';
 import { useGameEngine } from '../composables/useGameEngine';
 import { useSound } from '../composables/useSound';
+import { useLeaveGame } from '../composables/useLeaveGame';
 import { useI18n } from 'vue-i18n';
 
-const { state, removeCategory, completeCategories, restoreCategory, resetGame } = useGameEngine();
+const { state, removeCategory, completeCategories, restoreCategory } = useGameEngine();
 const { playTap, playSuccess } = useSound();
+const { leaveGame } = useLeaveGame();
 const { t, locale } = useI18n();
 
 /** Stable display order of category names (shuffled once on mount). */
@@ -16,7 +18,10 @@ onMounted(() => {
   const surv = state.value.survivingDegrees || [];
   const names = [...new Set(surv.map((d) => d.category || 'Other'))];
   categoryDisplayOrder.value = shuffleArray(names);
+  // Attached by hand: Vue's `@hidden.bs.modal` would treat ".bs" and ".modal" as modifiers and never fire.
+  categoryModalRef.value?.addEventListener('hidden.bs.modal', closeCategoryModal);
 });
+onBeforeUnmount(() => categoryModalRef.value?.removeEventListener('hidden.bs.modal', closeCategoryModal));
 
 /** Slug for i18n key: "Business & Law" -> "business_law", "STEM" -> "stem". */
 function categoryToSlug(category) {
@@ -133,8 +138,8 @@ const degreesInCategory = computed(() => {
       <div class="d-flex align-items-center justify-content-between w-100 mb-2 px-2" style="max-width: 360px;">
         <button
           type="button"
-          class="btn btn-link link-secondary small text-decoration-none p-0"
-          @click="playTap(); resetGame()"
+          class="btn btn-link link-secondary small text-decoration-none back-link"
+          @click="leaveGame"
         >
           ← {{ t('common.back') }}
         </button>
@@ -143,36 +148,36 @@ const degreesInCategory = computed(() => {
       <p class="text-secondary small mb-3">{{ t('categories.instruction') }}</p>
 
       <!-- Tap to exclude (kept categories) -->
-      <div class="categories-section categories-section-exclude rounded-3 p-3 mb-3" style="max-width: 360px;">
+      <div class="categories-section categories-section-exclude rounded-3 p-3 mb-3" style="max-width: 360px;" role="group" :aria-label="t('categories.tap_to_exclude')">
         <p class="small text-center mb-2 text-danger fw-bold categories-section-label">{{ t('categories.tap_to_exclude') }}</p>
         <div class="d-flex flex-wrap justify-content-center gap-2">
           <div
             v-for="cat in keptCategories"
             :key="cat.name"
-            role="button"
-            tabindex="0"
-            class="btn rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 btn-outline-light category-chip"
-            @click="handleRemove(cat.name)"
-            @keydown.enter.prevent="handleRemove(cat.name)"
-            @keydown.space.prevent="handleRemove(cat.name)"
+            class="category-chip-group category-chip-group-kept"
           >
-            <span>{{ getCategoryLabel(cat.name) }}</span>
-            <span class="badge bg-secondary rounded-pill">{{ cat.count }}</span>
             <button
               type="button"
-              class="btn btn-sm rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0 category-info-btn btn-outline-light"
-              style="width: 1.4rem; height: 1.4rem;"
+              class="btn rounded-start-pill border-0 ps-3 pe-2 py-2 d-inline-flex align-items-center gap-2 text-light category-chip"
+              @click="handleRemove(cat.name)"
+            >
+              <span>{{ getCategoryLabel(cat.name) }}</span>
+              <span class="badge bg-secondary rounded-pill">{{ cat.count }}</span>
+            </button>
+            <button
+              type="button"
+              class="category-info-btn"
               :title="t('card.info')"
-              :aria-label="t('card.info')"
+              :aria-label="t('card.more_info_about', { name: getCategoryLabel(cat.name) })"
               @click.stop="openCategoryInfo(cat.name, $event)"
             >
-              ?
+              <span class="category-info-dot" aria-hidden="true">?</span>
             </button>
           </div>
         </div>
       </div>
 
-      <p class="small text-secondary mb-2">
+      <p class="small text-secondary mb-2" aria-live="polite">
         {{ t('categories.remaining', { count: survivingCount, total: survivingCount + (state.eliminatedDegrees?.length ?? 0) }) }}
       </p>
       <p class="small text-secondary mb-2">{{ t('categories.keep_at_least') }}</p>
@@ -186,30 +191,30 @@ const degreesInCategory = computed(() => {
       </button>
 
       <!-- Excluded categories below Continue (Continue is before this block) -->
-      <div v-if="removedCategories.length > 0" class="categories-section categories-section-restore rounded-3 p-3 mb-3" style="max-width: 360px;">
+      <div v-if="removedCategories.length > 0" class="categories-section categories-section-restore rounded-3 p-3 mb-3" style="max-width: 360px;" role="group" :aria-label="t('categories.tap_to_restore')">
         <p class="small text-center mb-2 text-secondary fw-bold categories-section-label">{{ t('categories.tap_to_restore') }}</p>
         <div class="d-flex flex-wrap justify-content-center gap-2">
           <div
             v-for="cat in removedCategories"
             :key="cat.name"
-            role="button"
-            tabindex="0"
-            class="btn rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 btn-outline-secondary category-removed category-chip"
-            @click="handleRestore(cat.name)"
-            @keydown.enter.prevent="handleRestore(cat.name)"
-            @keydown.space.prevent="handleRestore(cat.name)"
+            class="category-chip-group category-chip-group-removed category-removed"
           >
-            <span class="category-name-removed">{{ getCategoryLabel(cat.name) }}</span>
-            <span class="badge bg-secondary rounded-pill">{{ cat.count }}</span>
             <button
               type="button"
-              class="btn btn-sm rounded-circle p-0 d-flex align-items-center justify-content-center flex-shrink-0 category-info-btn btn-secondary text-white border-0"
-              style="width: 1.4rem; height: 1.4rem;"
+              class="btn rounded-start-pill border-0 ps-3 pe-2 py-2 d-inline-flex align-items-center gap-2 text-light category-chip"
+              @click="handleRestore(cat.name)"
+            >
+              <span class="category-name-removed">{{ getCategoryLabel(cat.name) }}</span>
+              <span class="badge bg-secondary rounded-pill">{{ cat.count }}</span>
+            </button>
+            <button
+              type="button"
+              class="category-info-btn"
               :title="t('card.info')"
-              :aria-label="t('card.info')"
+              :aria-label="t('card.more_info_about', { name: getCategoryLabel(cat.name) })"
               @click.stop="openCategoryInfo(cat.name, $event)"
             >
-              ?
+              <span class="category-info-dot" aria-hidden="true">?</span>
             </button>
           </div>
         </div>
@@ -225,7 +230,6 @@ const degreesInCategory = computed(() => {
       aria-hidden="true"
       data-bs-backdrop="true"
       data-bs-keyboard="true"
-      @hidden.bs.modal="closeCategoryModal"
     >
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content bg-dark border border-secondary">
@@ -233,7 +237,7 @@ const degreesInCategory = computed(() => {
             <h5 id="categoryModalTitle" class="modal-title text-light">
               {{ categoryForInfo ? getCategoryLabel(categoryForInfo) : '' }}
             </h5>
-            <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="modal" />
+            <button type="button" class="btn-close btn-close-white" :aria-label="t('common.close')" data-bs-dismiss="modal" />
           </div>
           <div class="modal-body text-start text-body small">
             <p class="category-modal-label fw-bold text-primary mb-2">{{ t('categories.degrees_in_category') }}</p>
@@ -266,22 +270,63 @@ const degreesInCategory = computed(() => {
 .categories-section-label {
   letter-spacing: 0.05em;
 }
-.category-info-btn {
-  opacity: 0.85;
+.category-chip-group {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50rem;
+  border: 1px solid rgba(248, 249, 250, 0.5);
 }
-.category-info-btn:hover {
-  opacity: 1;
+.category-chip-group-removed {
+  border-color: rgba(106, 174, 245, 0.5);
+}
+.category-chip {
+  min-height: 2.75rem;
+}
+@media (hover: hover) {
+  .category-chip:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+/* 44x44 hit area around a smaller visual circle. */
+.category-info-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0 50rem 50rem 0;
+  color: var(--bs-light);
+  cursor: pointer;
+}
+.category-info-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.category-info-btn:hover .category-info-dot {
+  background: rgba(255, 255, 255, 0.15);
 }
 .category-modal-label {
   color: var(--bs-primary);
 }
-.categories-root { }
 .categories-scroll { -webkit-overflow-scrolling: touch; }
 .category-removed {
   opacity: 0.75;
 }
-.category-removed:hover {
-  opacity: 1;
+@media (hover: hover) {
+  .category-removed:hover {
+    opacity: 1;
+  }
 }
 .category-name-removed {
   text-decoration: line-through;

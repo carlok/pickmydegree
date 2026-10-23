@@ -108,4 +108,12 @@ describe('Phase0Categories', () => {
     const DOCUMENT_POSITION_PRECEDING = 2;
     expect(docPos & DOCUMENT_POSITION_PRECEDING).toBe(DOCUMENT_POSITION_PRECEDING);
   });
+
+  it('info button is a sibling of the chip button, so it cannot remove the category', async () => {
+    const wrapper = mount(Phase0Categories, { global: { plugins: [i18n] } });
+    expect(wrapper.find('button button').exists()).toBe(false);
+    const before = engine.state.value.survivingDegrees.length;
+    await wrapper.find('.categories-section-exclude .category-info-btn').trigger('click');
+    expect(engine.state.value.survivingDegrees.length).toBe(before);
+  });
 });

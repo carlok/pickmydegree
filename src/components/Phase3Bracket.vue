@@ -2,26 +2,22 @@
 import { ref, computed, onMounted } from 'vue';
 import { useGameEngine } from '../composables/useGameEngine';
 import { useSound } from '../composables/useSound';
+import { useLeaveGame } from '../composables/useLeaveGame';
 import MatchCard from './MatchCard.vue';
 import { useI18n } from 'vue-i18n';
+import { useBracketLabel } from '../composables/useBracketLabel';
 
-const { state, resolveBracketMatch, resetGame, repairBracketState } = useGameEngine();
+const { state, resolveBracketMatch, repairBracketState } = useGameEngine();
 const { playAdvance, playTap } = useSound();
+const { leaveGame } = useLeaveGame();
 const { t } = useI18n();
+const bracketLevelLabel = useBracketLabel();
 
 const introDismissedForRound = ref(null);
 
 onMounted(() => {
   if (state.value.phase === 'phase3-bracket') repairBracketState();
 });
-
-/** Bracket level label by size: Final, Quarter, Octave, 16-level, etc. */
-function bracketLevelLabel(size) {
-  const n = Math.max(2, size || 2);
-  const key = `progress.bracket_level_${n}`;
-  const out = t(key);
-  return out !== key ? out : t('progress.phase3_bracket');
-}
 
 /** Current round size (teams at start of this round) for correct stage name. */
 const currentRoundSize = computed(() => {
@@ -123,9 +119,17 @@ function dismissIntro() {
   introDismissedForRound.value = state.value.round;
 }
 
+// A second tap right after a pick lands on the next match's card (the DOM has already moved on): ignore it.
+const PICK_LOCK_MS = 350;
+let lastPickAt = 0;
+
 const handlePickWinner = (winnerId) => {
-  playAdvance();
-  resolveBracketMatch(winnerId);
+  const now = Date.now();
+  if (now - lastPickAt < PICK_LOCK_MS) return;
+  if (resolveBracketMatch(winnerId)) {
+    lastPickAt = now;
+    playAdvance();
+  }
 };
 </script>
 
@@ -136,8 +140,8 @@ const handlePickWinner = (winnerId) => {
       <div class="d-flex align-items-start justify-content-between mb-2">
         <button
           type="button"
-          class="btn btn-link link-secondary small text-decoration-none p-0"
-          @click="playTap(); resetGame()"
+          class="btn btn-link link-secondary small text-decoration-none back-link"
+          @click="leaveGame"
         >
           ← {{ t('common.back') }}
         </button>
@@ -148,7 +152,7 @@ const handlePickWinner = (winnerId) => {
       <span class="badge rounded-pill px-3 py-2 bg-primary bg-opacity-25 border border-primary border-opacity-50">
         {{ bracketLevelBadge }}
       </span>
-      <p class="small text-secondary mt-2 mb-0">{{ matchProgress }}</p>
+      <p class="small text-secondary mt-2 mb-0" aria-live="polite">{{ matchProgress }}</p>
       <div v-if="roundCountdown || toGoInRound > 0" class="small text-secondary mt-1 d-flex flex-wrap justify-content-center gap-2">
         <span v-if="roundCountdown" class="text-primary">{{ roundCountdown }}</span>
         <span v-if="toGoInRound > 0">{{ matchesLeftLabel }}</span>
@@ -203,22 +207,16 @@ const handlePickWinner = (winnerId) => {
     <!-- Match: vertical stack (Option A, VS, Option B) -->
     <div v-else-if="state.currentMatch" class="phase3-options d-flex flex-column align-items-center w-100 px-2 gap-2">
       <div class="phase3-option w-100 position-relative">
-        <div
-          @click="handlePickWinner(state.currentMatch.a.id)"
-          class="card-hover-effect cursor-pointer position-relative bracket-pick bracket-pick-keep"
-        >
-          <MatchCard :degree="state.currentMatch.a" compact />
+        <div class="card-hover-effect position-relative bracket-pick bracket-pick-keep">
+          <MatchCard :degree="state.currentMatch.a" pickable @pick="handlePickWinner(state.currentMatch.a.id)" />
         </div>
       </div>
 
-      <div class="fw-bold fs-5 text-muted opacity-50 user-select-none py-1 font-monospace">{{ t('phase2.vs') }}</div>
+      <div class="fw-bold fs-5 text-secondary user-select-none py-1 font-monospace" aria-hidden="true">{{ t('phase2.vs') }}</div>
 
       <div class="phase3-option w-100 position-relative">
-        <div
-          @click="handlePickWinner(state.currentMatch.b.id)"
-          class="card-hover-effect cursor-pointer position-relative bracket-pick bracket-pick-keep"
-        >
-          <MatchCard :degree="state.currentMatch.b" compact />
+        <div class="card-hover-effect position-relative bracket-pick bracket-pick-keep">
+          <MatchCard :degree="state.currentMatch.b" pickable @pick="handlePickWinner(state.currentMatch.b.id)" />
         </div>
       </div>
     </div>
@@ -227,7 +225,6 @@ const handlePickWinner = (winnerId) => {
 </template>
 
 <style scoped>
-.phase3-root { }
 .phase3-scroll { -webkit-overflow-scrolling: touch; }
 .phase3-options {
   max-width: 360px;
@@ -240,7 +237,6 @@ const handlePickWinner = (winnerId) => {
 }
 .card-hover-effect { transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .card-hover-effect:active { transform: scale(0.95); }
-.cursor-pointer { cursor: pointer; }
 .bracket-tree {
   display: flex;
   flex-direction: column;

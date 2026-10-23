@@ -1,12 +1,12 @@
 {
     "common": {
-        "loading": "Loading...",
         "next": "Next",
         "back": "Back",
         "close": "Close",
         "sound_on": "Sound on",
         "sound_off": "Sound off",
-        "buy_me_a_coffee": "Buy me a coffee"
+        "confirm_leave": "Leave this game? Your progress will be lost.",
+        "switch_language": "Switch language"
     },
     "menu": {
         "aria_label": "Menu",
@@ -15,8 +15,6 @@
         "github": "GitHub repo",
         "about": "About the author",
         "info_contact": "Info / Contact",
-        "donate": "Donate",
-        "thanks": "Thanks to Rossella 👩 and Vittorio 👨",
         "thanks_to": "Thanks to",
         "thanks_rossella": "Rossella",
         "thanks_vittorio": "Vittorio",
@@ -45,15 +43,16 @@
         "bracket_level_32": "32-level",
         "bracket_level_64": "64-level",
         "bracket_level_128": "128-level",
-        "results": "Results"
+        "results": "Results",
+        "aria_label": "Game progress",
+        "step_aria_label": "Progress in this step"
     },
     "welcome": {
         "title": "Pick My Degree",
         "subtitle": "Discover your ideal university degree through a tournament of choices.",
         "data_source": "The list includes all first-cycle and single-cycle (direct full) degree programmes from {politoLink} and {unitoLink}. Second-cycle degrees (Master’s / Lauree magistrali) are not included, as the app is designed for final-year high school students.",
         "data_academic_year": "The list is updated to the academic year 2025–26.",
-        "start": "Start Journey",
-        "resume": "Resume Game"
+        "start": "Start Journey"
     },
     "rules": {
         "title": "How to Play",
@@ -77,8 +76,6 @@
         "remaining": "{count} of {total} degrees remaining",
         "continue": "Continue with {count} degrees",
         "keep_at_least": "Keep at least one category (2+ degrees) to continue.",
-        "undo": "Undo last category",
-        "removed_tap_to_restore": "Removed (tap to restore)",
         "degrees_in_category": "Degree programmes in this category:"
     },
     "category": {
@@ -95,9 +92,7 @@
         "instruction": "Tap the cards to remove degrees you are definitely NOT interested in.",
         "tap_to_remove": "Tap to remove",
         "tap_to_restore": "Tap to restore",
-        "remaining": "{count} remaining",
         "remaining_of": "{count} of {total} selected",
-        "continue": "Continue with {count} degrees",
         "undo": "Undo"
     },
     "phase2": {
@@ -105,18 +100,14 @@
         "instruction": "Tap the degree you want to keep. The other is eliminated.",
         "tap_to_keep": "Tap to keep",
         "minimal_note": "Only the minimum number of choices to reach the tournament size (power of 2), then direct-elimination bracket.",
-        "keep": "Keep",
         "vs": "VS",
         "timer": "Time left: {seconds}s",
         "timeout_explanation": "If you don't choose in time, one candidate is picked at random (we'll show you which one was kept).",
-        "discard": "Discard",
-        "random_toast": "Time's up! A random choice was made.",
         "timeout_kept": "Time's up! Kept: {name}"
     },
     "bracket": {
         "title": "Tournament",
         "instruction": "Select the winner to advance.",
-        "round": "Round {n}",
         "round_of_16": "Round of 16",
         "round_of_32": "Round of 32",
         "round_of_64": "Round of 64",
@@ -132,7 +123,9 @@
         "remaining_of": "Remaining {remaining} of {total}"
     },
     "card": {
-        "info": "More info"
+        "info": "More info",
+        "more_info_about": "More info about {name}",
+        "eliminated": "Removed"
     },
     "results": {
         "title": "Your Results",
@@ -146,9 +139,21 @@
         "restart": "Start Over",
         "share_success": "Image saved!",
         "share_success_native": "Shared!",
-        "share_error": "Could not save image."
+        "share_error": "Could not save image.",
+        "share_app_text": "Pick My Degree – discover your ideal degree through a tournament of choices.",
+        "share_result_fallback": "My degree result",
+        "learn_more": "Course pages"
     },
     "dev": {
         "reset_saved": "Reset saved progress"
+    },
+    "errors": {
+        "keep_at_least_two": "Keep at least 2 degrees.",
+        "something_wrong": "Something went wrong. Try refreshing the page.",
+        "refresh": "Refresh the page"
+    },
+    "universities": {
+        "polito": "Politecnico di Torino",
+        "unito": "Università di Torino"
     }
 }

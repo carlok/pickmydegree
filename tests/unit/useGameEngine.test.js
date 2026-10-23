@@ -2,6 +2,7 @@
  * Unit tests for useGameEngine: phases, categories, phase1, phase2, bracket, persistence.
  */
 import { describe, it, expect, beforeEach } from 'vitest';
+import { nextTick } from 'vue';
 import { useGameEngine } from '../../src/composables/useGameEngine';
 import { useDataStore } from '../../src/composables/useDataStore';
 
@@ -212,6 +213,72 @@ describe('useGameEngine', () => {
       expect(engine.state.value.phase).toBe('welcome');
     });
 
+    it('saves ids only, not whole degree objects', async () => {
+      engine.startNewGame();
+      engine.completeCategories();
+      await nextTick();
+      const raw = JSON.parse(localStorage.getItem('pick-my-degree-v1'));
+      expect(raw.v).toBe(2);
+      expect(typeof raw.survivingDegrees[0]).toBe('string');
+    });
+
+    it('round-trips a game in progress through the id-based save', async () => {
+      engine.startNewGame();
+      engine.completeCategories();
+      const surv = engine.state.value.survivingDegrees;
+      while (surv.length > 8) engine.togglePhase1Selection(surv[surv.length - 1].id);
+      engine.completePhase1();
+      engine.resolveBracketMatch(engine.state.value.currentMatch.a.id);
+      await nextTick();
+      const expected = JSON.parse(JSON.stringify(engine.state.value));
+      engine.init();
+      expect(JSON.parse(JSON.stringify(engine.state.value))).toEqual(expected);
+    });
+
+    it('ignores a save from a newer schema version', () => {
+      useDataStore().save({ v: 99, phase: 'phase1', survivingDegrees: ['deg-001', 'deg-002'], eliminatedDegrees: [] });
+      engine.init();
+      expect(engine.state.value.phase).toBe('welcome');
+    });
+
+    it('drops ids that no longer exist in degrees.json, and resets when nothing is left', () => {
+      useDataStore().save({ v: 2, phase: 'phase1', survivingDegrees: ['deg-001', 'gone-1', 'gone-2'], eliminatedDegrees: [] });
+      engine.init();
+      expect(engine.state.value.survivingDegrees.map((d) => d.id)).toEqual(['deg-001']);
+      engine.resetGame();
+      useDataStore().save({ v: 2, phase: 'phase1', survivingDegrees: ['gone-1'], eliminatedDegrees: [] });
+      engine.init();
+      expect(engine.state.value.phase).toBe('welcome');
+    });
+
+    it('picks up edits to a degree after reload (text is not stored)', () => {
+      useDataStore().save({ v: 2, phase: 'phase1', survivingDegrees: ['deg-001', 'deg-002'], eliminatedDegrees: [] });
+      engine.init();
+      expect(engine.state.value.survivingDegrees[0].name.it).toBeTruthy();
+    });
+
+    it('init repairs phase2 saved without a current match', async () => {
+      engine.startNewGame();
+      engine.completeCategories();
+      const surv = engine.state.value.survivingDegrees;
+      while (surv.length > 6) engine.togglePhase1Selection(surv[surv.length - 1].id);
+      engine.completePhase1();
+      await nextTick();
+      const raw = JSON.parse(localStorage.getItem('pick-my-degree-v1'));
+      raw.currentMatch = null;
+      engine.resetGame();
+      useDataStore().save(raw);
+      engine.init();
+      expect(engine.state.value.phase).toBe('phase2');
+      expect(engine.state.value.currentMatch).not.toBeNull();
+    });
+
+    it('init resets an unrecoverable bracket save instead of leaving a frozen screen', () => {
+      useDataStore().save({ v: 2, phase: 'phase3-bracket', survivingDegrees: ['deg-001'], eliminatedDegrees: [], bracketTotal: 1 });
+      engine.init();
+      expect(engine.state.value.phase).toBe('welcome');
+    });
+
     it('init with phase3-bracket saved state calls repairBracketState', () => {
       engine.startNewGame();
       engine.completeCategories();
@@ -248,15 +315,133 @@ describe('useGameEngine', () => {
       engine.startNewGame();
       engine.completeCategories();
       const surv = engine.state.value.survivingDegrees;
+      while (surv.length > 6) engine.togglePhase1Selection(surv[surv.length - 1].id);
+      engine.completePhase1();
+      // 6 survivors is not a power of 2, so this must go through phase 2 (2 pairs, 4 left).
+      expect(engine.state.value.phase).toBe('phase2');
+      while (engine.state.value.phase === 'phase2' && engine.state.value.currentMatch) {
+        const { a } = engine.state.value.currentMatch;
+        engine.resolvePhase2Match(a.id);
+      }
+      expect(engine.state.value.phase).toBe('phase3-bracket');
+      expect(engine.state.value.bracketTotal).toBe(4);
+    });
+
+    it('resolvePhase2MatchRandomly keeps one of the two degrees', () => {
+      engine.startNewGame();
+      engine.completeCategories();
+      const surv = engine.state.value.survivingDegrees;
+      while (surv.length > 6) engine.togglePhase1Selection(surv[surv.length - 1].id);
+      engine.completePhase1();
+      const { a, b } = engine.state.value.currentMatch;
+      const kept = engine.resolvePhase2MatchRandomly();
+      expect([a.id, b.id]).toContain(kept.id);
+      expect(engine.state.value.nextRoundQueue.some((d) => d.id === kept.id)).toBe(true);
+    });
+
+    it('ignores a second resolve with an id that is not in the current match', () => {
+      engine.startNewGame();
+      engine.completeCategories();
+      const surv = engine.state.value.survivingDegrees;
+      while (surv.length > 6) engine.togglePhase1Selection(surv[surv.length - 1].id);
+      engine.completePhase1();
+      const { a } = engine.state.value.currentMatch;
+      expect(engine.resolvePhase2Match(a.id)).toBe(true);
+      const eliminatedBefore = engine.state.value.eliminatedDegrees.length;
+      // Stale tap on the card that was already resolved: must be a no-op, not a random pick.
+      expect(engine.resolvePhase2Match(a.id)).toBe(false);
+      expect(engine.state.value.eliminatedDegrees.length).toBe(eliminatedBefore);
+    });
+
+    it('resolvePhase2Match and resolvePhase2MatchRandomly are no-ops with no live match', () => {
+      expect(engine.resolvePhase2Match('deg-001')).toBe(false);
+      expect(engine.resolvePhase2MatchRandomly()).toBeNull();
+    });
+  });
+
+  describe('double resolve guards', () => {
+    function toBracketWithFour() {
+      engine.startNewGame();
+      engine.completeCategories();
+      const surv = engine.state.value.survivingDegrees;
       while (surv.length > 4) engine.togglePhase1Selection(surv[surv.length - 1].id);
       engine.completePhase1();
-      if (engine.state.value.phase === 'phase2') {
-        while (engine.state.value.phase === 'phase2' && engine.state.value.currentMatch) {
-          const { a } = engine.state.value.currentMatch;
-          engine.resolvePhase2Match(a.id);
-        }
-        expect(engine.state.value.phase).toBe('phase3-bracket');
+    }
+
+    it('resolveBracketMatch ignores an id outside the current match', () => {
+      toBracketWithFour();
+      const before = engine.state.value.currentMatch;
+      expect(engine.resolveBracketMatch('not-in-match')).toBe(false);
+      expect(engine.state.value.currentMatch).toEqual(before);
+      expect(engine.state.value.eliminatedDegrees.filter((d) => d.round.startsWith('bracket')).length).toBe(0);
+    });
+
+    it('resolveBracketMatch does not throw after the final match and ignores a late tap', () => {
+      toBracketWithFour();
+      let last;
+      while (engine.state.value.phase === 'phase3-bracket') {
+        last = engine.state.value.currentMatch;
+        engine.resolveBracketMatch(last.a.id);
       }
+      expect(engine.state.value.phase).toBe('results');
+      expect(() => engine.resolveBracketMatch(last.a.id)).not.toThrow();
+      expect(engine.resolveBracketMatch(last.a.id)).toBe(false);
+    });
+  });
+
+  describe('replay and undo', () => {
+    it('startNewGame clears leftovers from a finished game', () => {
+      engine.startNewGame();
+      engine.completeCategories();
+      const surv = engine.state.value.survivingDegrees;
+      while (surv.length > 4) engine.togglePhase1Selection(surv[surv.length - 1].id);
+      engine.completePhase1();
+      while (engine.state.value.phase === 'phase3-bracket') {
+        engine.resolveBracketMatch(engine.state.value.currentMatch.a.id);
+      }
+      expect(engine.state.value.winner).not.toBeNull();
+      engine.startNewGame();
+      const s = engine.state.value;
+      expect(s.phase).toBe('categories');
+      expect(s.winner).toBeNull();
+      expect(s.currentMatch).toBeNull();
+      expect(s.bracketQueue).toEqual([]);
+      expect(s.nextRoundQueue).toEqual([]);
+      expect(s.phase2Queue).toEqual([]);
+      expect(s.bracketTotal).toBe(0);
+      expect(s.phase2TotalPairs).toBe(0);
+      expect(s.round).toBe(1);
+    });
+
+    it('undoPhase1 never brings back a degree removed with its category', () => {
+      engine.startNewGame();
+      const category = engine.state.value.survivingDegrees[0].category;
+      engine.removeCategory(category);
+      engine.completeCategories();
+      expect(engine.undoPhase1().success).toBe(false);
+      const id = engine.state.value.survivingDegrees[0].id;
+      engine.togglePhase1Selection(id);
+      expect(engine.undoPhase1().success).toBe(true);
+      expect(engine.state.value.survivingDegrees.some((d) => d.id === id)).toBe(true);
+      expect(engine.state.value.survivingDegrees.some((d) => d.category === category)).toBe(false);
+    });
+
+    it('completePhase1 is ignored outside phase1', () => {
+      engine.startNewGame();
+      expect(engine.completePhase1().success).toBe(false);
+      expect(engine.state.value.phase).toBe('categories');
+    });
+
+    it('completeCategories and completePhase1 report a message key for the UI to translate', () => {
+      engine.startNewGame();
+      const surv = engine.state.value.survivingDegrees;
+      const categories = [...new Set(surv.map((d) => d.category))];
+      categories.slice(1).forEach((c) => engine.removeCategory(c));
+      engine.completeCategories();
+      while (engine.state.value.survivingDegrees.length > 1) {
+        engine.togglePhase1Selection(engine.state.value.survivingDegrees[0].id);
+      }
+      expect(engine.completePhase1()).toEqual({ success: false, messageKey: 'errors.keep_at_least_two' });
     });
   });
 

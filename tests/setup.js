@@ -51,4 +51,6 @@ vi.stubGlobal('webkitAudioContext', mockAudioContext);
 
 beforeEach(() => {
   mockLocalStorage.clear();
+  // "Back" and reset ask for confirmation; tests accept by default and override per test to decline.
+  window.confirm = vi.fn(() => true);
 });

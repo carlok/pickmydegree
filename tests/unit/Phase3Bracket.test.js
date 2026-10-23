@@ -1,7 +1,7 @@
 /**
  * Unit tests for Phase3Bracket: match progress, toGoInRound includes current match.
  */
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-i18n';
 import Phase3Bracket from '../../src/components/Phase3Bracket.vue';
@@ -102,5 +102,46 @@ describe('Phase3Bracket', () => {
         expect(label).toMatch(/match|rimast/i);
       }
     }
+  });
+
+  describe('picking', () => {
+    function pastIntro(wrapper) {
+      return wrapper.find('button.btn-primary').trigger('click');
+    }
+
+    it('pick cards are real buttons, not nested', async () => {
+      const wrapper = mountPhase3Bracket();
+      await pastIntro(wrapper);
+      const picks = wrapper.findAll('button.card-pick');
+      expect(picks).toHaveLength(2);
+      expect(wrapper.find('button button').exists()).toBe(false);
+    });
+
+    it('picking a card advances the bracket', async () => {
+      const wrapper = mountPhase3Bracket();
+      await pastIntro(wrapper);
+      const { a } = engine.state.value.currentMatch;
+      const before = engine.state.value.nextRoundQueue.length;
+      await wrapper.findAll('button.card-pick')[0].trigger('click');
+      expect(engine.state.value.nextRoundQueue.map((d) => d.id)).toContain(a.id);
+      expect(engine.state.value.nextRoundQueue.length).toBe(before + 1);
+    });
+
+    it('ignores a second tap right after a pick', async () => {
+      const wrapper = mountPhase3Bracket();
+      await pastIntro(wrapper);
+      const picks = wrapper.findAll('button.card-pick');
+      const before = engine.state.value.nextRoundQueue.length;
+      await picks[0].trigger('click');
+      await picks[0].trigger('click');
+      expect(engine.state.value.nextRoundQueue.length).toBe(before + 1);
+    });
+
+    it('leaving asks first and keeps the game when declined', async () => {
+      window.confirm = vi.fn(() => false);
+      const wrapper = mountPhase3Bracket();
+      await wrapper.find('button.btn-link').trigger('click');
+      expect(engine.state.value.phase).toBe('phase3-bracket');
+    });
   });
 });

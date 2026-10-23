@@ -104,4 +104,14 @@ describe('ProgressBar', () => {
     const innerBars = wrapper.findAll('.progress-bar');
     expect(innerBars.length).toBeGreaterThanOrEqual(1);
   });
+
+  it('exposes progress bars to assistive tech with a name, range and value', () => {
+    engine.startNewGame();
+    const wrapper = mountProgressBar();
+    const bar = wrapper.find('[role="progressbar"]');
+    expect(bar.attributes('aria-label')).toBe('Game progress');
+    expect(bar.attributes('aria-valuemin')).toBe('0');
+    expect(bar.attributes('aria-valuemax')).toBe('100');
+    expect(bar.attributes('aria-valuenow')).toBe('10');
+  });
 });

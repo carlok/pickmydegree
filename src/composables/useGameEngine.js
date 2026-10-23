@@ -1,9 +1,16 @@
 import { ref, watch } from 'vue';
 import { useDataStore } from './useDataStore';
-import allDegrees from '../data/degrees.json';
+import { allDegrees } from '../data';
 
 // Valid phases so we can detect corrupted/old saved state
 const VALID_PHASES = ['welcome', 'rules', 'donate', 'categories', 'phase1', 'phase2', 'phase3-bracket', 'results'];
+// Phases in which a game is in progress: they need at least one surviving degree to make sense.
+const GAME_PHASES = ['categories', 'phase1', 'phase2', 'phase3-bracket'];
+
+/** Bump when the saved shape changes incompatibly. Saves without `v` are the legacy full-object format. */
+const STATE_VERSION = 2;
+
+const degreeById = new Map(allDegrees.map((d) => [d.id, d]));
 
 const defaultState = () => ({
     phase: 'welcome',
@@ -23,30 +30,81 @@ const defaultState = () => ({
 const store = useDataStore();
 const state = ref(defaultState());
 
+/** Compact, id-based snapshot: degree text never goes to storage, so edits to degrees.json apply on reload. */
+function serialize(s) {
+    const matchRef = (m) => (m && m.a && m.b ? { a: m.a.id, b: m.b.id } : null);
+    return {
+        v: STATE_VERSION,
+        phase: s.phase,
+        survivingDegrees: s.survivingDegrees.map((d) => d.id),
+        eliminatedDegrees: s.eliminatedDegrees.map(({ id, round, eliminatedAtIndex }) =>
+            eliminatedAtIndex == null ? { id, round } : { id, round, eliminatedAtIndex }
+        ),
+        phase2Queue: s.phase2Queue.map(matchRef).filter(Boolean),
+        phase2TotalPairs: s.phase2TotalPairs,
+        bracketQueue: s.bracketQueue.map(matchRef).filter(Boolean),
+        nextRoundQueue: s.nextRoundQueue.map((d) => d.id),
+        currentMatch: matchRef(s.currentMatch),
+        round: s.round,
+        winner: s.winner ? s.winner.id : null,
+        bracketTotal: s.bracketTotal
+    };
+}
+
 watch(state, (newState) => {
-    store.save(newState);
+    if (newState.phase === 'welcome' && newState.survivingDegrees.length === 0) {
+        store.clear();
+    } else {
+        store.save(serialize(newState));
+    }
 }, { deep: true });
 
-/** Returns a sanitized state object or null if saved is invalid (so we don't apply it after refresh). */
+// A saved entry is either an id string or an object with an `id` (legacy format); both resolve against the current data.
+function hydrateDegree(entry) {
+    const id = typeof entry === 'string' ? entry : entry?.id;
+    return degreeById.get(id) ?? null;
+}
+
+function hydrateEliminated(entry) {
+    const base = hydrateDegree(entry);
+    if (!base || typeof entry !== 'object' || typeof entry.round !== 'string') return null;
+    const degree = { ...base, round: entry.round };
+    if (entry.eliminatedAtIndex != null) degree.eliminatedAtIndex = entry.eliminatedAtIndex;
+    return degree;
+}
+
+function hydrateMatch(entry) {
+    const a = hydrateDegree(entry?.a);
+    const b = hydrateDegree(entry?.b);
+    return a && b ? { a, b } : null;
+}
+
+/** Returns a rebuilt state object or null if saved is invalid (so we don't apply it after refresh). */
 function validateSavedState(saved) {
     if (!saved || typeof saved !== 'object') return null;
+    if (saved.v != null && saved.v !== STATE_VERSION) return null;
     const phase = saved.phase;
     if (!VALID_PHASES.includes(phase)) return null;
     if (!Array.isArray(saved.survivingDegrees)) return null;
     if (!Array.isArray(saved.eliminatedDegrees)) return null;
-    return {
-        phase: saved.phase,
-        survivingDegrees: saved.survivingDegrees,
-        eliminatedDegrees: saved.eliminatedDegrees,
-        phase2Queue: Array.isArray(saved.phase2Queue) ? saved.phase2Queue : [],
+    const list = (arr) => (Array.isArray(arr) ? arr.map(hydrateDegree).filter(Boolean) : []);
+    const matches = (arr) => (Array.isArray(arr) ? arr.map(hydrateMatch).filter(Boolean) : []);
+    const restored = {
+        phase,
+        survivingDegrees: list(saved.survivingDegrees),
+        eliminatedDegrees: saved.eliminatedDegrees.map(hydrateEliminated).filter(Boolean),
+        phase2Queue: matches(saved.phase2Queue),
         phase2TotalPairs: typeof saved.phase2TotalPairs === 'number' ? saved.phase2TotalPairs : 0,
-        bracketQueue: Array.isArray(saved.bracketQueue) ? saved.bracketQueue : [],
-        nextRoundQueue: Array.isArray(saved.nextRoundQueue) ? saved.nextRoundQueue : [],
-        currentMatch: saved.currentMatch ?? null,
+        bracketQueue: matches(saved.bracketQueue),
+        nextRoundQueue: list(saved.nextRoundQueue),
+        currentMatch: hydrateMatch(saved.currentMatch),
         round: typeof saved.round === 'number' ? saved.round : 1,
-        winner: saved.winner ?? null,
+        winner: hydrateDegree(saved.winner),
         bracketTotal: typeof saved.bracketTotal === 'number' ? saved.bracketTotal : 0
     };
+    if (GAME_PHASES.includes(phase) && restored.survivingDegrees.length === 0) return null;
+    if (phase === 'results' && !restored.winner) return null;
+    return restored;
 }
 
 // Utility: Fisher-Yates shuffle
@@ -90,13 +148,27 @@ export function useGameEngine() {
         }
     };
 
+    /** Phase 2 saved without a current match: take the next queued pair, or move on when the queue is spent. */
+    const repairPhase2State = () => {
+        const s = state.value;
+        if (s.phase !== 'phase2' || s.currentMatch != null) return;
+        if (s.phase2Queue.length === 0 && s.nextRoundQueue.length === 0) return;
+        nextPhase2Match();
+    };
+
     const init = () => {
         try {
             const saved = store.load();
             const validated = validateSavedState(saved);
             if (validated) {
                 state.value = validated;
-                if (validated.phase === 'phase3-bracket') repairBracketState();
+                if (validated.phase === 'phase2') repairPhase2State();
+                if (state.value.phase === 'phase3-bracket') repairBracketState();
+                // Still no match to play: the save is unusable, start clean rather than show a frozen screen.
+                const s = state.value;
+                if ((s.phase === 'phase2' || s.phase === 'phase3-bracket') && !s.currentMatch) {
+                    state.value = defaultState();
+                }
             }
         } catch (_) {
             // If load or validate throws (e.g. corrupted data), keep default state so the app doesn't go blank
@@ -121,10 +193,11 @@ export function useGameEngine() {
     };
 
     const startNewGame = () => {
-        state.value.phase = 'categories';
-        state.value.survivingDegrees = shuffle([...allDegrees]);
-        state.value.eliminatedDegrees = [];
-        state.value.round = 1;
+        state.value = {
+            ...defaultState(),
+            phase: 'categories',
+            survivingDegrees: shuffle([...allDegrees])
+        };
     };
 
     /** Remove a whole category: all degrees in that category are eliminated (Phase 0: by category). */
@@ -143,7 +216,7 @@ export function useGameEngine() {
     /** Leave categories phase and go to Phase 1 (filter). Requires at least 2 survivors. */
     const completeCategories = () => {
         if (state.value.phase !== 'categories') return { success: false };
-        if (state.value.survivingDegrees.length < 2) return { success: false, message: 'Keep at least 2 degrees (or one category).' };
+        if (state.value.survivingDegrees.length < 2) return { success: false, messageKey: 'errors.keep_at_least_two' };
         state.value.phase = 'phase1';
         return { success: true };
     };
@@ -187,22 +260,27 @@ export function useGameEngine() {
         }
     };
 
-    /** Restore the most recently eliminated degree (Phase 1 undo) at its original position. */
+    /** Restore the most recently Phase 1 eliminated degree at its original position (category removals are not undone here). */
     const undoPhase1 = () => {
         if (state.value.phase !== 'phase1') return { success: false };
         const eliminated = state.value.eliminatedDegrees;
-        if (eliminated.length === 0) return { success: false };
-        const item = eliminated[eliminated.length - 1];
+        let idx = -1;
+        for (let i = eliminated.length - 1; i >= 0; i--) {
+            if (eliminated[i].round === 'phase1') { idx = i; break; }
+        }
+        if (idx === -1) return { success: false };
+        const item = eliminated[idx];
         const at = item.eliminatedAtIndex != null ? Math.min(item.eliminatedAtIndex, state.value.survivingDegrees.length) : state.value.survivingDegrees.length;
         const { eliminatedAtIndex: _, round: __, ...degree } = item;
-        state.value.eliminatedDegrees = eliminated.slice(0, -1);
+        state.value.eliminatedDegrees = eliminated.slice(0, idx).concat(eliminated.slice(idx + 1));
         state.value.survivingDegrees = state.value.survivingDegrees.slice(0, at).concat(degree, state.value.survivingDegrees.slice(at));
         return { success: true };
     };
 
     const completePhase1 = () => {
+        if (state.value.phase !== 'phase1') return { success: false };
         if (state.value.survivingDegrees.length < 2) {
-            return { success: false, message: "Please keep at least 2 degrees!" };
+            return { success: false, messageKey: 'errors.keep_at_least_two' };
         }
 
         // Check if power of 2
@@ -250,10 +328,7 @@ export function useGameEngine() {
         }
         state.value.phase2TotalPairs = state.value.phase2Queue.length;
 
-        // Survivors list effectively acts as "next round" holding area.
-        // We keep bye players in it? No, simpler to clear survivingDegrees and re-populate.
-        // Or... keep byePlayers in a separate "safe" list and add winners to it?
-        // Let's use `nextRoundQueue` concept here too for consistent logic.
+        // Bye players go straight to the next-round holding area; match winners are added as pairs resolve.
         state.value.nextRoundQueue = [...byePlayers];
 
         nextPhase2Match();
@@ -273,9 +348,12 @@ export function useGameEngine() {
         state.value.currentMatch = state.value.phase2Queue.shift();
     };
 
-    /** keepId = the degree to KEEP (winner); the other is discarded. */
+    /** keepId = the degree to KEEP (winner); the other is discarded. Ignored when there is no live match or the id isn't in it. */
     const resolvePhase2Match = (keepId) => {
-        const { a, b } = state.value.currentMatch;
+        if (state.value.phase !== 'phase2') return false;
+        const match = state.value.currentMatch;
+        if (!match || (match.a.id !== keepId && match.b.id !== keepId)) return false;
+        const { a, b } = match;
         const winner = a.id === keepId ? a : b;
         const loser = a.id === keepId ? b : a;
 
@@ -284,9 +362,11 @@ export function useGameEngine() {
 
         state.value.currentMatch = null;
         nextPhase2Match();
+        return true;
     };
 
     const resolvePhase2MatchRandomly = () => {
+        if (state.value.phase !== 'phase2' || !state.value.currentMatch) return null;
         const { a, b } = state.value.currentMatch;
         const keep = Math.random() < 0.5 ? a : b;
         resolvePhase2Match(keep.id);
@@ -343,8 +423,12 @@ export function useGameEngine() {
         state.value.currentMatch = state.value.bracketQueue.shift();
     };
 
+    /** Ignored when there is no live match or the id isn't in it (e.g. a second tap on a card that already resolved). */
     const resolveBracketMatch = (winnerId) => {
-        const { a, b } = state.value.currentMatch;
+        if (state.value.phase !== 'phase3-bracket') return false;
+        const match = state.value.currentMatch;
+        if (!match || (match.a.id !== winnerId && match.b.id !== winnerId)) return false;
+        const { a, b } = match;
         const winner = a.id === winnerId ? a : b;
         const loser = a.id === winnerId ? b : a;
 
@@ -353,6 +437,7 @@ export function useGameEngine() {
 
         state.value.currentMatch = null;
         nextBracketMatch();
+        return true;
     };
 
     return {

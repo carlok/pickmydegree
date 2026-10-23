@@ -1,7 +1,7 @@
 /**
  * Unit tests for WelcomeScreen: title, start button, reset, donate button.
  */
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-i18n';
 import WelcomeScreen from '../../src/components/WelcomeScreen.vue';
@@ -35,17 +35,38 @@ describe('WelcomeScreen', () => {
     expect(engine.state.value.phase).toBe('rules');
   });
 
-  it('shows reset saved progress button', () => {
+  it('hides the reset button when there is no saved game', () => {
+    const wrapper = mountWelcomeScreen();
+    const resetBtn = wrapper.findAll('button').find(w => w.text().match(/Reset|Azzera/i));
+    expect(resetBtn).toBeUndefined();
+  });
+
+  it('shows the reset button when a game was left in progress', () => {
+    engine.startNewGame();
+    engine.goToWelcome();
     const wrapper = mountWelcomeScreen();
     const resetBtn = wrapper.findAll('button').find(w => w.text().match(/Reset|Azzera/i));
     expect(resetBtn).toBeDefined();
   });
 
-  it('calls resetGame when reset button is clicked', async () => {
+  it('reset asks for confirmation and clears the saved game', async () => {
+    engine.startNewGame();
+    engine.goToWelcome();
     const wrapper = mountWelcomeScreen();
     const resetBtn = wrapper.findAll('button').find(w => w.text().match(/Reset|Azzera/i));
     await resetBtn.trigger('click');
-    expect(engine.state.value.phase).toBe('welcome');
+    expect(window.confirm).toHaveBeenCalled();
+    expect(engine.state.value.survivingDegrees).toEqual([]);
+  });
+
+  it('reset keeps the saved game when declined', async () => {
+    window.confirm = vi.fn(() => false);
+    engine.startNewGame();
+    engine.goToWelcome();
+    const wrapper = mountWelcomeScreen();
+    const resetBtn = wrapper.findAll('button').find(w => w.text().match(/Reset|Azzera/i));
+    await resetBtn.trigger('click');
+    expect(engine.state.value.survivingDegrees.length).toBeGreaterThan(0);
   });
 
   it('shows donate button and navigates to donate phase when clicked', async () => {

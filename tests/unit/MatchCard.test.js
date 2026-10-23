@@ -1,5 +1,5 @@
 /**
- * Unit tests for MatchCard: compact mode, displayName, eliminated overlay, info button.
+ * Unit tests for MatchCard: name, pick button, eliminated overlay, info button.
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { mount } from '@vue/test-utils';
@@ -23,7 +23,6 @@ function mountMatchCard(props = {}, opts = {}) {
       plugins: [i18n],
       provide: opts.openDegreeInfo ? { openDegreeInfo: opts.openDegreeInfo } : {},
     },
-    ...opts,
   });
 }
 
@@ -32,81 +31,79 @@ describe('MatchCard', () => {
     i18n.global.locale.value = 'en';
   });
 
-  it('renders compact mode with degree name from displayName', () => {
-    const wrapper = mountMatchCard({ compact: true });
-    expect(wrapper.text().replace(/\u200B/g, '')).toContain('Test Degree');
+  it('renders the degree name and an info button named after the degree', () => {
+    const wrapper = mountMatchCard();
+    expect(wrapper.text()).toContain('Test Degree');
     expect(wrapper.find('.card-compact').exists()).toBe(true);
-    expect(wrapper.find('button[aria-label="More info"]').exists()).toBe(true);
+    expect(wrapper.find('button.card-info-btn').attributes('aria-label')).toBe('More info about Test Degree');
   });
 
-  it('uses locale for displayName (Italian)', async () => {
+  it('uses locale for the name (Italian)', async () => {
     i18n.global.locale.value = 'it';
-    const wrapper = mountMatchCard({ compact: true });
+    const wrapper = mountMatchCard();
     await wrapper.vm.$nextTick();
-    expect(wrapper.text().replace(/\u200B/g, '')).toContain('Corso Test');
+    expect(wrapper.text()).toContain('Corso Test');
   });
 
-  it('adds zero-width spaces between words in displayName for wrapping', () => {
-    const wrapper = mountMatchCard({ compact: true });
-    const nameEl = wrapper.find('.card-compact-name');
-    expect(nameEl.exists()).toBe(true);
-    expect(nameEl.text()).toContain('Test');
-    expect(nameEl.text()).toContain('Degree');
+  it('keeps the name as plain text, without zero-width spaces', () => {
+    const wrapper = mountMatchCard();
+    expect(wrapper.find('.card-compact-name').text()).toBe('Test Degree');
   });
 
-  it('shows eliminated overlay in compact mode when eliminated prop is true', () => {
-    const wrapper = mountMatchCard({ compact: true, eliminated: true });
-    expect(wrapper.find('.position-absolute .text-danger').exists()).toBe(true);
+  it('is display-only by default: no pick button', () => {
+    const wrapper = mountMatchCard();
+    expect(wrapper.find('button.card-pick').exists()).toBe(false);
+  });
+
+  it('pickable renders the name inside a button that emits pick', async () => {
+    const wrapper = mountMatchCard({ pickable: true });
+    const pick = wrapper.find('button.card-pick');
+    expect(pick.exists()).toBe(true);
+    expect(pick.text()).toContain('Test Degree');
+    await pick.trigger('click');
+    expect(wrapper.emitted('pick')).toHaveLength(1);
+  });
+
+  it('clicking the info button does not emit pick', async () => {
+    const wrapper = mountMatchCard({ pickable: true }, { openDegreeInfo: vi.fn() });
+    await wrapper.find('button.card-info-btn').trigger('click');
+    expect(wrapper.emitted('pick')).toBeUndefined();
+  });
+
+  it('the pick button and the info button are siblings, never nested', () => {
+    const wrapper = mountMatchCard({ pickable: true });
+    expect(wrapper.find('button button').exists()).toBe(false);
+  });
+
+  it('eliminated shows the overlay, hides it from assistive tech, and says "Removed" to screen readers', () => {
+    const wrapper = mountMatchCard({ eliminated: true, pickable: true });
+    const overlay = wrapper.find('.position-absolute');
+    expect(overlay.attributes('aria-hidden')).toBe('true');
+    expect(overlay.classes()).toContain('pe-none');
     expect(wrapper.text()).toContain('❌');
+    expect(wrapper.find('.visually-hidden').text()).toContain('Removed');
     expect(wrapper.find('.card-compact').classes()).toContain('border-danger');
   });
 
-  it('applies border-primary when selected in compact mode', () => {
-    const wrapper = mountMatchCard({ compact: true, selected: true });
+  it('applies border-primary when selected', () => {
+    const wrapper = mountMatchCard({ selected: true });
     expect(wrapper.find('.card-compact').classes()).toContain('border-primary');
   });
 
-  it('calls openDegreeInfo when info button clicked in compact mode', async () => {
+  it('calls openDegreeInfo when the info button is clicked', async () => {
     const openDegreeInfo = vi.fn();
-    const wrapper = mountMatchCard({ compact: true }, { openDegreeInfo });
-    await wrapper.find('button[aria-label="More info"]').trigger('click');
+    const wrapper = mountMatchCard({}, { openDegreeInfo });
+    await wrapper.find('button.card-info-btn').trigger('click');
     expect(openDegreeInfo).toHaveBeenCalledWith(mockDegree);
-  });
-
-  it('renders full (non-compact) card with icon and description', () => {
-    const wrapper = mountMatchCard({ compact: false });
-    expect(wrapper.find('.card-body').exists()).toBe(true);
-    expect(wrapper.text()).toContain('🎓');
-    expect(wrapper.text()).toContain('Test Degree');
-    expect(wrapper.text()).toContain('A test.');
-  });
-
-  it('shows eliminated overlay in full card when eliminated prop is true', () => {
-    const wrapper = mountMatchCard({ compact: false, eliminated: true });
-    const overlay = wrapper.findAll('.position-absolute').find(w => w.text().includes('❌'));
-    expect(overlay).toBeDefined();
-    expect(wrapper.find('.card').classes()).toContain('border-danger');
-  });
-
-  it('renders tags when degree has tags object (en/it)', () => {
-    const degreeWithTags = {
-      ...mockDegree,
-      tags: { en: ['Tag1', 'Tag2'], it: ['Tag1', 'Tag2'] },
-    };
-    const wrapper = mount(MatchCard, {
-      props: { degree: degreeWithTags, compact: false },
-      global: { plugins: [i18n] },
-    });
-    expect(wrapper.text()).toContain('Tag1');
-    expect(wrapper.text()).toContain('Tag2');
   });
 
   it('falls back to degree.name.en when locale key missing', () => {
     const degreeEnOnly = { id: 'x', name: { en: 'English Only' } };
+    i18n.global.locale.value = 'it';
     const wrapper = mount(MatchCard, {
-      props: { degree: degreeEnOnly, compact: true },
+      props: { degree: degreeEnOnly },
       global: { plugins: [i18n] },
     });
-    expect(wrapper.text().replace(/\u200B/g, '')).toContain('English Only');
+    expect(wrapper.text()).toContain('English Only');
   });
 });

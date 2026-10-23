@@ -1,12 +1,12 @@
 {
     "common": {
-        "loading": "Caricamento...",
         "next": "Avanti",
         "back": "Indietro",
         "close": "Chiudi",
         "sound_on": "Suono attivo",
         "sound_off": "Suono disattivo",
-        "buy_me_a_coffee": "Offrimi un caffè"
+        "confirm_leave": "Uscire dalla partita? I progressi andranno persi.",
+        "switch_language": "Cambia lingua"
     },
     "menu": {
         "aria_label": "Menu",
@@ -15,8 +15,6 @@
         "github": "Repo GitHub",
         "about": "Autore",
         "info_contact": "Info / Contatti",
-        "donate": "Offri un caffè",
-        "thanks": "Grazie a Rossella 👩 e Vittorio 👨",
         "thanks_to": "Grazie a",
         "thanks_rossella": "Rossella",
         "thanks_vittorio": "Vittorio",
@@ -45,15 +43,16 @@
         "bracket_level_32": "Sedicesimi",
         "bracket_level_64": "Trentaduesimi",
         "bracket_level_128": "Sessantaquattresimi",
-        "results": "Risultati"
+        "results": "Risultati",
+        "aria_label": "Avanzamento del gioco",
+        "step_aria_label": "Avanzamento in questo passaggio"
     },
     "welcome": {
         "title": "Pick My Degree",
         "subtitle": "Scopri il tuo corso di laurea ideale attraverso un torneo di scelte.",
         "data_source": "La lista include tutti i corsi di laurea di primo ciclo e a ciclo unico del {politoLink} e dell’{unitoLink}. Le lauree magistrali non sono incluse, perché l’app è pensata per gli studenti dell’ultimo anno delle superiori.",
         "data_academic_year": "La lista è aggiornata all'anno accademico 2025-26.",
-        "start": "Inizia il Viaggio",
-        "resume": "Riprendi Gioco"
+        "start": "Inizia il Viaggio"
     },
     "rules": {
         "title": "Come si Gioca",
@@ -77,8 +76,6 @@
         "remaining": "{count} di {total} corsi rimasti",
         "continue": "Continua con {count} corsi",
         "keep_at_least": "Tieni almeno una categoria (2+ corsi) per continuare.",
-        "undo": "Annulla ultima categoria",
-        "removed_tap_to_restore": "Rimossi (tocca per ripristinare)",
         "degrees_in_category": "Corsi di laurea in questa categoria:"
     },
     "category": {
@@ -95,9 +92,7 @@
         "instruction": "Tocca le carte per rimuovere i corsi che sicuramente NON ti interessano.",
         "tap_to_remove": "Tocca per rimuovere",
         "tap_to_restore": "Tocca per ripristinare",
-        "remaining": "{count} rimanenti",
         "remaining_of": "{count} di {total} selezionati",
-        "continue": "Continua con {count} corsi",
         "undo": "Annulla"
     },
     "phase2": {
@@ -105,18 +100,14 @@
         "instruction": "Tocca il corso che vuoi tenere. L'altro viene eliminato.",
         "tap_to_keep": "Tocca per tenere",
         "minimal_note": "Solo il numero minimo di scelte per arrivare al torneo (potenza di 2), poi torneo a eliminazione diretta.",
-        "keep": "Tieni",
         "vs": "VS",
         "timer": "Tempo rimasto: {seconds}s",
         "timeout_explanation": "Se non scegli in tempo, un candidato viene scelto a caso (ti mostriamo quale è stato tenuto).",
-        "discard": "Scarta",
-        "random_toast": "Tempo scaduto! È stata fatta una scelta casuale.",
         "timeout_kept": "Tempo scaduto! Tenuto: {name}"
     },
     "bracket": {
         "title": "Torneo Finale",
         "instruction": "Scegli il vincitore per avanzare.",
-        "round": "Round {n}",
         "round_of_16": "Ottavi",
         "round_of_32": "Sedicesimi",
         "round_of_64": "Trentaduesimi",
@@ -132,7 +123,9 @@
         "remaining_of": "Rimanenti {remaining} di {total}"
     },
     "card": {
-        "info": "Altre info"
+        "info": "Altre info",
+        "more_info_about": "Altre info su {name}",
+        "eliminated": "Rimosso"
     },
     "results": {
         "title": "I Tuoi Risultati",
@@ -146,9 +139,21 @@
         "restart": "Ricomincia",
         "share_success": "Immagine salvata!",
         "share_success_native": "Condiviso!",
-        "share_error": "Impossibile salvare l'immagine."
+        "share_error": "Impossibile salvare l'immagine.",
+        "share_app_text": "Pick My Degree – scopri il tuo corso di laurea ideale attraverso un torneo di scelte.",
+        "share_result_fallback": "Il mio risultato",
+        "learn_more": "Pagine del corso"
     },
     "dev": {
         "reset_saved": "Azzera progressi salvati"
+    },
+    "errors": {
+        "keep_at_least_two": "Tieni almeno 2 corsi.",
+        "something_wrong": "Qualcosa è andato storto. Prova a ricaricare la pagina.",
+        "refresh": "Ricarica la pagina"
+    },
+    "universities": {
+        "polito": "Politecnico di Torino",
+        "unito": "Università di Torino"
     }
 }

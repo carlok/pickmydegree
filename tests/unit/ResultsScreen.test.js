@@ -121,4 +121,39 @@ describe('ResultsScreen', () => {
     expect(shareAppLink.exists()).toBe(true);
     expect(shareAppLink.text()).toMatch(/Share the app|Condividi l'app/i);
   });
+
+  it('lists the runner-up and the two semi-final losers as top contenders', () => {
+    const wrapper = mountResultsScreen();
+    const lost = engine.state.value.eliminatedDegrees.filter((d) => d.round.startsWith('bracket-'));
+    expect(lost).toHaveLength(3); // bracket of 4: two semi-final losers, then the final's loser
+    const items = wrapper.findAll('ol li').map((li) => li.text());
+    const nameOf = (d) => d.name.en;
+    expect(items).toEqual([nameOf(lost[2]), nameOf(lost[1]), nameOf(lost[0])]);
+  });
+
+  it('links to the official course pages when the winner has them', async () => {
+    const wrapper = mountResultsScreen();
+    engine.state.value.winner = {
+      ...engine.state.value.winner,
+      url: { polito: 'https://www.polito.it/didattica/corsi-di-laurea/x', unito: 'https://www.unito.it/y' },
+    };
+    await wrapper.vm.$nextTick();
+    const hrefs = wrapper.findAll('p a').map((a) => a.attributes('href'));
+    expect(hrefs).toEqual(['https://www.polito.it/didattica/corsi-di-laurea/x', 'https://www.unito.it/y']);
+    expect(wrapper.find('p a').attributes('rel')).toContain('noopener');
+  });
+
+  it('shows no course links when the winner has none', async () => {
+    const wrapper = mountResultsScreen();
+    engine.state.value.winner = { ...engine.state.value.winner, url: undefined };
+    await wrapper.vm.$nextTick();
+    expect(wrapper.text()).not.toContain('Course pages');
+  });
+
+  it('asks before leaving with Back and keeps the result when declined', async () => {
+    window.confirm = vi.fn(() => false);
+    const wrapper = mountResultsScreen();
+    await wrapper.find('button.btn-link').trigger('click');
+    expect(engine.state.value.phase).toBe('results');
+  });
 });

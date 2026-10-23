@@ -12,7 +12,7 @@ import en from '../../src/i18n/en.json';
 const mockModalInstance = { show: vi.fn(), hide: vi.fn() };
 const mockOffcanvasInstance = { show: vi.fn(), hide: vi.fn() };
 
-vi.mock('bootstrap', () => ({
+vi.mock('../../src/bootstrap-js', () => ({
   Modal: {
     getOrCreateInstance: vi.fn(() => mockModalInstance),
     getInstance: vi.fn(() => mockModalInstance),
@@ -69,7 +69,7 @@ describe('App', () => {
     engine.goToRules();
     const wrapper = mountApp();
     await wrapper.vm.$nextTick();
-    const homeLink = wrapper.find('header a[aria-label="Home"]');
+    const homeLink = wrapper.find('header a');
     await homeLink.trigger('click');
     expect(engine.state.value.phase).toBe('welcome');
   });
@@ -105,5 +105,34 @@ describe('App', () => {
     const afterButtons = wrapper.findAll('button');
     const afterLocaleBtn = afterButtons.find(b => /IT|EN/.test(b.text()));
     expect(afterLocaleBtn.text()).not.toBe(initialText);
+  });
+
+  it('opens the degree description in the modal, loading the text on demand, and flags it open for Phase 2', async () => {
+    const engine = useGameEngine();
+    engine.startNewGame();
+    engine.completeCategories();
+    useDataStore().save({ phase: 'invalid' }); // so init() does not overwrite state
+    const wrapper = mountApp();
+    await wrapper.vm.$nextTick();
+    await wrapper.find('.card-info-btn').trigger('click');
+    await vi.waitFor(() => expect(wrapper.find('.modal-body').text().length).toBeGreaterThan(40));
+    expect(wrapper.find('.modal-body .badge').exists()).toBe(true);
+    expect(mockModalInstance.show).toHaveBeenCalled();
+    expect(wrapper.find('.modal-title').text()).not.toBe('');
+
+    // Bootstrap announces the close with a native "hidden.bs.modal" event; the modal must reset on it.
+    wrapper.find('.modal').element.dispatchEvent(new Event('hidden.bs.modal'));
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('.modal-title').text()).toBe('');
+    expect(wrapper.find('.modal-body').text()).toBe('');
+  });
+
+  it('sets the page language to match the locale', async () => {
+    const wrapper = mountApp();
+    const localeBtn = wrapper.findAll('button').find(b => /^(IT|EN)$/.test(b.text()));
+    await localeBtn.trigger('click');
+    await wrapper.vm.$nextTick();
+    expect(document.documentElement.lang).toBe(i18n.global.locale.value);
+    expect(localStorage.getItem('pick-my-degree-locale')).toBe(i18n.global.locale.value);
   });
 });

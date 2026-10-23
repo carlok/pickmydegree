@@ -1,9 +1,18 @@
 <script setup>
 import { useGameEngine } from '../composables/useGameEngine';
 import { useSound } from '../composables/useSound';
+import { useI18n } from 'vue-i18n';
 
-const { startNewGame, goToWelcome } = useGameEngine();
+const { state, startNewGame, goToWelcome } = useGameEngine();
 const { playSuccess, playTap } = useSound();
+const { t } = useI18n();
+
+// Starting over replaces any game that was left via "Home": ask first.
+const handleStart = () => {
+  if (state.value.survivingDegrees.length > 0 && !window.confirm(t('common.confirm_leave'))) return;
+  playSuccess();
+  startNewGame();
+};
 
 const steps = [
   { icon: '🔍', badge: '1', keyTitle: 'step1_title', keyDesc: 'step1_desc' },
@@ -18,10 +27,10 @@ const steps = [
     <div class="rules-screen-scroll flex-grow-1 min-h-0 overflow-auto text-center py-4">
       <h2 class="h3 fw-bold mb-2">{{ $t('rules.title') }}</h2>
       <p class="text-secondary-emphasis mb-3">{{ $t('rules.subtitle') }}</p>
-      <p class="small text-secondary mb-3 opacity-75">📍 {{ $t('rules.your_quest') }}</p>
+      <p class="small text-secondary mb-3"><span aria-hidden="true">📍</span> {{ $t('rules.your_quest') }}</p>
 
       <!-- Step progress line: 4 nodes -->
-      <div class="rules-progress mb-4" role="presentation" aria-label="Game steps">
+      <div class="rules-progress mb-4" aria-hidden="true">
         <div class="rules-progress-track d-flex align-items-center justify-content-between">
           <template v-for="(step, index) in steps" :key="index">
             <div class="rules-progress-node rounded-circle d-flex align-items-center justify-content-center">
@@ -52,14 +61,14 @@ const steps = [
       </div>
 
       <button
-        @click="playSuccess(); startNewGame()"
+        @click="handleStart"
         class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-lg"
       >
-        {{ $t('rules.lets_go') }} 🚀
+        {{ $t('rules.lets_go') }} <span aria-hidden="true">🚀</span>
       </button>
 
       <p class="mt-4 mb-0 rules-screen-bottom">
-        <button type="button" class="btn btn-link link-secondary small text-decoration-none p-0" @click="playTap(); goToWelcome()">
+        <button type="button" class="btn btn-link link-secondary small text-decoration-none back-link" @click="playTap(); goToWelcome()">
           ← {{ $t('common.back') }}
         </button>
       </p>

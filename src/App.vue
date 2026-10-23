@@ -1,9 +1,11 @@
 <script setup>
-import { ref, provide, nextTick, computed, watch } from 'vue';
-import { Modal, Offcanvas } from 'bootstrap';
+import { ref, provide, nextTick, computed, watch, onMounted, onBeforeUnmount } from 'vue';
+import { Modal, Offcanvas } from './bootstrap-js';
 import { useGameEngine } from './composables/useGameEngine';
 import { useSound } from './composables/useSound';
 import { useI18n } from 'vue-i18n';
+import { saveLocale } from './i18n';
+import { loadDegreeText } from './data';
 import ProgressBar from './components/ProgressBar.vue';
 import WelcomeScreen from './components/WelcomeScreen.vue';
 import Phase1Filter from './components/Phase1Filter.vue';
@@ -18,6 +20,17 @@ const { state, init, goToWelcome, goToDonate } = useGameEngine();
 const { isMuted, toggleMute, playTap } = useSound();
 const { locale, t } = useI18n();
 
+const screens = {
+  welcome: WelcomeScreen,
+  rules: RulesScreen,
+  donate: DonateScreen,
+  categories: Phase0Categories,
+  phase1: Phase1Filter,
+  phase2: Phase2Pairs,
+  'phase3-bracket': Phase3Bracket,
+  results: ResultsScreen,
+};
+
 /** Injected at build time from git (e.g. 0.1.42). */
 const appVersion = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '0.0.0-dev';
 
@@ -25,7 +38,14 @@ init(); // Load from localStorage
 
 const switchLocale = () => {
   locale.value = locale.value === 'en' ? 'it' : 'en';
+  saveLocale(locale.value);
 };
+
+// The page scrolls as a whole now, so a new screen must start at the top.
+watch(() => state.value.phase, () => { window.scrollTo?.({ top: 0 }); });
+
+// Keep <html lang> in step with the UI language (screen readers pick pronunciation from it).
+watch(locale, (l) => { document.documentElement.lang = l; }, { immediate: true });
 
 const menuOffcanvasRef = ref(null);
 function openMenu() {
@@ -54,9 +74,25 @@ function goToDonateAndCloseMenu() {
 // Degree info modal (reliable on Chrome/PC instead of Bootstrap Popover)
 const degreeForModal = ref(null);
 const degreeModalRef = ref(null);
+/** True while the description is on screen; Phase 2 pauses its countdown meanwhile. */
+const degreeInfoOpen = ref(false);
+
+// Descriptions and tags are separate per-language chunks, fetched the first time a "?" is tapped.
+const degreeTexts = ref({});
+async function ensureDegreeText(loc) {
+  if (degreeTexts.value[loc]) return;
+  try {
+    degreeTexts.value = { ...degreeTexts.value, [loc]: await loadDegreeText(loc) };
+  } catch {
+    // Offline or chunk missing: the modal still shows the degree name
+  }
+}
+watch(locale, (loc) => { if (degreeForModal.value) ensureDegreeText(loc); });
 
 function openDegreeInfo(degree) {
   degreeForModal.value = degree;
+  degreeInfoOpen.value = true;
+  ensureDegreeText(locale.value);
   nextTick(() => {
     const el = degreeModalRef.value;
     if (el) {
@@ -65,70 +101,79 @@ function openDegreeInfo(degree) {
   });
 }
 
-function closeDegreeModal() {
-  const el = degreeModalRef.value;
-  if (el) {
-    const instance = Modal.getInstance(el);
-    if (instance) instance.hide();
-  }
+function onDegreeModalHidden() {
   degreeForModal.value = null;
+  degreeInfoOpen.value = false;
 }
 
+// Bootstrap fires "hidden.bs.modal" on the element. Vue's `@hidden.bs.modal` would read ".bs" and ".modal"
+// as modifiers and listen for plain "hidden", so the listener is attached by hand.
+onMounted(() => degreeModalRef.value?.addEventListener('hidden.bs.modal', onDegreeModalHidden));
+onBeforeUnmount(() => degreeModalRef.value?.removeEventListener('hidden.bs.modal', onDegreeModalHidden));
+
 provide('openDegreeInfo', openDegreeInfo);
+provide('degreeInfoOpen', degreeInfoOpen);
 
 const modalDegreeName = computed(() => {
   const d = degreeForModal.value;
   if (!d?.name) return '';
   return d.name[locale.value] ?? d.name.en ?? '';
 });
+const modalDegreeText = computed(() => {
+  const d = degreeForModal.value;
+  if (!d) return null;
+  return degreeTexts.value[locale.value]?.[d.id] ?? null;
+});
 const modalDegreeDesc = computed(() => {
   const d = degreeForModal.value;
-  if (!d?.description) return '';
-  return d.description[locale.value] ?? d.description.en ?? '';
+  if (!d) return '';
+  return modalDegreeText.value?.description ?? d.description?.[locale.value] ?? d.description?.en ?? '';
 });
 const modalDegreeTags = computed(() => {
   const d = degreeForModal.value;
-  if (!d?.tags) return [];
+  if (!d) return [];
+  if (modalDegreeText.value) return modalDegreeText.value.tags ?? [];
   const tagData = d.tags;
-  const loc = locale.value;
-  if (typeof tagData === 'object' && tagData.en && tagData.it) return tagData[loc] || tagData.en || [];
-  if (Array.isArray(tagData)) return tagData;
-  return [];
+  if (tagData && typeof tagData === 'object' && !Array.isArray(tagData)) return tagData[locale.value] || tagData.en || [];
+  return Array.isArray(tagData) ? tagData : [];
 });
 </script>
 
 <template>
-  <div class="container py-4 flex-grow-1 min-h-0 d-flex flex-column overflow-hidden" style="max-width: 600px;">
+  <div class="container py-4 flex-grow-1 d-flex flex-column" style="max-width: 600px;">
     <header class="d-flex justify-content-between align-items-center mb-4">
       <a
         href="#"
         class="h4 mb-0 fw-bold text-gradient d-flex align-items-center gap-2 user-select-none text-decoration-none text-body"
-        aria-label="Home"
         @click.prevent="playTap(); goToWelcome()"
       >
-        <span>🎓</span> Pick My Degree
+        <span aria-hidden="true">🎓</span> Pick My Degree
       </a>
       <div class="d-flex align-items-center gap-2">
         <button
           type="button"
-          class="btn btn-sm btn-outline-light rounded-pill px-2 border-opacity-25"
+          class="btn btn-sm btn-outline-light rounded-pill px-2 border-opacity-25 header-btn"
           :aria-label="isMuted ? t('common.sound_off') : t('common.sound_on')"
+          :aria-pressed="!isMuted"
           :title="isMuted ? t('common.sound_off') : t('common.sound_on')"
           @click="playTap(); toggleMute()"
         >
-          {{ isMuted ? '🔇' : '🔊' }}
-        </button>
-        <button
-          @click="playTap(); switchLocale()"
-          class="btn btn-sm btn-outline-light rounded-pill px-3 fw-bold border-opacity-25"
-        >
-          {{ locale === 'en' ? '🇮🇹 IT' : '🇬🇧 EN' }}
+          <span aria-hidden="true">{{ isMuted ? '🔇' : '🔊' }}</span>
         </button>
         <button
           type="button"
-          class="btn btn-sm btn-outline-light rounded-pill px-2 border-opacity-25"
+          @click="playTap(); switchLocale()"
+          class="btn btn-sm btn-outline-light rounded-pill px-3 fw-bold border-opacity-25 header-btn"
+          :aria-label="t('common.switch_language')"
+          :title="t('common.switch_language')"
+        >
+          {{ locale === 'en' ? 'IT' : 'EN' }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-light rounded-pill px-2 border-opacity-25 header-btn"
           :aria-label="t('menu.aria_label')"
-          title="Menu"
+          :title="t('menu.title')"
           @click="playTap(); openMenu()"
         >
           <span aria-hidden="true">☰</span>
@@ -148,7 +193,7 @@ const modalDegreeTags = computed(() => {
     >
       <div class="offcanvas-header border-secondary">
         <h5 id="menuOffcanvasLabel" class="offcanvas-title text-light">{{ t('menu.title') }}</h5>
-        <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="offcanvas" data-bs-target="#menuOffcanvas" />
+        <button type="button" class="btn-close btn-close-white" :aria-label="t('common.close')" data-bs-dismiss="offcanvas" data-bs-target="#menuOffcanvas" />
       </div>
       <div class="offcanvas-body">
         <button type="button" class="btn btn-outline-light rounded-pill w-100 mb-3" @click="playTap(); goHomeAndCloseMenu()">
@@ -179,35 +224,24 @@ const modalDegreeTags = computed(() => {
 
     <ProgressBar v-if="state.phase !== 'welcome' && state.phase !== 'rules' && state.phase !== 'donate'" />
     
-    <main class="app-main flex-grow-1 d-flex flex-column position-relative min-h-0">
+    <main class="app-main flex-grow-1 d-flex flex-column position-relative">
       <div
-        class="app-main-content flex-grow-1 min-h-0 d-flex flex-column"
-        :class="{
-          'phase-scrollable': state.phase === 'welcome' || state.phase === 'rules' || state.phase === 'donate' || state.phase === 'phase2',
-          'phase2-footer-gap': state.phase === 'phase2'
-        }"
+        class="app-main-content flex-grow-1 d-flex flex-column"
+        :class="{ 'phase2-footer-gap': state.phase === 'phase2' }"
       >
+        <!-- No <KeepAlive>: each screen starts fresh, so a second game replays intros, fanfare and shuffles. -->
         <Transition name="fade" mode="out-in">
-          <KeepAlive>
-             <component 
-               :key="state.phase"
-               :is="state.phase === 'welcome' ? WelcomeScreen : 
-                    state.phase === 'rules' ? RulesScreen : 
-                    state.phase === 'donate' ? DonateScreen : 
-                    state.phase === 'categories' ? Phase0Categories : 
-                    state.phase === 'phase1' ? Phase1Filter : 
-                    state.phase === 'phase2' ? Phase2Pairs : 
-                    state.phase === 'phase3-bracket' ? Phase3Bracket : 
-                    ResultsScreen"
-             />
-          </KeepAlive>
+          <component
+            :key="state.phase"
+            :is="screens[state.phase] ?? ResultsScreen"
+          />
         </Transition>
       </div>
     </main>
-    
-    <footer class="app-footer mt-4 text-center text-secondary small py-3 user-select-none opacity-50">
+
+    <footer class="app-footer mt-4 text-center text-secondary small py-3 user-select-none">
       {{ t('footer.copyright_prefix') }}
-      <a href="https://carlo.perassi.com" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">{{ t('footer.author') }}</a>
+      <a href="https://carlo.perassi.com" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none d-inline-block py-2">{{ t('footer.author') }}</a>
       <span class="ms-1">· {{ t('footer.version', { version: appVersion }) }}</span>
     </footer>
 
@@ -220,7 +254,6 @@ const modalDegreeTags = computed(() => {
       aria-hidden="true"
       data-bs-backdrop="true"
       data-bs-keyboard="true"
-      @hidden.bs.modal="degreeForModal = null"
     >
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content bg-dark border border-secondary">
@@ -228,7 +261,7 @@ const modalDegreeTags = computed(() => {
             <h5 id="degreeModalTitle" class="modal-title text-light">
               {{ modalDegreeName }}
             </h5>
-            <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="modal" />
+            <button type="button" class="btn-close btn-close-white" :aria-label="t('common.close')" data-bs-dismiss="modal" />
           </div>
           <div class="modal-body text-start text-body">
             <p class="small text-secondary-emphasis">{{ modalDegreeDesc }}</p>
@@ -255,18 +288,16 @@ const modalDegreeTags = computed(() => {
   background-clip: text;
 }
 
-/* Force phase content to fill main and allow internal scroll (Phase 1 list) */
+/* Each screen takes the free space under the header; the page itself scrolls when content is taller. */
 .app-main-content > * {
-  flex: 1 1 0;
-  min-height: 0;
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
-/* Welcome and Rules: allow vertical scroll so "Azzera progressi" / bottom content is reachable on mobile */
-.app-main-content.phase-scrollable > * {
-  overflow: auto;
+.header-btn {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
 }
 
 /* Safe area so footer and bottom buttons aren't under home indicator (iPhone) */

@@ -1,23 +1,29 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useGameEngine } from '../composables/useGameEngine';
 import { useSound } from '../composables/useSound';
+import { useLeaveGame } from '../composables/useLeaveGame';
 import MatchCard from './MatchCard.vue';
 import { useI18n } from 'vue-i18n';
-import html2canvas from 'html2canvas';
-import confetti from 'canvas-confetti';
+import { APP_HOME_URL } from '../config';
 
 const { state, resetGame, goToDonate } = useGameEngine();
 const { playFanfare, playSuccess, playTap } = useSound();
+const { leaveGame } = useLeaveGame();
 const { t, locale } = useI18n();
 
 const captureRef = ref(null);
-const actionsRef = ref(null);
 
 /** App palette for confetti (classic firework on winner). */
 const CONFETTI_COLORS = ['#6B5DEA', '#6AAEF5', '#58DDBA', '#DEEFFF', '#425EC9'];
 
-function fireConfetti() {
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+// canvas-confetti and html2canvas are only needed here, so they load on demand instead of with the first screen.
+async function fireConfetti() {
+  if (prefersReducedMotion()) return;
+  const { default: confetti } = await import('canvas-confetti');
   const duration = 2200;
   const end = Date.now() + duration;
   const frame = () => {
@@ -27,6 +33,7 @@ function fireConfetti() {
       spread: 55,
       origin: { x: 0.2, y: 0.6 },
       colors: CONFETTI_COLORS,
+      disableForReducedMotion: true,
     });
     confetti({
       particleCount: 3,
@@ -34,6 +41,7 @@ function fireConfetti() {
       spread: 55,
       origin: { x: 0.8, y: 0.6 },
       colors: CONFETTI_COLORS,
+      disableForReducedMotion: true,
     });
     if (Date.now() < end) requestAnimationFrame(frame);
   };
@@ -45,33 +53,16 @@ function fireConfetti() {
       spread: 70,
       origin: { x: 0.5, y: 0.45 },
       colors: CONFETTI_COLORS,
+      disableForReducedMotion: true,
     });
   }, 200);
 }
 
-let resizeCleanup = null;
 onMounted(() => {
   playFanfare();
-  fireConfetti();
-  nextTick(() => measureLayout());
-  const win = typeof window !== 'undefined' ? window : null;
-  if (win) {
-    win.addEventListener('resize', measureLayout);
-    resizeCleanup = () => win.removeEventListener('resize', measureLayout);
-  }
+  fireConfetti().catch(() => {});
 });
-onUnmounted(() => { resizeCleanup?.(); });
 
-function measureLayout() {
-  const cap = captureRef.value;
-  const act = actionsRef.value;
-  const win = typeof window !== 'undefined' ? window : null;
-  if (!win) return;
-  const capRect = cap?.getBoundingClientRect();
-  const actRect = act?.getBoundingClientRect();
-  const overlap = capRect && actRect ? actRect.top < capRect.bottom : null;
-  const scrollEl = cap?.closest('.results-scroll');
-}
 const downloadMessage = ref(null);
 const shareMessage = ref(null); // 'success' | 'error' | null
 const personName = ref('');
@@ -93,15 +84,30 @@ const downloadFilename = computed(() => {
 
 const shareSupported = computed(() => typeof navigator !== 'undefined' && !!navigator.share);
 
-/** Canonical app home URL (used for share and "Share the app" link). */
-const APP_HOME_URL = 'https://pick-my-degree.surge.sh/';
+const nameOf = (degree) => degree?.name?.[locale.value] ?? degree?.name?.en ?? '';
+
+/**
+ * Runner-up and the two semi-final losers. Losers are recorded in play order, so the last bracket
+ * entries are the semi-final losers and then the final's loser.
+ */
+const contenders = computed(() => {
+  const lost = state.value.eliminatedDegrees.filter((d) => typeof d.round === 'string' && d.round.startsWith('bracket-'));
+  return lost.slice(-3).reverse();
+});
+
+/** Links to the official course pages, when the card has them. */
+const courseLinks = computed(() => {
+  const urls = state.value.winner?.url;
+  if (!urls || typeof urls !== 'object') return [];
+  return Object.entries(urls).map(([key, href]) => ({ key, href, label: t(`universities.${key}`) }));
+});
 
 async function handleShareApp() {
   if (!navigator.share) return;
   try {
     await navigator.share({
-      title: 'Pick My Degree',
-      text: 'Pick My Degree – discover your ideal degree through a tournament of choices.',
+      title: t('welcome.title'),
+      text: t('results.share_app_text'),
       url: APP_HOME_URL
     });
     shareMessage.value = 'success';
@@ -114,9 +120,15 @@ async function handleShareApp() {
 /** Capture result card to canvas and return PNG blob. */
 async function getResultBlob() {
   if (!captureRef.value) return null;
+  const { default: html2canvas } = await import('html2canvas');
   const canvas = await html2canvas(captureRef.value, {
     backgroundColor: '#0B1830',
     scale: 2,
+    // Keep interface chrome (the "?" button, input placeholder) out of the saved image.
+    ignoreElements: (el) => el.classList?.contains('card-info-btn'),
+    onclone: (doc) => {
+      doc.querySelector('.results-name-input')?.setAttribute('placeholder', '');
+    },
   });
   return new Promise((resolve) => {
     canvas.toBlob((blob) => resolve(blob || null), 'image/png');
@@ -137,7 +149,8 @@ const handleDownload = async () => {
     a.href = url;
     a.download = downloadFilename.value;
     a.click();
-    URL.revokeObjectURL(url);
+    // Some browsers start the download asynchronously; revoking right away can cancel it.
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
     downloadMessage.value = 'success';
     playSuccess();
   } catch {
@@ -161,8 +174,8 @@ const handleShare = async () => {
     const file = new File([blob], downloadFilename.value, { type: 'image/png' });
     const data = {
       files: [file],
-      title: 'Pick My Degree',
-      text: state.value.winner ? state.value.winner.name[locale.value] : 'My degree result',
+      title: t('welcome.title'),
+      text: state.value.winner ? nameOf(state.value.winner) : t('results.share_result_fallback'),
     };
     if (navigator.canShare && !navigator.canShare(data)) {
       shareMessage.value = 'error';
@@ -183,14 +196,14 @@ const handleRestart = () => {
 </script>
 
 <template>
-  <div class="results-root h-100 d-flex flex-column min-h-0">
-    <div class="results-scroll flex-grow-1 min-h-0 overflow-auto">
+  <div class="results-root d-flex flex-column">
+    <div class="results-scroll flex-grow-1">
       <div class="results-inner d-flex flex-column align-items-center text-center py-4 w-100">
         <div class="d-flex align-items-start justify-content-between w-100 mb-2 px-2" style="max-width: 320px;">
           <button
             type="button"
-            class="btn btn-link link-secondary small text-decoration-none p-0"
-            @click="playTap(); resetGame()"
+            class="btn btn-link link-secondary small text-decoration-none back-link"
+            @click="leaveGame"
           >
             ← {{ t('common.back') }}
           </button>
@@ -200,13 +213,21 @@ const handleRestart = () => {
 
         <div ref="captureRef" class="results-capture rounded-4 p-4 text-start">
           <p class="small text-secondary text-uppercase mb-2">{{ t('results.winner_label') }}</p>
-          <MatchCard v-if="state.winner" :degree="state.winner" class="mb-0" compact />
+          <MatchCard v-if="state.winner" :degree="state.winner" class="mb-0" />
+          <div v-if="contenders.length" class="mt-3">
+            <p class="small text-secondary text-uppercase mb-1">{{ t('results.ranking_label') }}</p>
+            <ol class="small text-light mb-0 ps-3">
+              <li v-for="degree in contenders" :key="degree.id">{{ nameOf(degree) }}</li>
+            </ol>
+          </div>
           <div class="mt-3 pt-3 border-top border-white border-opacity-10">
-            <label class="small text-secondary text-uppercase d-block mb-1">{{ t('results.your_name') }}</label>
+            <label for="results-name" class="small text-secondary text-uppercase d-block mb-1">{{ t('results.your_name') }}</label>
             <input
+              id="results-name"
               v-model="personName"
               type="text"
-              class="form-control form-control-sm bg-dark bg-opacity-50 border border-white border-opacity-25 text-light rounded-pill px-3"
+              autocomplete="name"
+              class="results-name-input form-control bg-dark bg-opacity-50 border border-white border-opacity-25 text-light rounded-pill px-3"
               :placeholder="t('results.your_name')"
             />
             <p class="small text-secondary mb-0 mt-2">
@@ -215,7 +236,15 @@ const handleRestart = () => {
           </div>
         </div>
 
-        <div ref="actionsRef" class="results-actions d-flex flex-column gap-3 w-100 mt-4" style="max-width: 320px;">
+        <p v-if="courseLinks.length" class="small mt-3 mb-0">
+          {{ t('results.learn_more') }}:
+          <template v-for="(link, i) in courseLinks" :key="link.key">
+            <span v-if="i > 0"> · </span>
+            <a :href="link.href" target="_blank" rel="noopener noreferrer" class="link-primary">{{ link.label }}</a>
+          </template>
+        </p>
+
+        <div class="results-actions d-flex flex-column gap-3 w-100 mt-4" style="max-width: 320px;">
           <div class="d-flex gap-2 flex-sm-row flex-column">
             <button @click="handleDownload" class="btn btn-primary rounded-pill px-4 py-3 fw-bold flex-grow-1">
               {{ t('results.download') }}
@@ -230,15 +259,17 @@ const handleRestart = () => {
               {{ t('results.share') }}
             </button>
           </div>
-          <p v-if="downloadMessage === 'success'" class="small text-success mb-0">
-            {{ t('results.share_success') }}
-          </p>
-          <p v-if="shareMessage === 'success'" class="small text-success mb-0">
-            {{ t('results.share_success_native') }}
-          </p>
-          <p v-if="downloadMessage === 'error' || shareMessage === 'error'" class="small text-danger mb-0">
-            {{ t('results.share_error') }}
-          </p>
+          <div aria-live="polite">
+            <p v-if="downloadMessage === 'success'" class="small text-success mb-0">
+              {{ t('results.share_success') }}
+            </p>
+            <p v-if="shareMessage === 'success'" class="small text-success mb-0">
+              {{ t('results.share_success_native') }}
+            </p>
+            <p v-if="downloadMessage === 'error' || shareMessage === 'error'" class="small text-danger mb-0">
+              {{ t('results.share_error') }}
+            </p>
+          </div>
           <button @click="playTap(); handleRestart()" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
             {{ t('results.restart') }}
           </button>
@@ -253,7 +284,7 @@ const handleRestart = () => {
           </button>
           <a
             v-else
-            href="https://pick-my-degree.surge.sh/"
+            :href="APP_HOME_URL"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-outline-primary rounded-pill px-4 py-3 fw-bold d-flex align-items-center justify-content-center gap-2 text-decoration-none"
@@ -278,12 +309,11 @@ const handleRestart = () => {
 
 <style scoped>
 .results-root {
-  /* Same pattern as RulesScreen: scrollable inner area so capture + actions never overlap */
+  flex: 1 0 auto;
 }
 .results-scroll {
   -webkit-overflow-scrolling: touch;
 }
-/* Prevent flex shrink: inner content keeps natural height so scroll works and buttons never overlap */
 .results-inner {
   flex-shrink: 0;
   min-height: min-content;
@@ -292,6 +322,7 @@ const handleRestart = () => {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 320px;
+  width: 100%;
 }
 .results-actions {
   flex-shrink: 0;

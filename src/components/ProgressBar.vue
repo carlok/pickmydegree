@@ -2,17 +2,11 @@
 import { computed } from 'vue';
 import { useGameEngine } from '../composables/useGameEngine';
 import { useI18n } from 'vue-i18n';
+import { useBracketLabel } from '../composables/useBracketLabel';
 
 const { state } = useGameEngine();
 const { t } = useI18n();
-
-/** Label for bracket phase by size: Final (2), Quarter (4), Octave (8), etc. */
-function bracketLevelLabel(size) {
-  const n = Math.max(2, size || 2);
-  const key = `progress.bracket_level_${n}`;
-  const out = t(key);
-  return out !== key ? out : t('progress.phase3_bracket');
-}
+const bracketLevelLabel = useBracketLabel();
 
 /** Current round size in bracket (for showing current stage in progress bar). */
 function currentRoundSize(s) {
@@ -90,18 +84,26 @@ const phaseProgress = computed(() => {
 
 <template>
   <div class="progress-bar-wrap mb-3">
-    <div v-if="phaseLabel" class="small text-secondary mb-1">{{ phaseLabel }}</div>
+    <div v-if="phaseLabel" class="small text-secondary mb-1" aria-live="polite">{{ phaseLabel }}</div>
     <div class="progress mb-1 bg-transparent border border-secondary" style="height: 6px;">
       <div 
         class="progress-bar rounded-pill" 
-        role="progressbar" 
+        role="progressbar"
+        :aria-label="t('progress.aria_label')"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        :aria-valuenow="progress"
         :style="{ width: progress + '%', background: 'linear-gradient(to right, var(--bs-primary), var(--bs-secondary))' }"
       ></div>
     </div>
-    <div v-if="phaseProgress > 0 && phaseProgress < 100 && (state.phase === 'categories' || state.phase === 'phase1' || state.phase === 'phase2')" class="progress mb-0 bg-dark border border-secondary opacity-50" style="height: 4px;">
+    <div v-if="phaseProgress > 0 && phaseProgress < 100 && (state.phase === 'categories' || state.phase === 'phase1' || state.phase === 'phase2')" class="progress mb-0 bg-dark border border-secondary" style="height: 4px;">
       <div 
         class="progress-bar rounded-pill bg-secondary" 
-        role="progressbar" 
+        role="progressbar"
+        :aria-label="t('progress.step_aria_label')"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        :aria-valuenow="phaseProgress"
         :style="{ width: phaseProgress + '%' }"
       ></div>
     </div>

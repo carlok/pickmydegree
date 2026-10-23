@@ -2,7 +2,7 @@
 @use "sass:color";
 // Palette: Sky Blue #6AAEF5, Navy Blue #425EC9, Green #58DDBA, Purple #6B5DEA, Dark #0B1830, Light #DEEFFF
 @use "bootstrap/scss/bootstrap" as * with (
-  $font-family-base: ('Montserrat', sans-serif),
+  $font-family-base: ('Montserrat Variable', 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif),
   $primary: #6B5DEA,
   $secondary: #6AAEF5,
   $success: #58DDBA,
@@ -14,9 +14,6 @@
   $enable-shadows: true,
   $enable-gradients: true
 );
-
-// Fonts (CSS import)
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 // Theme variables for use below
 $primary: #6B5DEA;
@@ -41,20 +38,45 @@ body {
 .text-body-secondary {
   color: rgba(222, 239, 255, 0.85) !important;
 }
+// Bootstrap's own primary/info/danger text colours are below 4.5:1 on the dark background; use lighter tints.
+.text-primary,
+.link-primary {
+  color: #A79EFF !important;
+}
+.text-info {
+  color: #9DB2FF !important;
+}
+.text-danger {
+  color: #FF8A95 !important;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #A79EFF;
+  --bs-btn-border-color: #A79EFF;
+  --bs-btn-hover-color: #0B1830;
+  --bs-btn-hover-bg: #A79EFF;
+  --bs-btn-hover-border-color: #A79EFF;
+  --bs-btn-active-color: #0B1830;
+  --bs-btn-active-bg: #A79EFF;
+  --bs-btn-active-border-color: #A79EFF;
+}
+
 .lead.text-secondary-emphasis {
   color: rgba(222, 239, 255, 0.95) !important;
 }
 
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s, background-color 0.2s;
+
+  // Hover feedback only where hover exists, so it never sticks after a tap on touch screens.
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.09);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
   }
 }
 
@@ -65,9 +87,10 @@ body {
   font-weight: 600;
   padding: 0.75rem 1.5rem;
 
-  &:hover {
-    background-image: linear-gradient(45deg, #7d6eec, #5260d4);
-    transform: translateY(-1px);
+  @media (hover: hover) {
+    &:hover {
+      background-image: linear-gradient(45deg, #7d6eec, #5260d4);
+    }
   }
 }
 
@@ -76,20 +99,44 @@ body {
   font-weight: 600;
 }
 
-// Ensure app fits viewport and main content can scroll internally (Phase 1 list)
-// Use 100dvh on supported browsers so mobile address bar doesn't clip content
+// The page scrolls normally (keeps 200% zoom and landscape usable); the app is at least one screen tall.
 #app {
-  height: 100vh;
-  height: 100dvh;
   min-height: 100vh;
   min-height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+// Keyboard focus must always be visible.
+:focus-visible {
+  outline: 3px solid $light;
+  outline-offset: 2px;
+}
+
+// "← Back" style links: text-sized but still a 44px-tall touch target.
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-left: 0;
+  padding-right: 0.75rem;
+}
+
+// 44px minimum touch targets for Bootstrap's own controls.
+.btn-close {
+  box-sizing: border-box;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+}
+.offcanvas .btn,
+.modal .btn {
+  min-height: 2.75rem;
+}
+.form-control {
+  min-height: 2.75rem;
 }
 
 // Utility for transitions
@@ -101,4 +148,15 @@ body {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

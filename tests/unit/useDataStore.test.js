@@ -1,7 +1,7 @@
 /**
  * Unit tests for useDataStore (load, save, clear).
  */
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { useDataStore } from '../../src/composables/useDataStore';
 
 describe('useDataStore', () => {
@@ -31,5 +31,23 @@ describe('useDataStore', () => {
   it('load returns null when stored value is invalid JSON', () => {
     localStorage.setItem('pick-my-degree-v1', 'not json');
     expect(store.load()).toBeNull();
+  });
+
+  describe('when localStorage throws (blocked site data)', () => {
+    const real = globalThis.localStorage;
+    const blocked = {
+      getItem() { throw new Error('blocked'); },
+      setItem() { throw new Error('blocked'); },
+      removeItem() { throw new Error('blocked'); },
+    };
+
+    beforeEach(() => { vi.stubGlobal('localStorage', blocked); });
+    afterEach(() => { vi.stubGlobal('localStorage', real); });
+
+    it('load returns null, save and clear do not throw', () => {
+      expect(store.load()).toBeNull();
+      expect(() => store.save({ phase: 'welcome' })).not.toThrow();
+      expect(() => store.clear()).not.toThrow();
+    });
   });
 });

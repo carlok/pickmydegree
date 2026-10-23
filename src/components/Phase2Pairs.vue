@@ -1,29 +1,35 @@
 <script setup>
-import { ref, watch, onUnmounted } from 'vue';
+import { ref, computed, watch, inject, onMounted, onUnmounted } from 'vue';
 import { useGameEngine } from '../composables/useGameEngine';
 import { useSound } from '../composables/useSound';
+import { useLeaveGame } from '../composables/useLeaveGame';
 import MatchCard from './MatchCard.vue';
 import { useI18n } from 'vue-i18n';
 
-const { state, resolvePhase2Match, resolvePhase2MatchRandomly, resetGame } = useGameEngine();
+const { state, resolvePhase2Match, resolvePhase2MatchRandomly } = useGameEngine();
 const { playTap } = useSound();
-
-function handleBack() {
-  playTap();
-  resetGame();
-}
+const { leaveGame } = useLeaveGame();
 const { t, locale } = useI18n();
 
-const timeLeft = ref(10);
+const TIMER_SECONDS = 10;
+const timeLeft = ref(TIMER_SECONDS);
 const timeoutKeptMessage = ref(null);
 let timer = null;
 let timeoutClearId = null;
 
+// The countdown stands still while the degree description is open or the tab is in the background,
+// so reading a description never costs a random discard.
+const degreeInfoOpen = inject('degreeInfoOpen', ref(false));
+const tabHidden = ref(typeof document !== 'undefined' && document.hidden);
+const paused = computed(() => degreeInfoOpen.value || tabHidden.value);
+const onVisibilityChange = () => { tabHidden.value = document.hidden; };
+
 const startTimer = () => {
   clearInterval(timer);
   timeoutKeptMessage.value = null;
-  timeLeft.value = 10;
+  timeLeft.value = TIMER_SECONDS;
   timer = setInterval(() => {
+    if (paused.value) return;
     timeLeft.value--;
     if (timeLeft.value <= 0) {
       clearInterval(timer);
@@ -45,22 +51,33 @@ const handleRandom = () => {
   }, 4000);
 };
 
+// A second tap right after a pick lands on the next pair's card (the DOM has already moved on): ignore it.
+const PICK_LOCK_MS = 350;
+let lastPickAt = 0;
+
 /** id = the degree to KEEP (winner). */
 const handleKeep = (id) => {
   if (state.value.phase !== 'phase2') return;
-  clearInterval(timer);
-  playTap();
-  resolvePhase2Match(id);
+  const now = Date.now();
+  if (now - lastPickAt < PICK_LOCK_MS) return;
+  if (resolvePhase2Match(id)) {
+    lastPickAt = now;
+    playTap();
+  }
 };
 
-// Only run timer when we're actually in phase2 (KeepAlive keeps this mounted when bracket is shown;
-// bracket sets currentMatch too, which would otherwise start the phase2 timer and corrupt state).
+// Only run the timer while the game is actually in phase2.
 watch(() => [state.value.phase, state.value.currentMatch], ([phase, newVal]) => {
   if (phase === 'phase2' && newVal) startTimer();
   else clearInterval(timer);
 }, { immediate: true });
 
+onMounted(() => {
+  document.addEventListener('visibilitychange', onVisibilityChange);
+});
+
 onUnmounted(() => {
+  document.removeEventListener('visibilitychange', onVisibilityChange);
   clearInterval(timer);
   if (timeoutClearId) clearTimeout(timeoutClearId);
 });
@@ -72,8 +89,8 @@ onUnmounted(() => {
       <div class="d-flex align-items-start justify-content-between mb-2">
         <button
           type="button"
-          class="btn btn-link link-secondary small text-decoration-none p-0"
-          @click="handleBack"
+          class="btn btn-link link-secondary small text-decoration-none back-link"
+          @click="leaveGame"
         >
           ← {{ t('common.back') }}
         </button>
@@ -81,16 +98,17 @@ onUnmounted(() => {
       </div>
       <h2 class="fw-bold h3 mb-2">{{ t('phase2.title') }}</h2>
       <p class="text-secondary small mb-1">{{ t('phase2.instruction') }}</p>
-      <p class="text-secondary small opacity-75 mb-3">{{ t('phase2.minimal_note') }}</p>
+      <p class="text-secondary small mb-3">{{ t('phase2.minimal_note') }}</p>
       <div class="d-flex flex-column align-items-center gap-2 mb-2">
-        <div 
-          class="badge rounded-pill px-3 py-2 fs-6 fw-normal animate-pulse shadow-sm transition-colors" 
-          :class="timeLeft <= 3 ? 'bg-danger text-white' : 'bg-warning text-dark'"
+        <div
+          role="timer"
+          class="badge rounded-pill px-3 py-2 fs-6 fw-normal shadow-sm transition-colors"
+          :class="[timeLeft <= 3 ? 'bg-danger text-white' : 'bg-warning text-dark', { 'animate-pulse': !paused }]"
         >
-          {{ t('phase2.timer', { seconds: timeLeft }) }} ⏳
+          {{ t('phase2.timer', { seconds: timeLeft }) }} <span aria-hidden="true">⏳</span>
         </div>
-        <p class="small text-secondary opacity-75 mb-0">{{ t('phase2.timeout_explanation') }}</p>
-        <p v-if="timeoutKeptMessage" class="small text-info mb-0 fw-bold">
+        <p class="small text-secondary mb-0">{{ t('phase2.timeout_explanation') }}</p>
+        <p v-if="timeoutKeptMessage" class="small text-info mb-0 fw-bold" role="status">
           {{ timeoutKeptMessage }}
         </p>
         <p v-if="state.phase2TotalPairs > 0" class="small text-secondary mb-0">
@@ -104,17 +122,17 @@ onUnmounted(() => {
       <p class="small text-success fw-bold mb-1 phase2-tap-label">{{ t('phase2.tap_to_keep') }}</p>
       <!-- Option A: tap to keep -->
       <div class="phase2-option w-100 position-relative">
-        <div @click="handleKeep(state.currentMatch.a.id)" class="card-hover-effect cursor-pointer phase2-pick-keep">
-          <MatchCard :degree="state.currentMatch.a" compact />
+        <div class="card-hover-effect phase2-pick-keep">
+          <MatchCard :degree="state.currentMatch.a" pickable @pick="handleKeep(state.currentMatch.a.id)" />
         </div>
       </div>
 
-      <div class="phase2-vs fw-bold text-muted opacity-50 user-select-none font-monospace py-1">VS</div>
+      <div class="phase2-vs fw-bold text-secondary user-select-none font-monospace py-1" aria-hidden="true">{{ t('phase2.vs') }}</div>
 
       <!-- Option B: tap to keep -->
       <div class="phase2-option w-100 position-relative">
-        <div @click="handleKeep(state.currentMatch.b.id)" class="card-hover-effect cursor-pointer phase2-pick-keep">
-          <MatchCard :degree="state.currentMatch.b" compact />
+        <div class="card-hover-effect phase2-pick-keep">
+          <MatchCard :degree="state.currentMatch.b" pickable @pick="handleKeep(state.currentMatch.b.id)" />
         </div>
       </div>
     </div>

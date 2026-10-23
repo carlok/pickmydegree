@@ -1,30 +1,30 @@
-import { ref } from 'vue';
-
 const STORAGE_KEY = 'pick-my-degree-v1';
 
+// localStorage can throw (blocked site data, private modes, quota), so every access is guarded.
 export function useDataStore() {
   const load = () => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch {
-        return null;
-      }
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
     }
-    return null;
   };
 
   const save = (data) => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-} catch {
-    // Storage full or unavailable; fail silently
-  }
+    } catch {
+      // Storage full or unavailable; fail silently
+    }
   };
 
   const clear = () => {
-    localStorage.removeItem(STORAGE_KEY);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // Storage unavailable; nothing to clear
+    }
   };
 
   return {

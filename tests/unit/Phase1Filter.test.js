@@ -1,7 +1,7 @@
 /**
  * Unit tests for Phase1Filter: sortedEliminatedDegrees, continue/undo, back.
  */
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-i18n';
 import Phase1Filter from '../../src/components/Phase1Filter.vue';
@@ -53,7 +53,7 @@ describe('Phase1Filter', () => {
   it('enables undo after eliminating at least one degree', async () => {
     const wrapper = mountPhase1Filter();
     const surv = engine.state.value.survivingDegrees;
-    const firstCard = wrapper.find('.phase1-section-remove .phase1-line');
+    const firstCard = wrapper.find('.phase1-section-remove .card-pick');
     await firstCard.trigger('click');
     await wrapper.vm.$nextTick();
     const undoBtn = wrapper.find('button.btn-outline-secondary');
@@ -77,11 +77,35 @@ describe('Phase1Filter', () => {
     }
   });
 
-  it('calls resetGame when back button is clicked', async () => {
+  it('asks before leaving, then resets to welcome', async () => {
     const wrapper = mountPhase1Filter();
     const backBtn = wrapper.find('button.btn-link');
     await backBtn.trigger('click');
+    expect(window.confirm).toHaveBeenCalled();
     expect(engine.state.value.phase).toBe('welcome');
+  });
+
+  it('stays in the game when leaving is declined', async () => {
+    window.confirm = vi.fn(() => false);
+    const wrapper = mountPhase1Filter();
+    await wrapper.find('button.btn-link').trigger('click');
+    expect(engine.state.value.phase).toBe('phase1');
+    expect(engine.state.value.survivingDegrees.length).toBeGreaterThan(0);
+  });
+
+  it('does not enable undo for degrees removed with a whole category', () => {
+    engine.resetGame();
+    engine.startNewGame();
+    engine.removeCategory(engine.state.value.survivingDegrees[0].category);
+    engine.completeCategories();
+    const wrapper = mountPhase1Filter();
+    expect(wrapper.find('button.btn-outline-secondary').attributes('disabled')).toBeDefined();
+  });
+
+  it('pick cards are buttons, reachable by keyboard', () => {
+    const wrapper = mountPhase1Filter();
+    const picks = wrapper.findAll('.phase1-section-remove button.card-pick');
+    expect(picks.length).toBe(engine.state.value.survivingDegrees.length);
   });
 
   it('complete phase1 when continue is clicked with enough survivors', async () => {
