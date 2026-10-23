@@ -22,6 +22,12 @@
         "Business",
         "Organizzazione"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/amministrazione-aziendale"
     }
   },
   {
@@ -47,6 +53,12 @@
         "Progettazione",
         "Creatività"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/architettura"
     }
   },
   {
@@ -72,6 +84,12 @@
         "Storia",
         "Arte"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/beni-culturali"
     }
   },
   {
@@ -97,6 +115,12 @@
         "Laboratorio",
         "Ricerca"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/biotecnologie"
     }
   },
   {
@@ -122,6 +146,12 @@
         "Strategia",
         "Team"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/business-management"
     }
   },
   {
@@ -147,6 +177,12 @@
         "Salute",
         "Laboratorio"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/chimica-e-tecnologia-farmaceutiche"
     }
   },
   {
@@ -172,6 +208,12 @@
         "Scienza",
         "Industria"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/chimica-e-tecnologie-chimiche"
     }
   },
   {
@@ -197,6 +239,12 @@
         "Cultura",
         "Comunicazione"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/comunicazione-interculturale"
     }
   },
   {
@@ -222,6 +270,12 @@
         "Restauro",
         "Patrimonio"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/conservazione-e-restauro-dei-beni-culturali-abilitante"
     }
   },
   {
@@ -247,6 +301,12 @@
         "Diritto",
         "Persone"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/consulenza-del-lavoro-e-gestione-delle-risorse-umane"
     }
   },
   {
@@ -272,6 +332,12 @@
         "Cultura",
         "Lettura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/culture-e-letterature-del-mondo-moderno"
     }
   },
   {
@@ -297,6 +363,12 @@
         "Ambiente",
         "Design"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/civil-and-environmental-engineering"
     }
   },
   {
@@ -322,6 +394,12 @@
         "Nutrizione",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/dietistica-abilitante-alla-professione-sanitaria-di"
     }
   },
   {
@@ -347,6 +425,12 @@
         "Alimentazione",
         "Agricoltura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/diritto-agroalimentare"
     }
   },
   {
@@ -372,6 +456,12 @@
         "Imprese",
         "Istituzioni"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/diritto-le-imprese-e-le-istituzioni"
     }
   },
   {
@@ -397,6 +487,12 @@
         "Musica",
         "Media"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/dams-discipline-delle-arti-della-musica-dello"
     }
   },
   {
@@ -447,6 +543,12 @@
         "Visuale",
         "Comunicazione"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/design-e-comunicazione"
     }
   },
   {
@@ -472,6 +574,12 @@
         "Dati",
         "Politica"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/economia"
     }
   },
   {
@@ -497,6 +605,12 @@
         "Contabilità",
         "Business"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/economia-aziendale-0"
     }
   },
   {
@@ -522,6 +636,12 @@
         "Dati",
         "Business"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/economia-e-statistica-le-organizzazioni"
     }
   },
   {
@@ -547,6 +667,12 @@
         "Formazione",
         "Persone"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/educazione-professionale-abilitante-alla-professione"
     }
   },
   {
@@ -572,6 +698,12 @@
         "Elettronica",
         "Segnali"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/electronic-and-communications-engineering"
     }
   },
   {
@@ -597,6 +729,12 @@
         "Chimica",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/farmacia"
     }
   },
   {
@@ -622,6 +760,12 @@
         "Etica",
         "Lettura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/filosofia"
     }
   },
   {
@@ -647,6 +791,12 @@
         "Matematica",
         "Teoria"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/fisica"
     }
   },
   {
@@ -672,6 +822,12 @@
         "Movimento",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/fisioterapia-abilitante-alla-professione-sanitaria-di"
     }
   },
   {
@@ -722,6 +878,12 @@
         "Giustizia",
         "Dibattito"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/giurisprudenza-0"
     }
   },
   {
@@ -747,6 +909,12 @@
         "Internazionale",
         "Politica"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/global-law-and-transnational-legal-studies"
     }
   },
   {
@@ -772,6 +940,12 @@
         "Dentale",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/igiene-dentale-abilitante-alla-professione-sanitaria-di"
     }
   },
   {
@@ -797,6 +971,12 @@
         "Cura",
         "Persone"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/infermieristica-abilitante-alla-professione-sanitaria-0"
     }
   },
   {
@@ -847,6 +1027,12 @@
         "Programmazione",
         "Logica"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/informatica"
     }
   },
   {
@@ -872,6 +1058,12 @@
         "Comunicazione",
         "Tecnologia"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/innovazione-sociale-comunicazione-nuove-tecnologie"
     }
   },
   {
@@ -897,6 +1089,12 @@
         "Aerospaziale",
         "Fisica"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-aerospaziale"
     }
   },
   {
@@ -922,6 +1120,12 @@
         "Salute",
         "Tecnologia"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-biomedica"
     }
   },
   {
@@ -947,6 +1151,12 @@
         "Alimentare",
         "Processo"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-chimica-e-alimentare"
     }
   },
   {
@@ -972,6 +1182,12 @@
         "Infrastrutture",
         "Design"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-civile"
     }
   },
   {
@@ -997,6 +1213,12 @@
         "Edilizia",
         "Design"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-edile"
     }
   },
   {
@@ -1022,6 +1244,12 @@
         "Energia",
         "Tecnologia"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-elettrica"
     }
   },
   {
@@ -1047,6 +1275,12 @@
         "Tecnologia",
         "Design"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-elettronica"
     }
   },
   {
@@ -1072,6 +1306,12 @@
         "Sostenibilità",
         "Tecnologia"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-energetica"
     }
   },
   {
@@ -1097,6 +1337,12 @@
         "Ingegneria",
         "Scienza"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-fisica"
     }
   },
   {
@@ -1122,6 +1368,12 @@
         "Processo",
         "Business"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-gestionale"
     }
   },
   {
@@ -1147,6 +1399,12 @@
         "Programmazione",
         "Sistemi"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-informatica"
     }
   },
   {
@@ -1172,6 +1430,12 @@
         "Meccanica",
         "Design"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-meccanica"
     }
   },
   {
@@ -1197,6 +1461,12 @@
         "Scienza",
         "Laboratorio"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-dei-materiali"
     }
   },
   {
@@ -1222,6 +1492,12 @@
         "Tecnologia",
         "Creatività"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-del-cinema-e-dei-media-digitali"
     }
   },
   {
@@ -1247,6 +1523,12 @@
         "Ingegneria",
         "Design"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-dell-autoveicolo"
     }
   },
   {
@@ -1272,6 +1554,12 @@
         "Produzione",
         "Processo"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-della-produzione-industriale"
     }
   },
   {
@@ -1297,6 +1585,12 @@
         "Territorio",
         "Sostenibilità"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-per-l-ambiente-e-il-territorio"
     }
   },
   {
@@ -1322,6 +1616,12 @@
         "Lettura",
         "Cultura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/lettere"
     }
   },
   {
@@ -1347,6 +1647,12 @@
         "Cultura",
         "Mondo"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/lingue-e-culture-dellasia-e-dellafrica"
     }
   },
   {
@@ -1372,6 +1678,12 @@
         "Turismo",
         "Cultura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/lingue-e-culture-il-turismo"
     }
   },
   {
@@ -1397,6 +1709,12 @@
         "Letteratura",
         "Cultura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/lingue-e-letterature-moderne"
     }
   },
   {
@@ -1422,6 +1740,12 @@
         "Comunicazione",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/logopedia-abilitante-alla-professione-sanitaria-di"
     }
   },
   {
@@ -1447,6 +1771,12 @@
         "Informazione",
         "Comunicazione"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/management-dellinformazione-e-della-comunicazione"
     }
   },
   {
@@ -1472,6 +1802,12 @@
         "Logica",
         "Teoria"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/matematica"
     }
   },
   {
@@ -1497,6 +1833,12 @@
         "Finanza",
         "Dati"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/matematica-leconomia-la-finanza-e-lassicurazione"
     }
   },
   {
@@ -1522,6 +1864,12 @@
         "Medicina",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/medicine-and-surgery"
     }
   },
   {
@@ -1547,6 +1895,12 @@
         "Salute",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/medicina-veterinaria"
     }
   },
   {
@@ -1572,6 +1926,12 @@
         "Design",
         "Business"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/moda-e-cultura-dimpresa"
     }
   },
   {
@@ -1597,6 +1957,12 @@
         "Ingegneria",
         "Teoria"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/matematica-per-l-ingegneria"
     }
   },
   {
@@ -1622,6 +1988,12 @@
         "Salute",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/odontoiatria-e-protesi-dentaria"
     }
   },
   {
@@ -1647,6 +2019,12 @@
         "Vista",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/ortottica-ed-assistenza-oftalmologica-abilitante-alla"
     }
   },
   {
@@ -1672,6 +2050,12 @@
         "Nascita",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/ostetricia-abilitante-alla-professione-sanitaria-di"
     }
   },
   {
@@ -1697,6 +2081,12 @@
         "Salute",
         "Scienza"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/ottica-e-optometria"
     }
   },
   {
@@ -1722,6 +2112,12 @@
         "Territorio",
         "Ambiente"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/pianificazione-territoriale-urbanistica-e-paesaggistico"
     }
   },
   {
@@ -1747,6 +2143,12 @@
         "Scienza",
         "Laboratorio"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienza-dei-materiali"
     }
   },
   {
@@ -1772,6 +2174,12 @@
         "Scienza",
         "Natura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-biologiche"
     }
   },
   {
@@ -1797,6 +2205,12 @@
         "Amministrazione",
         "Tecnologia"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-dellamministrazione-digitale"
     }
   },
   {
@@ -1822,6 +2236,12 @@
         "Insegnamento",
         "Apprendimento"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-delleducazione-0"
     }
   },
   {
@@ -1847,6 +2267,12 @@
         "Media",
         "Società"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-della-comunicazione"
     }
   },
   {
@@ -1872,6 +2298,12 @@
         "Primaria",
         "Educazione"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-della-formazione-primaria"
     }
   },
   {
@@ -1897,6 +2329,12 @@
         "Traduzione",
         "Cultura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-della-mediazione-linguistica"
     }
   },
   {
@@ -1922,6 +2360,12 @@
         "Movimento",
         "Salute"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-e-tecniche-delle-attivita-motorie-e-sportive"
     }
   },
   {
@@ -1947,6 +2391,12 @@
         "Mente",
         "Persone"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-e-tecniche-psicologiche"
     }
   },
   {
@@ -1972,6 +2422,12 @@
         "Ambiente",
         "Scienza"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-e-tecnologie-agrarie"
     }
   },
   {
@@ -1997,6 +2453,12 @@
         "Sostenibilità",
         "Territorio"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-e-tecnologie-la-montagna"
     }
   },
   {
@@ -2022,6 +2484,12 @@
         "Ambiente",
         "Sostenibilità"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-forestali-e-ambientali"
     }
   },
   {
@@ -2047,6 +2515,12 @@
         "Scienza",
         "Ambiente"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-geologiche"
     }
   },
   {
@@ -2072,6 +2546,12 @@
         "Sviluppo",
         "Politica"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-internazionali-dello-sviluppo-e-della"
     }
   },
   {
@@ -2097,6 +2577,12 @@
         "Scienza",
         "Ambiente"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-naturali"
     }
   },
   {
@@ -2122,6 +2608,12 @@
         "Società",
         "Policy"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-politiche-e-sociali"
     }
   },
   {
@@ -2147,6 +2639,12 @@
         "Sicurezza",
         "Politica"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-strategiche-e-della-sicurezza"
     }
   },
   {
@@ -2172,6 +2670,12 @@
         "Comunità",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/servizio-sociale"
     }
   },
   {
@@ -2197,6 +2701,12 @@
         "Sostenibilità",
         "Animali"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/sistemi-zootecnici-sostenibili"
     }
   },
   {
@@ -2222,6 +2732,12 @@
         "Ricerca",
         "Cultura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/storia"
     }
   },
   {
@@ -2247,6 +2763,12 @@
         "Mentale",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecnica-della-riabilitazione-psichiatrica-abilitante"
     }
   },
   {
@@ -2272,6 +2794,12 @@
         "Udito",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-audiometriche-abilitante-alla-professione"
     }
   },
   {
@@ -2297,6 +2825,12 @@
         "Udito",
         "Tecnologia"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-audioprotesiche-abilitante-alla-professione"
     }
   },
   {
@@ -2322,6 +2856,12 @@
         "Salute",
         "Ambiente"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-della-prevenzione-nellambiente-e-nei-luoghi-di"
     }
   },
   {
@@ -2347,6 +2887,12 @@
         "Salute",
         "Cura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-di-assistenza-veterinaria"
     }
   },
   {
@@ -2372,6 +2918,12 @@
         "Salute",
         "Scienza"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-di-laboratorio-biomedico-abilitante-alla-0"
     }
   },
   {
@@ -2397,6 +2949,12 @@
         "Neurologia",
         "Laboratorio"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-di-neurofisiopatologia-abilitante-alla"
     }
   },
   {
@@ -2422,6 +2980,12 @@
         "Imaging",
         "Tecnologia"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-di-radiologia-medica-immagini-e-radioterapia"
     }
   },
   {
@@ -2447,6 +3011,12 @@
         "Salute",
         "Natura"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-erboristiche"
     }
   },
   {
@@ -2472,6 +3042,12 @@
         "Tecnologia",
         "Industria"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecnologie-alimentari"
     }
   },
   {
@@ -2497,6 +3073,12 @@
         "Bambini",
         "Terapia"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/terapia-della-neuro-e-psicomotricita-delleta-evolutiva"
     }
   },
   {
@@ -2522,6 +3104,12 @@
         "Tecnologia",
         "Produzione"
       ]
+    },
+    "university": [
+      "polito"
+    ],
+    "url": {
+      "polito": "https://www.polito.it/didattica/corsi-di-laurea/tecnologie-per-l-industria-manifatturiera"
     }
   },
   {
@@ -2547,6 +3135,43 @@
         "Agricoltura",
         "Scienza"
       ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/viticoltura-ed-enologia"
+    }
+  },
+  {
+    "id": "deg-103",
+    "icon": "💹",
+    "category": "Business & Law",
+    "name": {
+      "en": "Economics and Finance with Data Science",
+      "it": "Economics and Finance with Data Science"
+    },
+    "description": {
+      "it": "Il Corso di Laurea in Economics and Finance with Data Science unisce lo studio rigoroso dell'economia e della finanza con la scienza dei dati e le sue applicazioni. Gli studenti sviluppano le capacità analitiche e di programmazione richieste ai nuovi economisti, agli esperti di politiche pubbliche e ai manager. Il corso ha vocazione internazionale ed è tenuto interamente in lingua inglese; l'accesso è programmato.\n\nIl percorso dura tre anni: un biennio di formazione economica di base e un terzo anno in cui si sceglie tra un indirizzo economico, economico-finanziario o economico-statistico. La didattica prevede attività pratiche e laboratori di analisi dei dati. Gli sbocchi comprendono assicurazioni, banche, società di consulenza, giornalismo economico-finanziario, enti di ricerca e pubbliche amministrazioni; la laurea prepara anche alle lauree magistrali in ambito economico, finanziario, attuariale, statistico e manageriale.",
+      "en": "The Degree Course in Economics and Finance with Data Science combines the rigorous study of economics and finance with data science and its applications. Students build the analytical and coding skills expected of a new generation of economists, policy experts and business leaders. The course is international in outlook and taught entirely in English; admission is limited (programmato).\n\nThe programme lasts three years: two years of core economics, then a third year in which students choose an economics, economics-and-finance or economics-and-statistics track. Teaching includes hands-on work and data analysis labs. Typical destinations are insurance, banking, consulting, economic and financial journalism, research institutes and public administration; the degree also prepares for master's programmes in economics, finance, actuarial science, statistics and management."
+    },
+    "tags": {
+      "en": [
+        "Economics",
+        "Finance",
+        "Data Science"
+      ],
+      "it": [
+        "Economia",
+        "Finanza",
+        "Data science"
+      ]
+    },
+    "university": [
+      "unito"
+    ],
+    "url": {
+      "unito": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/economics-and-finance-data-science"
     }
   }
 ]

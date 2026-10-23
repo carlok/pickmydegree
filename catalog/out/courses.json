@@ -1,0 +1,2108 @@
+{
+  "generated_at": "2026-10-23T17:39:20+00:00",
+  "scope": "first-cycle and single-cycle degrees (L, LMCU)",
+  "sources": {
+    "polito": {
+      "anno_accademico": 2026,
+      "origin": "polito.it open data (ACCETTA_IMMA = S)"
+    },
+    "unito": {
+      "origin": "unito.it course listing (current offering)"
+    },
+    "mur": {
+      "anno": 2025,
+      "origin": "dati-ustat.mur.gov.it Offerta formativa (cross-check only)"
+    },
+    "fetch": {
+      "polito_csv": {
+        "url": "https://www.polito.it/sites/default/files/2024-12/Corsi-di-studio.csv",
+        "last_modified": "Tue, 16 Dec 2025 09:40:05 GMT"
+      },
+      "polito_list": {
+        "url": "https://www.polito.it/didattica/corsi-di-laurea",
+        "retrieved": "2026-10-23T17:36:26.588619+00:00"
+      },
+      "unito": {
+        "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio",
+        "pages": 16,
+        "courses": 186
+      },
+      "mur": {
+        "url": "https://dati-ustat.mur.gov.it/dataset/bed0c71e-9f86-4a0f-a266-963b6f7bbbd2/resource/c0e63906-7190-4568-892b-0cf399f56071/download/03_offertaformativa-corsidilaurea_2010-2025.csv",
+        "last_modified": "Tue, 01 Sep 2026 10:06:14 GMT",
+        "bytes": 16935085
+      }
+    }
+  },
+  "counts": {
+    "polito": 25,
+    "unito": 77,
+    "mur_rows_not_in_primary_sources": 5
+  },
+  "mur_only": [
+    "polito|L-9|ingegneriachimica e alimentare",
+    "unito|L-32|scienze e tecnologie per la montagna",
+    "unito|L-3|dams",
+    "unito|L-P02|tecnologie dei sistemi ristorativi",
+    "unito|L/SNT1|infermieristica pediatrica"
+  ],
+  "courses": [
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-17",
+      "nome": "ARCHITETTURA",
+      "alt_nome": "ARCHITECTURE",
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/architettura",
+      "key": "polito|L-17|architettura",
+      "nome_norm": "architettura",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 2,
+      "nome_display": "Architettura",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-7",
+      "nome": "CIVIL AND ENVIRONMENTAL ENGINEERING",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/civil-and-environmental-engineering",
+      "key": "polito|L-7|civil and environmental engineering",
+      "nome_norm": "civil and environmental engineering",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Civil and environmental engineering",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-4",
+      "nome": "DESIGN E COMUNICAZIONE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/design-e-comunicazione",
+      "key": "polito|L-4|design e comunicazione",
+      "nome_norm": "design e comunicazione",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Design e comunicazione",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-8",
+      "nome": "ELECTRONIC AND COMMUNICATIONS ENGINEERING",
+      "alt_nome": "INGEGNERIA ELETTRONICA E DELLE COMUNICAZIONI",
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/electronic-and-communications-engineering",
+      "key": "polito|L-8|electronic and communications engineering",
+      "nome_norm": "electronic and communications engineering",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Electronic and communications engineering",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA AEROSPAZIALE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-aerospaziale",
+      "key": "polito|L-9|ingegneria aerospaziale",
+      "nome_norm": "ingegneria aerospaziale",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria aerospaziale",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA BIOMEDICA",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-biomedica",
+      "key": "polito|L-9|ingegneria biomedica",
+      "nome_norm": "ingegneria biomedica",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria biomedica",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA CHIMICA E ALIMENTARE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-chimica-e-alimentare",
+      "key": "polito|L-9|ingegneria chimica e alimentare",
+      "nome_norm": "ingegneria chimica e alimentare",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria chimica e alimentare",
+      "in_mur": false
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-7",
+      "nome": "INGEGNERIA CIVILE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-civile",
+      "key": "polito|L-7|ingegneria civile",
+      "nome_norm": "ingegneria civile",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria civile",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA DEI MATERIALI",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-dei-materiali",
+      "key": "polito|L-9|ingegneria dei materiali",
+      "nome_norm": "ingegneria dei materiali",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria dei materiali",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-8",
+      "nome": "INGEGNERIA DEL CINEMA E DEI MEDIA DIGITALI",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-del-cinema-e-dei-media-digitali",
+      "key": "polito|L-8|ingegneria del cinema e dei media digitali",
+      "nome_norm": "ingegneria del cinema e dei media digitali",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria del cinema e dei media digitali",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA DELLA PRODUZIONE INDUSTRIALE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-della-produzione-industriale",
+      "key": "polito|L-9|ingegneria della produzione industriale",
+      "nome_norm": "ingegneria della produzione industriale",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 3,
+      "nome_display": "Ingegneria della produzione industriale",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA DELL'AUTOVEICOLO",
+      "alt_nome": "AUTOMOTIVE ENGINEERING",
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-dell-autoveicolo",
+      "key": "polito|L-9|ingegneria dellautoveicolo",
+      "nome_norm": "ingegneria dellautoveicolo",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 2,
+      "nome_display": "Ingegneria dell'autoveicolo",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-23",
+      "nome": "INGEGNERIA EDILE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-edile",
+      "key": "polito|L-23|ingegneria edile",
+      "nome_norm": "ingegneria edile",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria edile",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA ELETTRICA",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-elettrica",
+      "key": "polito|L-9|ingegneria elettrica",
+      "nome_norm": "ingegneria elettrica",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria elettrica",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-8",
+      "nome": "INGEGNERIA ELETTRONICA",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-elettronica",
+      "key": "polito|L-8|ingegneria elettronica",
+      "nome_norm": "ingegneria elettronica",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria elettronica",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA ENERGETICA",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-energetica",
+      "key": "polito|L-9|ingegneria energetica",
+      "nome_norm": "ingegneria energetica",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria energetica",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-8",
+      "nome": "INGEGNERIA FISICA",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-fisica",
+      "key": "polito|L-8|ingegneria fisica",
+      "nome_norm": "ingegneria fisica",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria fisica",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-8",
+      "nome": "INGEGNERIA GESTIONALE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-gestionale",
+      "key": "polito|L-8|ingegneria gestionale",
+      "nome_norm": "ingegneria gestionale",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria gestionale",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA GESTIONALE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-gestionale",
+      "key": "polito|L-9|ingegneria gestionale",
+      "nome_norm": "ingegneria gestionale",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria gestionale",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-8",
+      "nome": "INGEGNERIA INFORMATICA",
+      "alt_nome": "COMPUTER ENGINEERING",
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-informatica",
+      "key": "polito|L-8|ingegneria informatica",
+      "nome_norm": "ingegneria informatica",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 2,
+      "nome_display": "Ingegneria informatica",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-9",
+      "nome": "INGEGNERIA MECCANICA",
+      "alt_nome": "MECHANICAL ENGINEERING",
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-meccanica",
+      "key": "polito|L-9|ingegneria meccanica",
+      "nome_norm": "ingegneria meccanica",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 2,
+      "nome_display": "Ingegneria meccanica",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-7",
+      "nome": "INGEGNERIA PER L'AMBIENTE E IL TERRITORIO",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/ingegneria-per-l-ambiente-e-il-territorio",
+      "key": "polito|L-7|ingegneria per lambiente e il territorio",
+      "nome_norm": "ingegneria per lambiente e il territorio",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Ingegneria per l'ambiente e il territorio",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-35",
+      "nome": "MATEMATICA PER L'INGEGNERIA",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/matematica-per-l-ingegneria",
+      "key": "polito|L-35|matematica per lingegneria",
+      "nome_norm": "matematica per lingegneria",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Matematica per l'ingegneria",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-21",
+      "nome": "PIANIFICAZIONE TERRITORIALE, URBANISTICA E PAESAGGISTICO-AMBIENTALE",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/pianificazione-territoriale-urbanistica-e-paesaggistico",
+      "key": "polito|L-21|pianificazione territoriale urbanistica e paesaggistico ambientale",
+      "nome_norm": "pianificazione territoriale urbanistica e paesaggistico ambientale",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Pianificazione territoriale, urbanistica e paesaggistico-ambientale",
+      "in_mur": true
+    },
+    {
+      "anno": 2026,
+      "tipo": "L",
+      "classe": "L-P03",
+      "nome": "TECNOLOGIE PER L'INDUSTRIA MANIFATTURIERA",
+      "alt_nome": null,
+      "ateneo": "polito",
+      "source": "polito-open-data",
+      "url": "https://www.polito.it/didattica/corsi-di-laurea/tecnologie-per-l-industria-manifatturiera",
+      "key": "polito|L-P03|tecnologie per lindustria manifatturiera",
+      "nome_norm": "tecnologie per lindustria manifatturiera",
+      "sedi": [],
+      "lingue": [],
+      "varianti": 1,
+      "nome_display": "Tecnologie per l'industria manifatturiera",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-18",
+      "nome": "AMMINISTRAZIONE AZIENDALE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/amministrazione-aziendale",
+      "source": "unito-site",
+      "key": "unito|L-18|amministrazione aziendale",
+      "nome_norm": "amministrazione aziendale",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Amministrazione aziendale",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-1",
+      "nome": "BENI CULTURALI",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/beni-culturali",
+      "source": "unito-site",
+      "key": "unito|L-1|beni culturali",
+      "nome_norm": "beni culturali",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Beni culturali",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-2",
+      "nome": "BIOTECNOLOGIE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/biotecnologie",
+      "source": "unito-site",
+      "key": "unito|L-2|biotecnologie",
+      "nome_norm": "biotecnologie",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Biotecnologie",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-18",
+      "nome": "BUSINESS & MANAGEMENT",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/business-management",
+      "source": "unito-site",
+      "key": "unito|L-18|business management",
+      "nome_norm": "business management",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese"
+      ],
+      "varianti": 1,
+      "nome_display": "Business & management",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LM-13",
+      "nome": "CHIMICA E TECNOLOGIA FARMACEUTICHE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/chimica-e-tecnologia-farmaceutiche",
+      "source": "unito-site",
+      "key": "unito|LM-13|chimica e tecnologia farmaceutiche",
+      "nome_norm": "chimica e tecnologia farmaceutiche",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Chimica e tecnologia farmaceutiche",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-27",
+      "nome": "CHIMICA E TECNOLOGIE CHIMICHE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/chimica-e-tecnologie-chimiche",
+      "source": "unito-site",
+      "key": "unito|L-27|chimica e tecnologie chimiche",
+      "nome_norm": "chimica e tecnologie chimiche",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Chimica e tecnologie chimiche",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-20",
+      "nome": "COMUNICAZIONE INTERCULTURALE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/comunicazione-interculturale",
+      "source": "unito-site",
+      "key": "unito|L-20|comunicazione interculturale",
+      "nome_norm": "comunicazione interculturale",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Comunicazione interculturale",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LMR/02",
+      "nome": "CONSERVAZIONE E RESTAURO DEI BENI CULTURALI",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/conservazione-e-restauro-dei-beni-culturali-abilitante",
+      "source": "unito-site",
+      "key": "unito|LMR/02|conservazione e restauro dei beni culturali",
+      "nome_norm": "conservazione e restauro dei beni culturali",
+      "sedi": [
+        "VENARIA REALE"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Conservazione e restauro dei beni culturali",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-16",
+      "nome": "CONSULENZA DEL LAVORO E GESTIONE DELLE RISORSE UMANE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/consulenza-del-lavoro-e-gestione-delle-risorse-umane",
+      "source": "unito-site",
+      "key": "unito|L-16|consulenza del lavoro e gestione delle risorse umane",
+      "nome_norm": "consulenza del lavoro e gestione delle risorse umane",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Consulenza del lavoro e gestione delle risorse umane",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-10",
+      "nome": "CULTURE E LETTERATURE DEL MONDO MODERNO",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/culture-e-letterature-del-mondo-moderno",
+      "source": "unito-site",
+      "key": "unito|L-10|culture e letterature del mondo moderno",
+      "nome_norm": "culture e letterature del mondo moderno",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Culture e letterature del mondo moderno",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-3",
+      "nome": "DAMS (DISCIPLINE DELLE ARTI, DELLA MUSICA, DELLO SPETTACOLO E DEI MEDIA DIGITALI)",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/dams-discipline-delle-arti-della-musica-dello",
+      "source": "unito-site",
+      "key": "unito|L-3|dams discipline delle arti della musica dello spettacolo e dei media digitali",
+      "nome_norm": "dams discipline delle arti della musica dello spettacolo e dei media digitali",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Dams (discipline delle arti, della musica, dello spettacolo e dei media digitali)",
+      "in_mur": false
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT3",
+      "nome": "DIETISTICA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/dietistica-abilitante-alla-professione-sanitaria-di",
+      "source": "unito-site",
+      "key": "unito|L/SNT3|dietistica",
+      "nome_norm": "dietistica",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Dietistica",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-14",
+      "nome": "DIRITTO AGROALIMENTARE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/diritto-agroalimentare",
+      "source": "unito-site",
+      "key": "unito|L-14|diritto agroalimentare",
+      "nome_norm": "diritto agroalimentare",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Diritto agroalimentare",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-14",
+      "nome": "DIRITTO PER LE IMPRESE E LE ISTITUZIONI",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/diritto-le-imprese-e-le-istituzioni",
+      "source": "unito-site",
+      "key": "unito|L-14|diritto per le imprese e le istituzioni",
+      "nome_norm": "diritto per le imprese e le istituzioni",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Diritto per le imprese e le istituzioni",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-33",
+      "nome": "ECONOMIA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/economia",
+      "source": "unito-site",
+      "key": "unito|L-33|economia",
+      "nome_norm": "economia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Economia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-18",
+      "nome": "ECONOMIA AZIENDALE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/economia-aziendale-0",
+      "source": "unito-site",
+      "key": "unito|L-18|economia aziendale",
+      "nome_norm": "economia aziendale",
+      "sedi": [
+        "CUNEO",
+        "TORINO",
+        "BIELLA"
+      ],
+      "lingue": [
+        "Inglese Italiano"
+      ],
+      "varianti": 3,
+      "nome_display": "Economia aziendale",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-33",
+      "nome": "ECONOMIA E STATISTICA PER LE ORGANIZZAZIONI",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/economia-e-statistica-le-organizzazioni",
+      "source": "unito-site",
+      "key": "unito|L-33|economia e statistica per le organizzazioni",
+      "nome_norm": "economia e statistica per le organizzazioni",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Economia e statistica per le organizzazioni",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-33",
+      "nome": "ECONOMICS AND FINANCE WITH DATA SCIENCE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/economics-and-finance-data-science",
+      "source": "unito-site",
+      "key": "unito|L-33|economics and finance with data science",
+      "nome_norm": "economics and finance with data science",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese"
+      ],
+      "varianti": 1,
+      "nome_display": "Economics and finance with data science",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT2",
+      "nome": "EDUCAZIONE PROFESSIONALE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/educazione-professionale-abilitante-alla-professione",
+      "source": "unito-site",
+      "key": "unito|L/SNT2|educazione professionale",
+      "nome_norm": "educazione professionale",
+      "sedi": [
+        "SAVIGLIANO",
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 2,
+      "nome_display": "Educazione professionale",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LM-13",
+      "nome": "FARMACIA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/farmacia",
+      "source": "unito-site",
+      "key": "unito|LM-13|farmacia",
+      "nome_norm": "farmacia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Farmacia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-5",
+      "nome": "FILOSOFIA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/filosofia",
+      "source": "unito-site",
+      "key": "unito|L-5|filosofia",
+      "nome_norm": "filosofia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Filosofia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-30",
+      "nome": "FISICA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/fisica",
+      "source": "unito-site",
+      "key": "unito|L-30|fisica",
+      "nome_norm": "fisica",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Fisica",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT2",
+      "nome": "FISIOTERAPIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/fisioterapia-abilitante-alla-professione-sanitaria-di",
+      "source": "unito-site",
+      "key": "unito|L/SNT2|fisioterapia",
+      "nome_norm": "fisioterapia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Fisioterapia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LMG/01",
+      "nome": "GIURISPRUDENZA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/giurisprudenza-0",
+      "source": "unito-site",
+      "key": "unito|LMG/01|giurisprudenza",
+      "nome_norm": "giurisprudenza",
+      "sedi": [
+        "TORINO",
+        "CUNEO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 2,
+      "nome_display": "Giurisprudenza",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-14",
+      "nome": "GLOBAL LAW AND TRANSNATIONAL LEGAL STUDIES",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/global-law-and-transnational-legal-studies",
+      "source": "unito-site",
+      "key": "unito|L-14|global law and transnational legal studies",
+      "nome_norm": "global law and transnational legal studies",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese"
+      ],
+      "varianti": 1,
+      "nome_display": "Global law and transnational legal studies",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT3",
+      "nome": "IGIENE DENTALE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/igiene-dentale-abilitante-alla-professione-sanitaria-di",
+      "source": "unito-site",
+      "key": "unito|L/SNT3|igiene dentale",
+      "nome_norm": "igiene dentale",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Igiene dentale",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT1",
+      "nome": "INFERMIERISTICA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/infermieristica-abilitante-alla-professione-sanitaria-0",
+      "source": "unito-site",
+      "key": "unito|L/SNT1|infermieristica",
+      "nome_norm": "infermieristica",
+      "sedi": [
+        "TORINO",
+        "ASTI",
+        "AOSTA",
+        "IVREA",
+        "ORBASSANO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 7,
+      "nome_display": "Infermieristica",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-31",
+      "nome": "INFORMATICA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/informatica",
+      "source": "unito-site",
+      "key": "unito|L-31|informatica",
+      "nome_norm": "informatica",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Informatica",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-20",
+      "nome": "INNOVAZIONE SOCIALE, COMUNICAZIONE, NUOVE TECNOLOGIE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/innovazione-sociale-comunicazione-nuove-tecnologie",
+      "source": "unito-site",
+      "key": "unito|L-20|innovazione sociale comunicazione nuove tecnologie",
+      "nome_norm": "innovazione sociale comunicazione nuove tecnologie",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Innovazione sociale, comunicazione, nuove tecnologie",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-10",
+      "nome": "LETTERE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/lettere",
+      "source": "unito-site",
+      "key": "unito|L-10|lettere",
+      "nome_norm": "lettere",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Lettere",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-12",
+      "nome": "LINGUE E CULTURE DELL'ASIA E DELL'AFRICA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/lingue-e-culture-dellasia-e-dellafrica",
+      "source": "unito-site",
+      "key": "unito|L-12|lingue e culture dellasia e dellafrica",
+      "nome_norm": "lingue e culture dellasia e dellafrica",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Lingue e culture dell'asia e dell'africa",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-15",
+      "nome": "LINGUE E CULTURE PER IL TURISMO",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/lingue-e-culture-il-turismo",
+      "source": "unito-site",
+      "key": "unito|L-15|lingue e culture per il turismo",
+      "nome_norm": "lingue e culture per il turismo",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Lingue e culture per il turismo",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-11",
+      "nome": "LINGUE E LETTERATURE MODERNE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/lingue-e-letterature-moderne",
+      "source": "unito-site",
+      "key": "unito|L-11|lingue e letterature moderne",
+      "nome_norm": "lingue e letterature moderne",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Lingue e letterature moderne",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT2",
+      "nome": "LOGOPEDIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/logopedia-abilitante-alla-professione-sanitaria-di",
+      "source": "unito-site",
+      "key": "unito|L/SNT2|logopedia",
+      "nome_norm": "logopedia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Logopedia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-18",
+      "nome": "MANAGEMENT DELL'INFORMAZIONE E DELLA COMUNICAZIONE AZIENDALE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/management-dellinformazione-e-della-comunicazione",
+      "source": "unito-site",
+      "key": "unito|L-18|management dellinformazione e della comunicazione aziendale",
+      "nome_norm": "management dellinformazione e della comunicazione aziendale",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Management dell'informazione e della comunicazione aziendale",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-35",
+      "nome": "MATEMATICA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/matematica",
+      "source": "unito-site",
+      "key": "unito|L-35|matematica",
+      "nome_norm": "matematica",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Matematica",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-35",
+      "nome": "MATEMATICA PER L’ECONOMIA, LA FINANZA E L'ASSICURAZIONE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/matematica-leconomia-la-finanza-e-lassicurazione",
+      "source": "unito-site",
+      "key": "unito|L-35|matematica per leconomia la finanza e lassicurazione",
+      "nome_norm": "matematica per leconomia la finanza e lassicurazione",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Inglese Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Matematica per l’economia, la finanza e l'assicurazione",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LM-41",
+      "nome": "MEDICINA E CHIRURGIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/medicina-e-chirurgia",
+      "source": "unito-site",
+      "key": "unito|LM-41|medicina e chirurgia",
+      "nome_norm": "medicina e chirurgia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Medicina e chirurgia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LM-42",
+      "nome": "MEDICINA VETERINARIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/medicina-veterinaria",
+      "source": "unito-site",
+      "key": "unito|LM-42|medicina veterinaria",
+      "nome_norm": "medicina veterinaria",
+      "sedi": [
+        "GRUGLIASCO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Medicina veterinaria",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LM-41",
+      "nome": "MEDICINE AND SURGERY",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/medicine-and-surgery",
+      "source": "unito-site",
+      "key": "unito|LM-41|medicine and surgery",
+      "nome_norm": "medicine and surgery",
+      "sedi": [
+        "ORBASSANO"
+      ],
+      "lingue": [
+        "Inglese"
+      ],
+      "varianti": 1,
+      "nome_display": "Medicine and surgery",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-3",
+      "nome": "MODA E CULTURA D'IMPRESA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/moda-e-cultura-dimpresa",
+      "source": "unito-site",
+      "key": "unito|L-3|moda e cultura dimpresa",
+      "nome_norm": "moda e cultura dimpresa",
+      "sedi": [
+        "BIELLA"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Moda e cultura d'impresa",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LM-46",
+      "nome": "ODONTOIATRIA E PROTESI DENTARIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/odontoiatria-e-protesi-dentaria",
+      "source": "unito-site",
+      "key": "unito|LM-46|odontoiatria e protesi dentaria",
+      "nome_norm": "odontoiatria e protesi dentaria",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Odontoiatria e protesi dentaria",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT2",
+      "nome": "ORTOTTICA ED ASSISTENZA OFTALMOLOGICA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/ortottica-ed-assistenza-oftalmologica-abilitante-alla",
+      "source": "unito-site",
+      "key": "unito|L/SNT2|ortottica ed assistenza oftalmologica",
+      "nome_norm": "ortottica ed assistenza oftalmologica",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Ortottica ed assistenza oftalmologica",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT1",
+      "nome": "OSTETRICIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/ostetricia-abilitante-alla-professione-sanitaria-di",
+      "source": "unito-site",
+      "key": "unito|L/SNT1|ostetricia",
+      "nome_norm": "ostetricia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Ostetricia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-30",
+      "nome": "OTTICA E OPTOMETRIA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/ottica-e-optometria",
+      "source": "unito-site",
+      "key": "unito|L-30|ottica e optometria",
+      "nome_norm": "ottica e optometria",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Ottica e optometria",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-Sc.Mat",
+      "nome": "SCIENZA DEI MATERIALI",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienza-dei-materiali",
+      "source": "unito-site",
+      "key": "unito|L-Sc.Mat|scienza dei materiali",
+      "nome_norm": "scienza dei materiali",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienza dei materiali",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-13",
+      "nome": "SCIENZE BIOLOGICHE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-biologiche",
+      "source": "unito-site",
+      "key": "unito|L-13|scienze biologiche",
+      "nome_norm": "scienze biologiche",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze biologiche",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-20",
+      "nome": "SCIENZE DELLA COMUNICAZIONE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-della-comunicazione",
+      "source": "unito-site",
+      "key": "unito|L-20|scienze della comunicazione",
+      "nome_norm": "scienze della comunicazione",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze della comunicazione",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "LMCU",
+      "classe": "LM-85",
+      "nome": "SCIENZE DELLA FORMAZIONE PRIMARIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-della-formazione-primaria",
+      "source": "unito-site",
+      "key": "unito|LM-85|scienze della formazione primaria",
+      "nome_norm": "scienze della formazione primaria",
+      "sedi": [
+        "COLLEGNO",
+        "BIELLA"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 3,
+      "nome_display": "Scienze della formazione primaria",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-12",
+      "nome": "SCIENZE DELLA MEDIAZIONE LINGUISTICA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-della-mediazione-linguistica",
+      "source": "unito-site",
+      "key": "unito|L-12|scienze della mediazione linguistica",
+      "nome_norm": "scienze della mediazione linguistica",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze della mediazione linguistica",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-16",
+      "nome": "SCIENZE DELL'AMMINISTRAZIONE DIGITALE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-dellamministrazione-digitale",
+      "source": "unito-site",
+      "key": "unito|L-16|scienze dellamministrazione digitale",
+      "nome_norm": "scienze dellamministrazione digitale",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze dell'amministrazione digitale",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-19",
+      "nome": "SCIENZE DELL'EDUCAZIONE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-delleducazione-0",
+      "source": "unito-site",
+      "key": "unito|L-19|scienze delleducazione",
+      "nome_norm": "scienze delleducazione",
+      "sedi": [
+        "TORINO",
+        "SAVIGLIANO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 2,
+      "nome_display": "Scienze dell'educazione",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-22",
+      "nome": "SCIENZE E TECNICHE DELLE ATTIVITÀ MOTORIE E SPORTIVE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-e-tecniche-delle-attivita-motorie-e-sportive",
+      "source": "unito-site",
+      "key": "unito|L-22|scienze e tecniche delle attivita motorie e sportive",
+      "nome_norm": "scienze e tecniche delle attivita motorie e sportive",
+      "sedi": [
+        "ASTI",
+        "CUNEO",
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 3,
+      "nome_display": "Scienze e tecniche delle attività motorie e sportive",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-24",
+      "nome": "SCIENZE E TECNICHE PSICOLOGICHE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-e-tecniche-psicologiche",
+      "source": "unito-site",
+      "key": "unito|L-24|scienze e tecniche psicologiche",
+      "nome_norm": "scienze e tecniche psicologiche",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze e tecniche psicologiche",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-25",
+      "nome": "SCIENZE E TECNOLOGIE AGRARIE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-e-tecnologie-agrarie",
+      "source": "unito-site",
+      "key": "unito|L-25|scienze e tecnologie agrarie",
+      "nome_norm": "scienze e tecnologie agrarie",
+      "sedi": [
+        "GRUGLIASCO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze e tecnologie agrarie",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-25",
+      "nome": "SCIENZE E TECNOLOGIE PER LA MONTAGNA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-e-tecnologie-la-montagna",
+      "source": "unito-site",
+      "key": "unito|L-25|scienze e tecnologie per la montagna",
+      "nome_norm": "scienze e tecnologie per la montagna",
+      "sedi": [
+        "GRUGLIASCO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze e tecnologie per la montagna",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-25",
+      "nome": "SCIENZE FORESTALI E AMBIENTALI",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-forestali-e-ambientali",
+      "source": "unito-site",
+      "key": "unito|L-25|scienze forestali e ambientali",
+      "nome_norm": "scienze forestali e ambientali",
+      "sedi": [
+        "GRUGLIASCO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze forestali e ambientali",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-34",
+      "nome": "SCIENZE GEOLOGICHE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-geologiche",
+      "source": "unito-site",
+      "key": "unito|L-34|scienze geologiche",
+      "nome_norm": "scienze geologiche",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze geologiche",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-36",
+      "nome": "SCIENZE INTERNAZIONALI, DELLO SVILUPPO E DELLA COOPERAZIONE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-internazionali-dello-sviluppo-e-della",
+      "source": "unito-site",
+      "key": "unito|L-36|scienze internazionali dello sviluppo e della cooperazione",
+      "nome_norm": "scienze internazionali dello sviluppo e della cooperazione",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze internazionali, dello sviluppo e della cooperazione",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-32",
+      "nome": "SCIENZE NATURALI",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-naturali",
+      "source": "unito-site",
+      "key": "unito|L-32|scienze naturali",
+      "nome_norm": "scienze naturali",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze naturali",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-36",
+      "nome": "SCIENZE POLITICHE E SOCIALI",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-politiche-e-sociali",
+      "source": "unito-site",
+      "key": "unito|L-36|scienze politiche e sociali",
+      "nome_norm": "scienze politiche e sociali",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze politiche e sociali",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/DS",
+      "nome": "SCIENZE STRATEGICHE E DELLA SICUREZZA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/scienze-strategiche-e-della-sicurezza",
+      "source": "unito-site",
+      "key": "unito|L/DS|scienze strategiche e della sicurezza",
+      "nome_norm": "scienze strategiche e della sicurezza",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Scienze strategiche e della sicurezza",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-39",
+      "nome": "SERVIZIO SOCIALE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/servizio-sociale",
+      "source": "unito-site",
+      "key": "unito|L-39|servizio sociale",
+      "nome_norm": "servizio sociale",
+      "sedi": [
+        "BIELLA",
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 2,
+      "nome_display": "Servizio sociale",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-38",
+      "nome": "SISTEMI ZOOTECNICI SOSTENIBILI",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/sistemi-zootecnici-sostenibili",
+      "source": "unito-site",
+      "key": "unito|L-38|sistemi zootecnici sostenibili",
+      "nome_norm": "sistemi zootecnici sostenibili",
+      "sedi": [
+        "GRUGLIASCO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Sistemi zootecnici sostenibili",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-42",
+      "nome": "STORIA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/storia",
+      "source": "unito-site",
+      "key": "unito|L-42|storia",
+      "nome_norm": "storia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Storia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT2",
+      "nome": "TECNICA DELLA RIABILITAZIONE PSICHIATRICA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecnica-della-riabilitazione-psichiatrica-abilitante",
+      "source": "unito-site",
+      "key": "unito|L/SNT2|tecnica della riabilitazione psichiatrica",
+      "nome_norm": "tecnica della riabilitazione psichiatrica",
+      "sedi": [
+        "ORBASSANO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Tecnica della riabilitazione psichiatrica",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT3",
+      "nome": "TECNICHE AUDIOMETRICHE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-audiometriche-abilitante-alla-professione",
+      "source": "unito-site",
+      "key": "unito|L/SNT3|tecniche audiometriche",
+      "nome_norm": "tecniche audiometriche",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Tecniche audiometriche",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT3",
+      "nome": "TECNICHE AUDIOPROTESICHE",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-audioprotesiche-abilitante-alla-professione",
+      "source": "unito-site",
+      "key": "unito|L/SNT3|tecniche audioprotesiche",
+      "nome_norm": "tecniche audioprotesiche",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Tecniche audioprotesiche",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT4",
+      "nome": "TECNICHE DELLA PREVENZIONE NELL'AMBIENTE E NEI LUOGHI DI LAVORO",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-della-prevenzione-nellambiente-e-nei-luoghi-di",
+      "source": "unito-site",
+      "key": "unito|L/SNT4|tecniche della prevenzione nellambiente e nei luoghi di lavoro",
+      "nome_norm": "tecniche della prevenzione nellambiente e nei luoghi di lavoro",
+      "sedi": [
+        "COLLEGNO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Tecniche della prevenzione nell'ambiente e nei luoghi di lavoro",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-38",
+      "nome": "TECNICHE DI ASSISTENZA VETERINARIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-di-assistenza-veterinaria",
+      "source": "unito-site",
+      "key": "unito|L-38|tecniche di assistenza veterinaria",
+      "nome_norm": "tecniche di assistenza veterinaria",
+      "sedi": [
+        "GRUGLIASCO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Tecniche di assistenza veterinaria",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT3",
+      "nome": "TECNICHE DI LABORATORIO BIOMEDICO",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-di-laboratorio-biomedico-abilitante-alla-0",
+      "source": "unito-site",
+      "key": "unito|L/SNT3|tecniche di laboratorio biomedico",
+      "nome_norm": "tecniche di laboratorio biomedico",
+      "sedi": [
+        "TORINO",
+        "CUNEO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 2,
+      "nome_display": "Tecniche di laboratorio biomedico",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT3",
+      "nome": "TECNICHE DI NEUROFISIOPATOLOGIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-di-neurofisiopatologia-abilitante-alla",
+      "source": "unito-site",
+      "key": "unito|L/SNT3|tecniche di neurofisiopatologia",
+      "nome_norm": "tecniche di neurofisiopatologia",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Tecniche di neurofisiopatologia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT3",
+      "nome": "TECNICHE DI RADIOLOGIA MEDICA, PER IMMAGINI E RADIOTERAPIA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-di-radiologia-medica-immagini-e-radioterapia",
+      "source": "unito-site",
+      "key": "unito|L/SNT3|tecniche di radiologia medica per immagini e radioterapia",
+      "nome_norm": "tecniche di radiologia medica per immagini e radioterapia",
+      "sedi": [
+        "CUNEO",
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 2,
+      "nome_display": "Tecniche di radiologia medica, per immagini e radioterapia",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-29",
+      "nome": "TECNICHE ERBORISTICHE",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecniche-erboristiche",
+      "source": "unito-site",
+      "key": "unito|L-29|tecniche erboristiche",
+      "nome_norm": "tecniche erboristiche",
+      "sedi": [
+        "SAVIGLIANO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Tecniche erboristiche",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-26",
+      "nome": "TECNOLOGIE ALIMENTARI",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/tecnologie-alimentari",
+      "source": "unito-site",
+      "key": "unito|L-26|tecnologie alimentari",
+      "nome_norm": "tecnologie alimentari",
+      "sedi": [
+        "GRUGLIASCO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Tecnologie alimentari",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L/SNT2",
+      "nome": "TERAPIA DELLA NEURO E PSICOMOTRICITÀ DELL'ETÀ EVOLUTIVA",
+      "alt_nome": null,
+      "accesso": "Programmato",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/terapia-della-neuro-e-psicomotricita-delleta-evolutiva",
+      "source": "unito-site",
+      "key": "unito|L/SNT2|terapia della neuro e psicomotricita delleta evolutiva",
+      "nome_norm": "terapia della neuro e psicomotricita delleta evolutiva",
+      "sedi": [
+        "TORINO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Terapia della neuro e psicomotricità dell'età evolutiva",
+      "in_mur": true
+    },
+    {
+      "ateneo": "unito",
+      "tipo": "L",
+      "classe": "L-26",
+      "nome": "VITICOLTURA ED ENOLOGIA",
+      "alt_nome": null,
+      "accesso": "Libero",
+      "url": "https://www.unito.it/didattica/offerta-formativa/corsi-di-studio/viticoltura-ed-enologia",
+      "source": "unito-site",
+      "key": "unito|L-26|viticoltura ed enologia",
+      "nome_norm": "viticoltura ed enologia",
+      "sedi": [
+        "GRUGLIASCO"
+      ],
+      "lingue": [
+        "Italiano"
+      ],
+      "varianti": 1,
+      "nome_display": "Viticoltura ed enologia",
+      "in_mur": true
+    }
+  ]
+}
