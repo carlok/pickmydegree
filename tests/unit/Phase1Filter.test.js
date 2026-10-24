@@ -52,7 +52,6 @@ describe('Phase1Filter', () => {
 
   it('enables undo after eliminating at least one degree', async () => {
     const wrapper = mountPhase1Filter();
-    const surv = engine.state.value.survivingDegrees;
     const firstCard = wrapper.find('.phase1-section-remove .card-pick');
     await firstCard.trigger('click');
     await wrapper.vm.$nextTick();
