@@ -128,6 +128,16 @@ class UnitoParsing(unittest.TestCase):
         self.assertEqual(first["sede"], "TORINO")
         self.assertEqual(c.class_type(c.class_code(cards[1]["classe_raw"]), cards[1]["tipo_raw"]), "LM")
 
+    def test_script_and_style_text_never_leaks_into_card_fields_whatever_the_case(self):
+        page = UNITO_PAGE.replace(
+            "<strong class=\"views-label\">Tipo: </strong>",
+            "<SCRIPT type=\"x\">var Tipo = 1;</SCRIPT ><Style>.x{}</STYLE><strong class=\"views-label\">Tipo: </strong>",
+            1,
+        )
+        first = c.parse_unito_page(page)[0]
+        self.assertEqual(first["tipo_raw"], "Laurea")
+        self.assertNotIn("var", c._card_text(page))
+
     def test_page_without_cards_is_empty(self):
         self.assertEqual(c.parse_unito_page("<html><body>no cards</body></html>"), [])
 
