@@ -208,7 +208,11 @@ def match_polito_slug(names, links):
 
 
 def _card_text(chunk):
-    chunk = re.sub(r"<script.*?</script>|<style.*?</style>", "", chunk, flags=re.S)
+    chunk = re.sub(
+        r"(?is)<script\b[^>]*>.*?</script[^>]*>|<style\b[^>]*>.*?</style[^>]*>",
+        "",
+        chunk,
+    )
     text = htmllib.unescape(re.sub(r"<[^>]+>", "|", chunk))
     return re.sub(r"\|\s*(\|\s*)*", "|", text)
 
