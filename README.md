@@ -42,6 +42,42 @@ Use the `dev` service so every command runs in the same Node environment:
 
 Production build and serve is still best done with `docker compose up --build app`, which uses the Dockerfile (multi-stage build + Nginx).
 
+### Production container (Docker Hardened Images)
+
+The **`app`** image uses a multi-stage build: Node builds the static site, a tiny Go binary provides the health check, and the runtime is [Docker Hardened Images](https://dhi.io/) nginx (`dhi.io/nginx:1.30-alpine3.23`) — a distroless-style image with no shell or package manager. Nginx runs as UID **65532** and listens on **8080** inside the container (compose maps host `8080` → container `8080`).
+
+Pulling the runtime base requires registry auth:
+
+```bash
+docker login dhi.io
+```
+
+Health checks call `/usr/local/bin/healthcheck`, which performs an HTTP GET to `http://127.0.0.1:8080/` — exec form only, no `sh`, `curl`, or `wget`.
+
+**Debugging a running production container** — there is no shell, so `docker exec … sh` does not work. Use ephemeral debug tooling instead:
+
+```bash
+docker debug pickmydegree-app-1
+# Podman 5+: podman debug pickmydegree-app-1
+```
+
+From the host you can still curl the published port, read logs, and inspect health:
+
+```bash
+curl -sf http://127.0.0.1:8080/
+docker compose logs app
+docker inspect "$(docker compose ps -q app)" --format '{{json .State.Health}}'
+```
+
+For local iteration without `dhi.io` credentials, substitute a public unprivileged nginx base (same port 8080) for smoke tests only:
+
+```bash
+sed 's|FROM dhi.io/nginx:1.30-alpine3.23|FROM docker.io/nginxinc/nginx-unprivileged:1.27-alpine|' Dockerfile \
+  | docker build -f - -t pickmydegree:local .
+```
+
+With Podman, use `--format docker` if you need the Dockerfile `HEALTHCHECK` honored (`podman healthcheck run …`); OCI images ignore it, but the probe binary still works when invoked directly.
+
 **Using Make:** If you have `make`, you can run `make dev`, `make app`, `make build`, or `make install`; each runs the corresponding command inside Docker.
 
 ## Saved state (localStorage)

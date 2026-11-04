@@ -6,7 +6,7 @@ services:
       args:
         APP_VERSION: ${APP_VERSION:-0.0.0-dev}
     ports:
-      - "8080:80"
+      - "8080:8080"
 
   dev:
     # Development service: mounts source code for hot reload (http://localhost:5173)
